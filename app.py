@@ -291,10 +291,7 @@ def get_system_status() -> str:
 
 with gr.Blocks(
     title="AI Legal Contract Analyzer",
-    theme=gr.themes.Soft(
-        primary_hue="blue",
-        secondary_hue="slate",
-    ),
+    theme=gr.themes.Soft(),
     css="""
     .risk-header { font-size: 1.4em; font-weight: bold; }
     .status-bar { font-size: 0.9em; color: #6b7280; }
@@ -500,6 +497,4 @@ if __name__ == "__main__":
     demo.launch(
         server_name="0.0.0.0",
         server_port=7860,
-        share=False,
-        show_error=True,
     )
