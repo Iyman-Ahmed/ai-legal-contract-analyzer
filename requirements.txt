@@ -1,7 +1,7 @@
 # ── Core ──────────────────────────────────────────────────────────────────────
 gradio==4.44.0
 python-dotenv==1.0.1
-pydantic>=2.9.0        # 2.7.x uses pydantic-core/pyo3 0.21 which caps at Python 3.12
+pydantic==2.7.4
 
 # ── LLM ───────────────────────────────────────────────────────────────────────
 anthropic==0.34.2
@@ -9,7 +9,7 @@ openai==1.45.0
 
 # ── Embeddings & Reranking ────────────────────────────────────────────────────
 sentence-transformers==3.1.0
-torch>=2.5.0          # 2.4.0 removed from PyPI; 2.5+ required for Python 3.13
+torch>=2.5.0          # 2.4.0 removed from PyPI
 
 # ── Vector Store ──────────────────────────────────────────────────────────────
 chromadb==0.5.5
@@ -23,4 +23,4 @@ pdfplumber==0.11.4       # Fallback PDF parser
 python-docx==1.1.2       # DOCX parser
 
 # ── Utilities ─────────────────────────────────────────────────────────────────
-numpy>=1.26.4         # 1.26.x tops out at Python 3.12; pip will pick 2.x on 3.13
+numpy==1.26.4
