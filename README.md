@@ -8,7 +8,7 @@ sdk_version: 4.44.0
 app_file: app.py
 pinned: false
 license: mit
-short_description: RAG · Hybrid BM25+Dense Search · Cross-Encoder Reranking · Claude LLM
+short_description: RAG · Hybrid Search · Reranking · Claude LLM
 ---
 
 # LegalRAG
