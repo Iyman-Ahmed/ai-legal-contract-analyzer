@@ -1,0 +1,98 @@
+{
+  "indemnification": {
+    "description": "Clause requiring one or both parties to compensate the other for losses",
+    "low_risk_signals": ["mutual indemnification", "limited to third-party claims", "capped indemnification"],
+    "high_risk_signals": ["unlimited indemnification", "one-sided indemnification", "indemnify for own negligence", "consequential damages included"],
+    "critical_risk_signals": ["unlimited liability for any claim", "indemnify for gross negligence or willful misconduct of other party"],
+    "standard_market_position": "Mutual indemnification for third-party IP infringement claims, personal injury, and property damage. Each party indemnifies for its own acts. Capped at fees paid in prior 12 months.",
+    "jurisdiction_notes": "California courts may limit scope of indemnification for active negligence"
+  },
+  "limitation_of_liability": {
+    "description": "Clause capping the maximum damages either party can recover",
+    "low_risk_signals": ["mutual cap", "cap equal to fees paid", "carve-outs for data breaches and IP"],
+    "high_risk_signals": ["no cap on liability", "very low cap", "waiver of all consequential damages without carve-out"],
+    "critical_risk_signals": ["complete waiver of all liability", "no limitation of liability clause at all"],
+    "standard_market_position": "Cap at 12 months of fees paid. Mutual exclusion of consequential/indirect damages. Carve-outs for: confidentiality breaches, data protection violations, gross negligence, willful misconduct.",
+    "jurisdiction_notes": "California law may not enforce limitation of liability for intentional acts or gross negligence"
+  },
+  "termination": {
+    "description": "Provisions governing when and how the agreement can be ended",
+    "low_risk_signals": ["mutual termination rights", "reasonable notice period (30-90 days)", "termination for cause with cure period"],
+    "high_risk_signals": ["immediate termination without cure", "asymmetric termination rights", "no termination for cause"],
+    "critical_risk_signals": ["perpetual agreement with no termination right", "automatic renewal without notice"],
+    "standard_market_position": "Either party may terminate for convenience with 30-day notice. Termination for cause with 30-day cure period. Immediate termination rights for insolvency, material breach of confidentiality.",
+    "jurisdiction_notes": "California employment contracts may not include non-compete provisions triggered by termination"
+  },
+  "ip_assignment": {
+    "description": "Clause determining ownership of intellectual property created during the engagement",
+    "low_risk_signals": ["limited to work product specifically created for client", "retained background IP rights", "license-back provisions"],
+    "high_risk_signals": ["broad assignment of all IP including pre-existing work", "no carve-out for pre-existing IP", "assignment of IP created on own time"],
+    "critical_risk_signals": ["assignment of all inventions including those unrelated to work", "retroactive assignment", "assignment of personal inventions"],
+    "standard_market_position": "Contractor assigns only work product specifically created for this engagement. Background IP remains with creator. Client receives license to use background IP as needed for the work product.",
+    "jurisdiction_notes": "California Labor Code Section 2870 protects employees from IP assignment for inventions unrelated to employer's business"
+  },
+  "non_compete": {
+    "description": "Restrictions on competitive activities after the engagement ends",
+    "low_risk_signals": ["limited geographic scope", "short duration (6 months or less)", "limited to direct competition"],
+    "high_risk_signals": ["broad geographic scope", "long duration (over 1 year)", "restrictions on industry participation"],
+    "critical_risk_signals": ["permanent non-compete", "global non-compete", "California non-compete (void by statute)"],
+    "standard_market_position": "Non-solicitation of employees and customers is generally enforceable. Non-compete covenants are void and unenforceable in California under Business and Professions Code Section 16600.",
+    "jurisdiction_notes": "NON-COMPETE COVENANTS ARE VOID IN CALIFORNIA. Only limited exceptions for sale of business. Non-solicitation of employees may also be unenforceable."
+  },
+  "confidentiality": {
+    "description": "Obligations to protect proprietary information",
+    "low_risk_signals": ["mutual obligations", "reasonable standard of care", "clear definition of confidential information", "standard exceptions"],
+    "high_risk_signals": ["no exceptions for publicly available information", "perpetual obligations", "overly broad definition of confidential information"],
+    "critical_risk_signals": ["no confidentiality provisions in NDA", "disclosure of confidential information to competitors allowed"],
+    "standard_market_position": "Mutual confidentiality. 2-3 year term (or perpetual for trade secrets). Standard exceptions: publicly known, independently developed, received from third party, required by law. Standard of care: reasonable care, at least same as own confidential information.",
+    "jurisdiction_notes": "California Uniform Trade Secrets Act provides independent protection for trade secrets regardless of contract"
+  },
+  "governing_law": {
+    "description": "Choice of law and jurisdiction for dispute resolution",
+    "low_risk_signals": ["favorable jurisdiction for your party", "mutual consent to jurisdiction"],
+    "high_risk_signals": ["distant inconvenient forum", "jurisdiction with unfavorable law for your claims"],
+    "critical_risk_signals": ["foreign jurisdiction with no legal recourse", "jurisdiction that voids key protections"],
+    "standard_market_position": "Each party should prefer its home jurisdiction. Delaware is common for corporate law matters. California for employment. New York for financial transactions.",
+    "jurisdiction_notes": "California courts will apply California law for California employees regardless of choice of law clause (Labor Code)"
+  },
+  "dispute_resolution": {
+    "description": "Process for resolving disagreements between parties",
+    "low_risk_signals": ["negotiation then mediation then arbitration", "AAA or JAMS rules", "mutual class action rights preserved"],
+    "high_risk_signals": ["mandatory arbitration", "class action waiver", "arbitration in inconvenient location"],
+    "critical_risk_signals": ["class action waiver without adequate notice", "arbitration clause that prevents injunctive relief"],
+    "standard_market_position": "Escalation: informal negotiation (30 days) → mediation → binding arbitration. AAA Commercial Rules. Arbitration in commercial center near both parties. Carve-out for injunctive relief in court.",
+    "jurisdiction_notes": "California courts scrutinize arbitration agreements for unconscionability. Class action waivers in consumer contracts may be void."
+  },
+  "data_protection": {
+    "description": "Obligations regarding collection, processing, and protection of personal data",
+    "low_risk_signals": ["GDPR/CCPA compliant", "data processing agreement included", "breach notification within 72 hours", "data deletion obligations"],
+    "high_risk_signals": ["no data protection provisions", "broad license to use personal data", "no breach notification requirement"],
+    "critical_risk_signals": ["sale or sharing of personal data with third parties", "no security measures specified", "indefinite data retention"],
+    "standard_market_position": "Comply with applicable privacy laws. Process data only as instructed. Security measures at least industry standard. Breach notification within 72 hours. Delete or return data on termination. DPA for EU/EEA data.",
+    "jurisdiction_notes": "California CCPA/CPRA applies to businesses meeting revenue/data thresholds. GDPR applies to EU data subjects regardless of company location."
+  },
+  "force_majeure": {
+    "description": "Excuses performance for events beyond a party's reasonable control",
+    "low_risk_signals": ["mutual force majeure", "notice requirement", "limited duration", "duty to mitigate"],
+    "high_risk_signals": ["one-sided force majeure", "extremely broad definition", "allows indefinite suspension"],
+    "critical_risk_signals": ["no force majeure provision in long-term contracts", "force majeure covering economic hardship"],
+    "standard_market_position": "Covers: natural disasters, war, government action, pandemic. Not covered: economic hardship, market changes, supplier failures within control. Requires: prompt notice, duty to mitigate, termination right if exceeds 60-90 days.",
+    "jurisdiction_notes": "California courts interpret force majeure clauses narrowly — only events specifically listed are covered"
+  },
+  "payment_terms": {
+    "description": "Terms governing when and how payment is made",
+    "low_risk_signals": ["net 30 or better", "clear invoicing process", "late payment interest specified"],
+    "high_risk_signals": ["net 60+ for small vendor", "disputed invoice process that allows indefinite delay", "no interest on late payments"],
+    "critical_risk_signals": ["no payment terms specified", "payment contingent on subjective approval"],
+    "standard_market_position": "Net 30 from invoice date. Interest on late payments at 1.5% per month or maximum legal rate. Dispute process for good-faith disputes with undisputed amounts paid on time.",
+    "jurisdiction_notes": "California Prompt Payment Act applies to public contracts. Interest on late payments may be subject to usury laws."
+  },
+  "warranty": {
+    "description": "Promises about the quality, fitness, or characteristics of goods/services",
+    "low_risk_signals": ["mutual warranties", "reasonable warranty period", "specific remedy for breach"],
+    "high_risk_signals": ["complete disclaimer of all warranties", "no remedy for warranty breach", "warranty period too short"],
+    "critical_risk_signals": ["warranty of fitness that cannot be met", "no disclaimer when required"],
+    "standard_market_position": "Services performed in professional manner consistent with industry standards. Software performs materially as documented. Warranty period: 90 days for software, 1 year for professional services. Remedy: re-perform or refund.",
+    "jurisdiction_notes": "Implied warranties of merchantability and fitness for purpose apply under California Commercial Code unless expressly disclaimed"
+  }
+}

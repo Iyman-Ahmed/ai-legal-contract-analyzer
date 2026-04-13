@@ -1,0 +1,82 @@
+SAAS SUBSCRIPTION AGREEMENT
+
+This SaaS Subscription Agreement ("Agreement") is entered into as of March 1, 2025, by and between:
+
+CloudSoft Solutions, Inc., a Delaware corporation ("Vendor"), and
+MidMarket Company LLC, a California limited liability company ("Customer").
+
+1. SERVICES
+
+1.1 Vendor shall provide Customer access to the CloudSoft platform ("Services") as described in the applicable Order Form, which is incorporated herein by reference.
+
+1.2 Vendor grants Customer a non-exclusive, non-transferable, limited license to access and use the Services during the Subscription Term solely for Customer's internal business purposes.
+
+2. PAYMENT TERMS
+
+2.1 Customer shall pay all fees specified in the applicable Order Form. Payment is due within sixty (60) days of invoice date.
+
+2.2 All fees are non-refundable. Vendor reserves the right to increase fees at any time upon thirty (30) days' notice.
+
+2.3 Customer shall pay all taxes, levies, duties, or similar governmental assessments of any nature.
+
+3. TERM AND TERMINATION
+
+3.1 This Agreement commences on the Effective Date and continues for one (1) year ("Initial Term"), and shall automatically renew for successive one-year periods unless either party provides ninety (90) days' written notice of non-renewal before the end of the then-current term.
+
+3.2 Vendor may terminate this Agreement immediately upon written notice if Customer fails to pay any amount due and such failure continues for five (5) days after written notice.
+
+3.3 Customer may not terminate this Agreement for convenience during the Initial Term.
+
+4. CONFIDENTIALITY
+
+4.1 Each party agrees to maintain the confidentiality of the other party's Confidential Information using at least the same degree of care as it uses to protect its own confidential information.
+
+4.2 The receiving party shall not disclose Confidential Information to any third party without prior written consent.
+
+5. INTELLECTUAL PROPERTY
+
+5.1 As between the parties, Vendor retains all right, title, and interest in the Services and all related intellectual property.
+
+5.2 Customer grants Vendor a perpetual, irrevocable, royalty-free, worldwide license to use, reproduce, and create derivative works from any data Customer provides, including Customer's confidential business data, for any purpose including improving Vendor's services and creating competitive offerings.
+
+6. INDEMNIFICATION
+
+6.1 Customer shall indemnify, defend, and hold harmless Vendor and its affiliates, officers, directors, employees, agents, and successors from and against any and all claims, damages, losses, costs, and expenses (including reasonable attorneys' fees) arising out of or related to: (a) Customer's use of the Services; (b) any breach by Customer of any representation, warranty, or obligation under this Agreement; (c) any third-party claims related to Customer Data; or (d) any violation of applicable law by Customer.
+
+6.2 Vendor's indemnification obligations: None.
+
+7. LIMITATION OF LIABILITY
+
+7.1 IN NO EVENT SHALL VENDOR BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, PUNITIVE, OR CONSEQUENTIAL DAMAGES.
+
+7.2 CUSTOMER'S TOTAL LIABILITY TO VENDOR SHALL BE UNLIMITED. VENDOR'S TOTAL LIABILITY TO CUSTOMER SHALL NOT EXCEED ONE HUNDRED DOLLARS ($100).
+
+8. WARRANTIES AND DISCLAIMER
+
+8.1 THE SERVICES ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND. VENDOR EXPRESSLY DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED.
+
+8.2 VENDOR DOES NOT WARRANT THAT THE SERVICES WILL BE ERROR-FREE, UNINTERRUPTED, OR SECURE.
+
+9. DATA PROTECTION
+
+9.1 Customer is solely responsible for obtaining all necessary consents for any personal data processed through the Services.
+
+9.2 Vendor may use and share Customer Data with third parties for marketing purposes.
+
+10. GOVERNING LAW AND DISPUTE RESOLUTION
+
+10.1 This Agreement shall be governed by the laws of the State of New York.
+
+10.2 Any dispute shall be resolved by binding arbitration in New York City administered by AAA. CUSTOMER WAIVES ALL RIGHTS TO A JURY TRIAL AND TO PARTICIPATE IN ANY CLASS ACTION.
+
+11. GENERAL
+
+11.1 This Agreement, together with all Order Forms, constitutes the entire agreement between the parties.
+
+11.2 Vendor may modify this Agreement at any time with or without notice to Customer. Continued use of the Services constitutes acceptance of modified terms.
+
+CLOUSDOFT SOLUTIONS, INC.              MIDMARKET COMPANY LLC
+By: ___________________               By: ___________________
+Name: Alex Johnson                    Name: Sarah Williams
+Title: Chief Revenue Officer          Title: CTO
+Date: March 1, 2025                   Date: March 1, 2025

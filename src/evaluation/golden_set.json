@@ -1,0 +1,72 @@
+[
+  {
+    "id": "gs_001",
+    "question": "What is the standard market position for indemnification in a SaaS agreement?",
+    "expected_answer_keywords": ["mutual", "third-party", "cap", "twelve months", "fees paid"],
+    "clause_type": "indemnification",
+    "ground_truth": "Standard market practice is mutual indemnification for third-party claims, capped at fees paid in the prior 12 months, with each party indemnifying for its own acts of negligence."
+  },
+  {
+    "id": "gs_002",
+    "question": "Is a non-compete clause enforceable in California?",
+    "expected_answer_keywords": ["void", "unenforceable", "California", "Business and Professions Code", "Section 16600"],
+    "clause_type": "non_compete",
+    "ground_truth": "Non-compete covenants are void and unenforceable in California under Business and Professions Code Section 16600. Only narrow exceptions apply for the sale of a business."
+  },
+  {
+    "id": "gs_003",
+    "question": "What carve-outs should exist in a limitation of liability clause?",
+    "expected_answer_keywords": ["confidentiality", "data protection", "gross negligence", "willful misconduct", "intellectual property"],
+    "clause_type": "limitation_of_liability",
+    "ground_truth": "Standard carve-outs from liability caps include: breaches of confidentiality, data protection violations, gross negligence, willful misconduct, and intellectual property indemnification obligations."
+  },
+  {
+    "id": "gs_004",
+    "question": "What is a reasonable notice period for contract termination?",
+    "expected_answer_keywords": ["30 days", "thirty", "notice", "cure period"],
+    "clause_type": "termination",
+    "ground_truth": "A reasonable termination for convenience notice period is 30 days. Termination for cause should include a 30-day cure period after written notice."
+  },
+  {
+    "id": "gs_005",
+    "question": "What does California Labor Code Section 2870 protect?",
+    "expected_answer_keywords": ["inventions", "own time", "company equipment", "unrelated", "employee"],
+    "clause_type": "ip_assignment",
+    "ground_truth": "California Labor Code Section 2870 protects employees from IP assignment for inventions developed entirely on their own time without company equipment, supplies, or trade secrets, and which are unrelated to the company's business or R&D."
+  },
+  {
+    "id": "gs_006",
+    "question": "What is the standard GDPR breach notification requirement?",
+    "expected_answer_keywords": ["72 hours", "seventy-two", "supervisory authority", "notification"],
+    "clause_type": "data_protection",
+    "ground_truth": "GDPR requires notification to the supervisory authority within 72 hours of becoming aware of a personal data breach. Affected data subjects must also be notified without undue delay in certain circumstances."
+  },
+  {
+    "id": "gs_007",
+    "question": "What should a force majeure clause require from the affected party?",
+    "expected_answer_keywords": ["notice", "mitigate", "prompt", "terminate", "60 days"],
+    "clause_type": "force_majeure",
+    "ground_truth": "A balanced force majeure clause should require: (1) prompt notice of the event, (2) duty to mitigate effects, (3) regular status updates, and (4) termination right for either party if the event continues beyond 60-90 days."
+  },
+  {
+    "id": "gs_008",
+    "question": "What are the standard exceptions to confidentiality obligations?",
+    "expected_answer_keywords": ["publicly known", "independently developed", "third party", "required by law", "prior knowledge"],
+    "clause_type": "confidentiality",
+    "ground_truth": "Standard confidentiality exceptions are: (1) information that becomes publicly known through no breach; (2) information already known to the receiving party; (3) information received from a third party without restriction; (4) independently developed information; (5) information required to be disclosed by law or court order."
+  },
+  {
+    "id": "gs_009",
+    "question": "What is Reciprocal Rank Fusion and why is it used in RAG?",
+    "expected_answer_keywords": ["dense", "sparse", "fusion", "rank", "parameter-free"],
+    "clause_type": "general",
+    "ground_truth": "RRF is a score fusion method that combines ranked lists from different retrieval methods (dense and sparse) using the formula 1/(k+rank). It is parameter-free and robust, avoiding the need to tune interpolation weights between retrieval methods."
+  },
+  {
+    "id": "gs_010",
+    "question": "What interest rate is standard for late payments in commercial contracts?",
+    "expected_answer_keywords": ["1.5%", "per month", "maximum legal rate"],
+    "clause_type": "payment_terms",
+    "ground_truth": "Standard late payment interest in US commercial contracts is 1.5% per month (18% annually) or the maximum rate permitted by applicable law, whichever is less."
+  }
+]

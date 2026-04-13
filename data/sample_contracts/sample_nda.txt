@@ -1,0 +1,56 @@
+MUTUAL NON-DISCLOSURE AGREEMENT
+
+This Mutual Non-Disclosure Agreement ("Agreement") is entered into as of January 15, 2025 ("Effective Date"), by and between:
+
+TechStartup Inc., a Delaware corporation ("Company A"), and
+Enterprise Corp., a California corporation ("Company B").
+
+Collectively referred to as the "Parties."
+
+RECITALS
+
+The Parties wish to explore a potential business relationship (the "Purpose") and in connection therewith may disclose to each other certain confidential and proprietary information.
+
+1. DEFINITION OF CONFIDENTIAL INFORMATION
+
+1.1 "Confidential Information" means any non-public information disclosed by one party ("Disclosing Party") to the other party ("Receiving Party"), either directly or indirectly, in writing, orally, or by inspection of tangible objects, that is designated as confidential or that reasonably should be understood to be confidential given the nature of the information and the circumstances of disclosure.
+
+1.2 Confidential Information shall not include information that: (a) is or becomes generally known to the public through no act or omission of the Receiving Party; (b) was in the Receiving Party's lawful possession prior to the disclosure; (c) is lawfully disclosed to the Receiving Party by a third party without restriction on disclosure; or (d) is independently developed by the Receiving Party without use of or reference to the Disclosing Party's Confidential Information.
+
+2. OBLIGATIONS OF RECEIVING PARTY
+
+2.1 The Receiving Party agrees to: (a) hold the Confidential Information in strict confidence using at least the same degree of care it uses to protect its own confidential information, but no less than reasonable care; (b) not disclose the Confidential Information to any third parties without the prior written consent of the Disclosing Party; (c) use the Confidential Information solely for the Purpose.
+
+2.2 The Receiving Party may disclose Confidential Information to its employees and contractors who have a need to know for the Purpose, provided such persons are bound by confidentiality obligations no less protective than those in this Agreement.
+
+3. TERM
+
+This Agreement shall remain in effect for a period of two (2) years from the Effective Date, unless earlier terminated by mutual written consent of the Parties. The obligations with respect to trade secrets shall survive indefinitely.
+
+4. RETURN OF INFORMATION
+
+Upon the Disclosing Party's request or termination of this Agreement, the Receiving Party shall promptly return or destroy all Confidential Information and certify such destruction in writing.
+
+5. INDEMNIFICATION
+
+Each Party shall indemnify, defend, and hold harmless the other Party from any and all claims, damages, losses, costs, and expenses (including reasonable attorneys' fees) arising out of or relating to any breach of this Agreement by the indemnifying Party. This indemnification obligation is unlimited and shall survive termination of this Agreement.
+
+6. NO LICENSE
+
+Nothing in this Agreement grants any right, title, or interest in or to any Confidential Information or any intellectual property rights therein.
+
+7. GOVERNING LAW
+
+This Agreement shall be governed by and construed in accordance with the laws of the State of Delaware, without regard to its conflict of laws provisions. Any disputes shall be resolved exclusively in the state or federal courts located in Wilmington, Delaware.
+
+8. ENTIRE AGREEMENT
+
+This Agreement constitutes the entire agreement between the Parties with respect to the subject matter hereof and supersedes all prior agreements, whether written or oral, relating to Confidential Information.
+
+IN WITNESS WHEREOF, the Parties have executed this Agreement as of the Effective Date.
+
+TECHSTARTUP INC.                    ENTERPRISE CORP.
+By: ___________________             By: ___________________
+Name: John Smith                    Name: Jane Doe
+Title: CEO                          Title: VP Business Development
+Date: January 15, 2025              Date: January 15, 2025
