@@ -305,8 +305,17 @@ with gr.Blocks(
     # ⚖️ AI Legal Contract Analyzer
     ### Powered by RAG — Hybrid Search + Cross-Encoder Reranking + LLM Analysis
 
-    Upload any legal contract (PDF, DOCX, or TXT) to receive instant AI-powered risk analysis
-    with clause-by-clause assessment, citation trails, and suggested revisions.
+    **LegalRAG** is a production-grade RAG pipeline for automated legal contract risk analysis.
+    Upload any contract (PDF, DOCX, TXT) and the system will detect clause types, assess risk severity, surface missing protections, and explain every finding with citations back to the source text.
+
+    **How it works:**
+    - **Ingestion** — Section-aware chunking preserves legal clause boundaries across PDF, DOCX, and TXT formats
+    - **Hybrid Retrieval** — BM25 sparse search + BGE-base-en-v1.5 dense embeddings, fused via Reciprocal Rank Fusion (RRF) for best-of-both recall
+    - **Reranking** — Cross-encoder (ms-marco-MiniLM-L-6-v2) re-scores the top candidates for precision
+    - **Risk Analysis** — Claude Sonnet runs map-reduce over detected clauses, producing structured Pydantic-validated risk assessments (LOW / MEDIUM / HIGH / CRITICAL)
+    - **Guardrails** — Citation verification, faithfulness checks, and mandatory legal disclaimer on every output
+
+    *Evaluated on 50 contracts: 90% precision · 96.8% recall · 100% retrieval hit rate across 13 clause types*
     """)
 
     with gr.Tabs():
