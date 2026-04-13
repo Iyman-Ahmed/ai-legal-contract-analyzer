@@ -26,6 +26,8 @@ logger = logging.getLogger(__name__)
 # ── Ensure src is importable ────────────────────────────────────────────────
 sys.path.insert(0, str(Path(__file__).parent))
 
+from typing import Optional
+
 import gradio as gr
 
 from config.settings import SAMPLE_CONTRACTS_DIR
