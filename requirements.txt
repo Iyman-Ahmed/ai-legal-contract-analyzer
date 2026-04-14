@@ -1,5 +1,7 @@
 # ── Core ──────────────────────────────────────────────────────────────────────
 gradio==4.44.1
+fastapi==0.115.12         # starlette 0.45+ broke Gradio 4.44.x TemplateResponse API
+starlette==0.40.0         # pin to version Gradio 4.44.x was tested against
 python-dotenv==1.0.1
 pydantic==2.7.4
 
