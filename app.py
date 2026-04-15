@@ -362,13 +362,6 @@ with gr.Blocks(
                         value="_Analysis results will appear here._",
                     )
 
-            analyze_btn.click(
-                fn=analyze_contract,
-                inputs=[file_upload, sample_dropdown],
-                outputs=[summary_output, gr.State(), gr.State(), status_text],
-                show_progress=True,
-            )
-
         # ── Tab 2: Clause Analysis ───────────────────────────────────────────
         with gr.Tab("📋 Clause Analysis"):
             gr.Markdown("### Detailed Clause-by-Clause Risk Assessment")
@@ -376,12 +369,6 @@ with gr.Blocks(
 
             clause_output = gr.Markdown(
                 value="_Analyze a contract to see clause-level results._"
-            )
-
-            analyze_btn.click(
-                fn=analyze_contract,
-                inputs=[file_upload, sample_dropdown],
-                outputs=[gr.State(), clause_output, gr.State(), gr.State()],
             )
 
         # ── Tab 3: Chat ──────────────────────────────────────────────────────
@@ -444,18 +431,6 @@ with gr.Blocks(
 
             export_state = gr.State("")
 
-            analyze_btn.click(
-                fn=analyze_contract,
-                inputs=[file_upload, sample_dropdown],
-                outputs=[gr.State(), gr.State(), export_state, gr.State()],
-            )
-
-            export_state.change(
-                fn=lambda r: (r, prepare_download(r)),
-                inputs=[export_state],
-                outputs=[export_preview, download_md],
-            )
-
         # ── Tab 5: Evaluation ────────────────────────────────────────────────
         with gr.Tab("📊 RAG Evaluation"):
             gr.Markdown("""
@@ -479,6 +454,20 @@ with gr.Blocks(
                 outputs=[eval_output],
                 show_progress=True,
             )
+
+    # ── Single event handler — fires once per click, no duplicate API calls ──
+    analyze_btn.click(
+        fn=analyze_contract,
+        inputs=[file_upload, sample_dropdown],
+        outputs=[summary_output, clause_output, export_state, status_text],
+        show_progress=True,
+    )
+
+    export_state.change(
+        fn=lambda r: (r, prepare_download(r)),
+        inputs=[export_state],
+        outputs=[export_preview, download_md],
+    )
 
     # ── Footer ────────────────────────────────────────────────────────────────
     gr.Markdown("""
