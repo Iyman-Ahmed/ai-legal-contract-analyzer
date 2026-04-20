@@ -317,6 +317,27 @@ with gr.Blocks(
     *Evaluated on 50 contracts: 90% precision · 96.8% recall · 100% retrieval hit rate across 13 clause types*
     """)
 
+    gr.HTML("""
+    <div style="
+        background: linear-gradient(90deg, #fef3c720, #fde68a20);
+        border: 1px solid #f59e0b50;
+        border-radius: 10px;
+        padding: 10px 16px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 4px;
+        font-size: 0.85em;
+        color: #92400e;
+    ">
+        <span style="font-size: 1.1em;">⚡</span>
+        <span>
+            <strong>Heads up:</strong> This app runs on free-tier LLMs &amp; embeddings hosted on HuggingFace Spaces.
+            Cold starts may take <strong>30–90 seconds</strong> — please be patient on first load.
+        </span>
+    </div>
+    """)
+
     with gr.Tabs():
 
         # ── Tab 1: Upload & Analyze ──────────────────────────────────────────
