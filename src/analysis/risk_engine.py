@@ -19,6 +19,8 @@ from config.settings import (
     LLM_PROVIDER,
     ANTHROPIC_MODEL,
     OPENAI_MODEL,
+    LMSTUDIO_BASE_URL,
+    LMSTUDIO_MODEL,
     MAX_RETRIES,
     CONFIDENCE_THRESHOLD,
     MAX_CLAUSES_PER_ANALYSIS,
@@ -61,7 +63,7 @@ def _detect_contract_type(chunks: list[EnrichedChunk]) -> str:
     return "Service Agreement"
 
 
-def _extract_json_from_response(text: str) -> dict | list:
+def _extract_json_from_response(text: str):
     """Extract JSON from LLM response, handling markdown code blocks."""
     # Strip markdown code fences if present
     text = re.sub(r"```(?:json)?\s*", "", text).strip().rstrip("```").strip()
@@ -86,7 +88,7 @@ def _extract_json_from_response(text: str) -> dict | list:
 
 
 class LLMClient:
-    """Unified LLM client supporting Anthropic and OpenAI."""
+    """Unified LLM client supporting Anthropic, OpenAI, and LM Studio."""
 
     def __init__(self):
         self.provider = LLM_PROVIDER
@@ -97,6 +99,11 @@ class LLMClient:
             import anthropic
             self.client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
             self.model = ANTHROPIC_MODEL
+        elif self.provider == "lmstudio":
+            from openai import OpenAI
+            self.client = OpenAI(api_key="lm-studio", base_url=LMSTUDIO_BASE_URL)
+            self.model = LMSTUDIO_MODEL
+            logger.info(f"LM Studio client initialized: {LMSTUDIO_BASE_URL} | model={LMSTUDIO_MODEL}")
         else:
             if not OPENAI_API_KEY:
                 raise ValueError("OPENAI_API_KEY not set. Please add it to your .env file.")

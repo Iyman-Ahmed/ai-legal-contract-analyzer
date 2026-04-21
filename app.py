@@ -79,7 +79,7 @@ except Exception as e:
     ref_count = 0
 
 # Risk engine (requires API key — initialized lazily)
-_risk_engine: RiskAnalysisEngine | None = None
+_risk_engine = None  # type: Optional[RiskAnalysisEngine]
 _current_enriched_chunks = []  # Store for chat context
 _current_result = None
 
@@ -168,11 +168,14 @@ def analyze_contract(
     # ── Check API key ────────────────────────────────────────────────────────
     engine = get_risk_engine()
     if engine is None:
-        return (
-            "", "",
-            "",
-            "❌ No API key configured. Set ANTHROPIC_API_KEY or OPENAI_API_KEY in your .env file.",
-        )
+        provider = os.getenv("LLM_PROVIDER", "anthropic")
+        if provider == "lmstudio":
+            msg = "❌ LM Studio not reachable. Make sure LM Studio is running with the local server enabled."
+        elif provider == "anthropic":
+            msg = "❌ ANTHROPIC_API_KEY not set. Add it to your .env file (local) or Space Secrets (HF Spaces)."
+        else:
+            msg = "❌ OPENAI_API_KEY not set. Add it to your .env file (local) or Space Secrets (HF Spaces)."
+        return ("", "", "", msg)
 
     # ── Analyze ─────────────────────────────────────────────────────────────
     try:
@@ -266,16 +269,23 @@ def run_evaluation() -> str:
 
 def get_system_status() -> str:
     """Return current system status for display."""
-    api_key_set = bool(os.getenv("ANTHROPIC_API_KEY") or os.getenv("OPENAI_API_KEY"))
     provider = os.getenv("LLM_PROVIDER", "anthropic")
+
+    if provider == "lmstudio":
+        base_url = os.getenv("LMSTUDIO_BASE_URL", "http://localhost:1234/v1")
+        model = os.getenv("LMSTUDIO_MODEL", "meta-llama-3.1-8b-instruct")
+        api_status = f"✅ LM Studio @ {base_url} ({model})"
+    elif provider == "anthropic":
+        api_status = "✅ Configured" if os.getenv("ANTHROPIC_API_KEY") else "❌ Not set (add to .env)"
+    else:
+        api_status = "✅ Configured" if os.getenv("OPENAI_API_KEY") else "❌ Not set (add to .env)"
 
     lines = [
         "### System Status",
         "",
         f"- **Reference KB:** {'✅' if _vector_store.is_reference_indexed() else '❌'} "
         f"{_vector_store.reference_count()} documents indexed",
-        f"- **API Key:** {'✅ Configured' if api_key_set else '❌ Not set (add to .env)'}",
-        f"- **LLM Provider:** {provider.title()}",
+        f"- **LLM Provider:** {provider.title()} — {api_status}",
         f"- **Embedding Model:** BAAI/bge-base-en-v1.5",
         f"- **Reranker:** cross-encoder/ms-marco-MiniLM-L-6-v2",
         f"- **Vector DB:** ChromaDB (persistent)",

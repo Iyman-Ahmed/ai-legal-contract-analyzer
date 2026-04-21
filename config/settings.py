@@ -19,9 +19,13 @@ ANTHROPIC_API_KEY: str = os.getenv("ANTHROPIC_API_KEY", "")
 OPENAI_API_KEY: str = os.getenv("OPENAI_API_KEY", "")
 
 # Primary LLM — Claude Sonnet via Anthropic API
-LLM_PROVIDER: str = os.getenv("LLM_PROVIDER", "anthropic")  # "anthropic" | "openai"
+LLM_PROVIDER: str = os.getenv("LLM_PROVIDER", "anthropic")  # "anthropic" | "openai" | "lmstudio"
 ANTHROPIC_MODEL: str = "claude-sonnet-4-6"
 OPENAI_MODEL: str = "gpt-4o-mini"
+
+# LM Studio — local OpenAI-compatible server
+LMSTUDIO_BASE_URL: str = os.getenv("LMSTUDIO_BASE_URL", "http://localhost:1234/v1")
+LMSTUDIO_MODEL: str = os.getenv("LMSTUDIO_MODEL", "meta-llama-3.1-8b-instruct")
 
 # ─── Embeddings ───────────────────────────────────────────────────────────────
 # BAAI/bge-base-en-v1.5 — top performer on MTEB for semantic search, CPU-friendly
