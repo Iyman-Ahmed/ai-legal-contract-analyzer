@@ -83,6 +83,30 @@ _risk_engine = None  # type: Optional[RiskAnalysisEngine]
 _current_enriched_chunks = []  # Store for chat context
 _current_result = None
 
+# ── Rate limiter: max 3 successful analyses per 5-hour window ────────────────
+import time
+_RATE_LIMIT_MAX = 3
+_RATE_LIMIT_WINDOW = 5 * 60 * 60  # 5 hours in seconds
+_successful_run_timestamps = []  # timestamps of successful completions
+
+
+def _check_rate_limit():
+    """Return (allowed: bool, message: str). Prunes expired timestamps in-place."""
+    now = time.time()
+    cutoff = now - _RATE_LIMIT_WINDOW
+    # Drop timestamps outside the 5-hour window
+    while _successful_run_timestamps and _successful_run_timestamps[0] < cutoff:
+        _successful_run_timestamps.pop(0)
+    remaining = _RATE_LIMIT_MAX - len(_successful_run_timestamps)
+    if remaining <= 0:
+        oldest = _successful_run_timestamps[0]
+        reset_in = int((oldest + _RATE_LIMIT_WINDOW - now) / 60)
+        return False, (
+            f"⏳ Usage limit reached — {_RATE_LIMIT_MAX} analyses allowed per 5 hours. "
+            f"Resets in ~{reset_in} minutes."
+        )
+    return True, f"({remaining - 1} of {_RATE_LIMIT_MAX} uses remaining after this run)"
+
 
 def get_risk_engine() -> Optional[RiskAnalysisEngine]:
     """Lazily initialize the risk engine (requires API key)."""
@@ -165,6 +189,11 @@ def analyze_contract(
     except Exception as e:
         return "", "", "", f"❌ Document processing failed: {str(e)}"
 
+    # ── Rate limit check ─────────────────────────────────────────────────────
+    allowed, rate_msg = _check_rate_limit()
+    if not allowed:
+        return "", "", "", rate_msg
+
     # ── Check API key ────────────────────────────────────────────────────────
     engine = get_risk_engine()
     if engine is None:
@@ -213,11 +242,16 @@ def analyze_contract(
     clauses_md = render_clause_analysis_md(result.clause_analyses)
     export_report = render_export_report(result)
 
+    # Record successful run for rate limiting
+    _successful_run_timestamps.append(time.time())
+    runs_used = len(_successful_run_timestamps)
+
     risk_val = result.document_summary.overall_risk_level.value
     risk_emoji = {"LOW": "🟢", "MEDIUM": "🟡", "HIGH": "🔴", "CRITICAL": "⛔"}.get(risk_val, "⚪")
     status = (
         f"✅ Analysis complete — {result.total_clauses_analyzed} clauses analyzed | "
-        f"Overall risk: {risk_emoji} {risk_val} ({result.document_summary.overall_risk_score:.1f}/10)"
+        f"Overall risk: {risk_emoji} {risk_val} ({result.document_summary.overall_risk_score:.1f}/10) | "
+        f"Usage: {runs_used}/{_RATE_LIMIT_MAX} runs this 5-hour window"
     )
 
     return summary_md, clauses_md, export_report, status
