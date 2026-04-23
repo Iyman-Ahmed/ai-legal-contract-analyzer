@@ -94,7 +94,11 @@ class VectorStore:
         texts = [c["text"] for c in chunks]
         ids = [c["chunk_id"] for c in chunks]
         metadatas = [
-            {k: v for k, v in c.items() if k not in ("text", "chunk_id")}
+            {
+                k: "|".join(v) if isinstance(v, list) else v
+                for k, v in c.items()
+                if k not in ("text", "chunk_id")
+            }
             for c in chunks
         ]
 
