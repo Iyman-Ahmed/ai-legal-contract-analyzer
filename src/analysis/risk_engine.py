@@ -16,12 +16,12 @@ from typing import Optional
 from config.settings import (
     ANTHROPIC_API_KEY,
     OPENAI_API_KEY,
-    XAI_API_KEY,
+    GROQ_API_KEY,
     LLM_PROVIDER,
     ANTHROPIC_MODEL,
     OPENAI_MODEL,
-    XAI_BASE_URL,
-    GROK_MODEL,
+    GROQ_BASE_URL,
+    GROQ_MODEL,
     LMSTUDIO_BASE_URL,
     LMSTUDIO_MODEL,
     MAX_RETRIES,
@@ -102,13 +102,13 @@ class LLMClient:
             import anthropic
             self.client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
             self.model = ANTHROPIC_MODEL
-        elif self.provider == "grok":
-            if not XAI_API_KEY:
-                raise ValueError("XAI_API_KEY not set. Please add it to your .env file.")
+        elif self.provider == "groq":
+            if not GROQ_API_KEY:
+                raise ValueError("GROQ_API_KEY not set. Please add it to your .env file.")
             from openai import OpenAI
-            self.client = OpenAI(api_key=XAI_API_KEY, base_url=XAI_BASE_URL)
-            self.model = GROK_MODEL
-            logger.info(f"Grok client initialized: {XAI_BASE_URL} | model={GROK_MODEL}")
+            self.client = OpenAI(api_key=GROQ_API_KEY, base_url=GROQ_BASE_URL)
+            self.model = GROQ_MODEL
+            logger.info(f"Groq client initialized: {GROQ_BASE_URL} | model={GROQ_MODEL}")
         elif self.provider == "lmstudio":
             from openai import OpenAI
             self.client = OpenAI(api_key="lm-studio", base_url=LMSTUDIO_BASE_URL)
