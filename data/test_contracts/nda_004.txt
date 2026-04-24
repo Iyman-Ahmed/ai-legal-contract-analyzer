@@ -1,0 +1,44 @@
+NDA
+
+This NDA (this "Agreement") is entered into as of January 1, 2025 (the "Effective Date"), by and between:
+
+NovaStar Corp ("Party A" / "Company" / "Vendor" / "Landlord" / "Employer"), and
+Apex Consulting ("Party B" / "Customer" / "Employee" / "Tenant" / "Contractor").
+
+RECITALS
+
+The parties desire to enter into this Agreement on the terms set forth herein.
+
+PURPOSE
+
+The parties wish to explore a potential business relationship (the "Purpose") and may disclose Confidential Information to each other solely in connection with the Purpose. Each party's Confidential Information may only be used for the Purpose and for no other purpose whatsoever.
+
+CONFIDENTIALITY
+
+Each party agrees to hold in strict confidence all Confidential Information of the other party and not to disclose or use it except as necessary to perform obligations hereunder. Standard exceptions apply: information that is (a) publicly known through no breach; (b) already known to the Receiving Party; (c) received from a third party without restriction; (d) independently developed; or (e) required by law with prompt notice. Standard of care: at least the same as the Receiving Party uses for its own confidential information, no less than reasonable care. Term: two (2) years; trade secrets protected in perpetuity.
+
+GOVERNING LAW
+
+This Agreement shall be governed by and construed in accordance with the laws of the State of California, without regard to its conflict of laws principles. The parties submit to the exclusive jurisdiction of the state and federal courts located in San Francisco County, California.
+
+FORCE MAJEURE
+
+Neither party shall be liable for delays caused by circumstances beyond its reasonable control including acts of God, natural disasters, government action, war, or pandemic. The affected party must provide prompt written notice, use commercially reasonable efforts to mitigate, and provide regular updates. If the event continues for sixty (60) days, either party may terminate without liability, except for fees for services already performed.
+
+GENERAL PROVISIONS
+
+This Agreement constitutes the entire agreement between the parties with respect to its subject matter and supersedes all prior agreements. This Agreement may only be amended by a written instrument signed by both parties. If any provision is held unenforceable, the remaining provisions continue in full force. This Agreement may be executed in counterparts.
+
+IN WITNESS WHEREOF, the parties have executed this Agreement as of the Effective Date.
+
+NOVASTAR CORP
+By: ___________________________
+Name:
+Title:
+Date: January 1, 2025
+
+APEX CONSULTING
+By: ___________________________
+Name:
+Title:
+Date: January 1, 2025

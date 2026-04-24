@@ -1,0 +1,60 @@
+SAAS AGREEMENT
+
+This SaaS Agreement (this "Agreement") is entered into as of January 1, 2025 (the "Effective Date"), by and between:
+
+TechGiant Cloud ("Party A" / "Company" / "Vendor" / "Landlord" / "Employer"), and
+Startup Vendor ("Party B" / "Customer" / "Employee" / "Tenant" / "Contractor").
+
+RECITALS
+
+The parties desire to enter into this Agreement on the terms set forth herein.
+
+INDEMNIFICATION
+
+Customer shall indemnify, defend, and hold harmless Vendor and its affiliates, officers, directors, employees, agents, and successors from and against any and all claims, damages, losses, costs, and expenses (including reasonable attorneys' fees) arising out of or related to: (a) Customer's use of the Services; (b) any breach by Customer; (c) any third-party claims related to Customer Data; or (d) any violation of applicable law by Customer. Vendor has no indemnification obligations to Customer. This indemnification obligation is unlimited in amount and shall survive termination of this Agreement indefinitely.
+
+LIMITATION OF LIABILITY
+
+VENDOR'S TOTAL LIABILITY TO CUSTOMER SHALL NOT EXCEED ONE HUNDRED DOLLARS ($100.00) REGARDLESS OF THE CAUSE OF ACTION. CUSTOMER'S TOTAL LIABILITY TO VENDOR SHALL BE UNLIMITED. VENDOR EXCLUDES ALL WARRANTIES, CONDITIONS, OR REPRESENTATIONS OF ANY KIND. CUSTOMER WAIVES ALL RIGHTS TO SEEK DAMAGES BEYOND DIRECT LOSSES, AND CUSTOMER'S SOLE REMEDY FOR ANY DEFICIENCY IN THE SERVICES SHALL BE TERMINATION OF THE AGREEMENT WITHOUT REFUND.
+
+TERM AND TERMINATION
+
+This Agreement has a minimum term of three (3) years. Customer may not terminate for any reason during the minimum term. Vendor may terminate immediately at any time for any reason or no reason. Upon Vendor termination, all fees for the remaining term become immediately due and payable. Customer Data will be deleted within 24 hours of termination without opportunity for export. There is no cure period for any alleged breach.
+
+CONFIDENTIALITY
+
+Each party agrees to hold in strict confidence all Confidential Information of the other party and not to disclose or use it except as necessary to perform obligations hereunder. Standard exceptions apply: information that is (a) publicly known through no breach; (b) already known to the Receiving Party; (c) received from a third party without restriction; (d) independently developed; or (e) required by law with prompt notice. Standard of care: at least the same as the Receiving Party uses for its own confidential information, no less than reasonable care. Term: two (2) years; trade secrets protected in perpetuity.
+
+DATA USE
+
+Customer grants Vendor a perpetual, irrevocable, royalty-free license to use, copy, reproduce, process, adapt, modify, publish, transmit, display, and distribute all Customer Data for any purpose, including developing competing products, training machine learning models, and sharing with Vendor's affiliates and third-party partners worldwide. Vendor may sell or otherwise transfer Customer Data to third parties for marketing purposes. Customer Data may be retained indefinitely even after termination of this Agreement.
+
+PAYMENT TERMS
+
+All fees are due upon execution of this Agreement and are fully non-refundable regardless of circumstances, including early termination, service outages, or data loss. Customer shall pay all fees within five (5) business days of any invoice. Vendor may increase fees at any time without notice. Customer waives all rights to dispute any invoice. Failure to pay shall result in immediate termination of access with no data export opportunity.
+
+WARRANTY DISCLAIMER
+
+THE SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTY OF ANY KIND. VENDOR EXPRESSLY DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT. VENDOR DOES NOT WARRANT THAT THE SERVICES WILL BE UNINTERRUPTED, ERROR-FREE, SECURE, OR THAT DEFECTS WILL BE CORRECTED. VENDOR PROVIDES NO UPTIME GUARANTEE AND SHALL HAVE NO LIABILITY FOR DOWNTIME.
+
+GOVERNING LAW
+
+This Agreement shall be governed by the laws of the Cayman Islands. All disputes shall be resolved exclusively in the courts of the Cayman Islands. Each party irrevocably waives any right to object to such jurisdiction or to claim that such forum is inconvenient. Service of process may be effected by international mail.
+
+GENERAL PROVISIONS
+
+This Agreement constitutes the entire agreement between the parties with respect to its subject matter and supersedes all prior agreements. This Agreement may only be amended by a written instrument signed by both parties. If any provision is held unenforceable, the remaining provisions continue in full force. This Agreement may be executed in counterparts.
+
+IN WITNESS WHEREOF, the parties have executed this Agreement as of the Effective Date.
+
+TECHGIANT CLOUD
+By: ___________________________
+Name:
+Title:
+Date: January 1, 2025
+
+STARTUP VENDOR
+By: ___________________________
+Name:
+Title:
+Date: January 1, 2025

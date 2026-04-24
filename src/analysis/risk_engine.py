@@ -16,9 +16,12 @@ from typing import Optional
 from config.settings import (
     ANTHROPIC_API_KEY,
     OPENAI_API_KEY,
+    XAI_API_KEY,
     LLM_PROVIDER,
     ANTHROPIC_MODEL,
     OPENAI_MODEL,
+    XAI_BASE_URL,
+    GROK_MODEL,
     LMSTUDIO_BASE_URL,
     LMSTUDIO_MODEL,
     MAX_RETRIES,
@@ -99,6 +102,13 @@ class LLMClient:
             import anthropic
             self.client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
             self.model = ANTHROPIC_MODEL
+        elif self.provider == "grok":
+            if not XAI_API_KEY:
+                raise ValueError("XAI_API_KEY not set. Please add it to your .env file.")
+            from openai import OpenAI
+            self.client = OpenAI(api_key=XAI_API_KEY, base_url=XAI_BASE_URL)
+            self.model = GROK_MODEL
+            logger.info(f"Grok client initialized: {XAI_BASE_URL} | model={GROK_MODEL}")
         elif self.provider == "lmstudio":
             from openai import OpenAI
             self.client = OpenAI(api_key="lm-studio", base_url=LMSTUDIO_BASE_URL)
@@ -252,6 +262,8 @@ class RiskAnalysisEngine:
 
         reference_text = self._format_references(reranked)
 
+        _NON_RETRYABLE = ("credit balance", "billing", "authentication", "invalid api key", "permission")
+
         for attempt in range(MAX_RETRIES):
             try:
                 prompt = CLAUSE_ANALYSIS_USER.format(
@@ -268,9 +280,13 @@ class RiskAnalysisEngine:
                 return ClauseRisk(**data)
 
             except Exception as e:
+                err_lower = str(e).lower()
+                if any(phrase in err_lower for phrase in _NON_RETRYABLE):
+                    raise RuntimeError(
+                        f"LLM API error (non-retryable): {e}"
+                    ) from e
                 logger.warning(f"Clause analysis attempt {attempt+1} failed: {e}")
                 if attempt == MAX_RETRIES - 1:
-                    # Graceful degradation on final failure
                     return ClauseRisk(
                         clause_text=chunk.text[:500],
                         clause_type=chunk.clause_type,
@@ -305,6 +321,8 @@ class RiskAnalysisEngine:
             contract_type_hint=contract_type,
         )
 
+        _NON_RETRYABLE = ("credit balance", "billing", "authentication", "invalid api key", "permission")
+
         for attempt in range(MAX_RETRIES):
             try:
                 raw = self.llm.chat(
@@ -321,9 +339,11 @@ class RiskAnalysisEngine:
                 return DocumentSummary(**data)
 
             except Exception as e:
+                err_lower = str(e).lower()
+                if any(phrase in err_lower for phrase in _NON_RETRYABLE):
+                    raise RuntimeError(f"LLM API error (non-retryable): {e}") from e
                 logger.warning(f"Document summary attempt {attempt+1} failed: {e}")
                 if attempt == MAX_RETRIES - 1:
-                    # Fallback summary computed from clause data
                     return self._fallback_summary(filename, clause_analyses, missing_clauses, contract_type)
 
     def _fallback_summary(

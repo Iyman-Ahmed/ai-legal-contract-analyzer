@@ -1,0 +1,44 @@
+NDA
+
+This NDA (this "Agreement") is entered into as of January 1, 2025 (the "Effective Date"), by and between:
+
+Venture Capital Partners ("Party A" / "Company" / "Vendor" / "Landlord" / "Employer"), and
+HealthAI Inc. ("Party B" / "Customer" / "Employee" / "Tenant" / "Contractor").
+
+RECITALS
+
+The parties desire to enter into this Agreement on the terms set forth herein.
+
+PURPOSE
+
+The parties wish to explore a potential business relationship (the "Purpose") and may disclose Confidential Information to each other solely in connection with the Purpose. Each party's Confidential Information may only be used for the Purpose and for no other purpose whatsoever.
+
+CONFIDENTIALITY
+
+Recipient shall keep all Confidential Information of Discloser in strict confidence and shall not disclose it to any third party without prior written consent. Confidential Information means all non-public information disclosed by Discloser. The standard exceptions (publicly known, independently developed, required by law) apply. This obligation continues for five (5) years after disclosure. There are no carve-outs for employees or contractors who need access — all disclosures require prior written consent.
+
+GOVERNING LAW
+
+This Agreement shall be governed by and construed in accordance with the laws of the State of California, without regard to its conflict of laws principles. The parties submit to the exclusive jurisdiction of the state and federal courts located in San Francisco County, California.
+
+DISPUTE RESOLUTION
+
+Any dispute shall be resolved by binding arbitration in New York City under AAA rules. EACH PARTY WAIVES ITS RIGHT TO A JURY TRIAL AND TO PARTICIPATE IN A CLASS ACTION OR CLASS ARBITRATION. The arbitration shall be confidential. The arbitrator's award shall be final and not subject to appeal except as required by applicable law.
+
+GENERAL PROVISIONS
+
+This Agreement constitutes the entire agreement between the parties with respect to its subject matter and supersedes all prior agreements. This Agreement may only be amended by a written instrument signed by both parties. If any provision is held unenforceable, the remaining provisions continue in full force. This Agreement may be executed in counterparts.
+
+IN WITNESS WHEREOF, the parties have executed this Agreement as of the Effective Date.
+
+VENTURE CAPITAL PARTNERS
+By: ___________________________
+Name:
+Title:
+Date: January 1, 2025
+
+HEALTHAI INC.
+By: ___________________________
+Name:
+Title:
+Date: January 1, 2025
