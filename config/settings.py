@@ -26,7 +26,7 @@ OPENAI_MODEL: str = "gpt-4o-mini"
 
 # Groq — free tier, OpenAI-compatible, fast inference (console.groq.com)
 GROQ_BASE_URL: str = "https://api.groq.com/openai/v1"
-GROQ_MODEL: str = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
+GROQ_MODEL: str = os.getenv("GROQ_MODEL", "llama-3.1-8b-instant")
 
 # LM Studio — local OpenAI-compatible server
 LMSTUDIO_BASE_URL: str = os.getenv("LMSTUDIO_BASE_URL", "http://localhost:1234/v1")
