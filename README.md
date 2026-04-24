@@ -9,7 +9,7 @@ python_version: "3.11"
 app_file: app.py
 pinned: false
 license: mit
-short_description: RAG · Hybrid Search · Reranking · Claude LLM
+short_description: RAG · Hybrid Search · Reranking · Groq LLM
 ---
 
 # LegalRAG

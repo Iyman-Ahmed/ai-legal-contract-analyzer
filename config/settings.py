@@ -17,11 +17,16 @@ CHROMA_DIR = BASE_DIR / "data" / "chroma_db"
 # ─── LLM ──────────────────────────────────────────────────────────────────────
 ANTHROPIC_API_KEY: str = os.getenv("ANTHROPIC_API_KEY", "")
 OPENAI_API_KEY: str = os.getenv("OPENAI_API_KEY", "")
+GROQ_API_KEY: str = os.getenv("GROQ_API_KEY", "")
 
-# Primary LLM — Claude Sonnet via Anthropic API
-LLM_PROVIDER: str = os.getenv("LLM_PROVIDER", "anthropic")  # "anthropic" | "openai" | "lmstudio"
+# Primary LLM — set LLM_PROVIDER to select backend
+LLM_PROVIDER: str = os.getenv("LLM_PROVIDER", "groq")  # "groq" | "anthropic" | "openai" | "lmstudio"
 ANTHROPIC_MODEL: str = "claude-sonnet-4-6"
 OPENAI_MODEL: str = "gpt-4o-mini"
+
+# Groq — free tier, OpenAI-compatible, fast inference (console.groq.com)
+GROQ_BASE_URL: str = "https://api.groq.com/openai/v1"
+GROQ_MODEL: str = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
 
 # LM Studio — local OpenAI-compatible server
 LMSTUDIO_BASE_URL: str = os.getenv("LMSTUDIO_BASE_URL", "http://localhost:1234/v1")
