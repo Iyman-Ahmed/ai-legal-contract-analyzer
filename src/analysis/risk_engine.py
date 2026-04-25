@@ -11,6 +11,8 @@ Pydantic validation with retry ensures structured output.
 import json
 import logging
 import re
+import threading
+import time
 from typing import Optional
 
 from config.settings import (
@@ -48,6 +50,28 @@ from src.retrieval.hybrid_search import HybridSearchEngine
 from src.retrieval.reranker import CrossEncoderReranker
 
 logger = logging.getLogger(__name__)
+
+
+class _GroqRateLimiter:
+    """Sliding-window TPM limiter for Groq free tier (6 000 TPM)."""
+
+    def __init__(self, tpm_limit: int = 5500):
+        self._tpm_limit = tpm_limit
+        self._window: list[tuple[float, int]] = []
+        self._lock = threading.Lock()
+
+    def wait(self, estimated_tokens: int) -> None:
+        with self._lock:
+            while True:
+                now = time.time()
+                self._window = [(t, tok) for t, tok in self._window if now - t < 60]
+                used = sum(tok for _, tok in self._window)
+                if used + estimated_tokens <= self._tpm_limit:
+                    self._window.append((now, estimated_tokens))
+                    return
+                sleep_for = 60 - (now - self._window[0][0]) + 0.5
+                logger.info(f"Rate limiter: {used}/{self._tpm_limit} TPM — sleeping {sleep_for:.1f}s")
+                time.sleep(sleep_for)
 
 
 def _detect_contract_type(chunks: list[EnrichedChunk]) -> str:
@@ -108,6 +132,7 @@ class LLMClient:
             from openai import OpenAI
             self.client = OpenAI(api_key=GROQ_API_KEY, base_url=GROQ_BASE_URL)
             self.model = GROQ_MODEL
+            self._rate_limiter: Optional[_GroqRateLimiter] = _GroqRateLimiter()
             logger.info(f"Groq client initialized: {GROQ_BASE_URL} | model={GROQ_MODEL}")
         elif self.provider == "lmstudio":
             from openai import OpenAI
@@ -123,6 +148,9 @@ class LLMClient:
 
     def chat(self, system: str, user: str, max_tokens: int = 2048) -> str:
         """Send a chat completion request and return the text response."""
+        if getattr(self, "_rate_limiter", None):
+            estimated = (len(system) + len(user)) // 4 + max_tokens
+            self._rate_limiter.wait(estimated)
         if self.provider == "anthropic":
             response = self.client.messages.create(
                 model=self.model,
@@ -262,7 +290,7 @@ class RiskAnalysisEngine:
 
         reference_text = self._format_references(reranked)
 
-        _NON_RETRYABLE = ("credit balance", "billing", "authentication", "invalid api key", "permission")
+        _NON_RETRYABLE = ("credit balance", "insufficient credits", "payment required", "authentication", "invalid api key", "permission denied")
 
         for attempt in range(MAX_RETRIES):
             try:
@@ -277,6 +305,8 @@ class RiskAnalysisEngine:
                     max_tokens=1024,
                 )
                 data = _extract_json_from_response(raw)
+                if isinstance(data, list):
+                    data = data[0] if data else {}
                 return ClauseRisk(**data)
 
             except Exception as e:
@@ -321,7 +351,7 @@ class RiskAnalysisEngine:
             contract_type_hint=contract_type,
         )
 
-        _NON_RETRYABLE = ("credit balance", "billing", "authentication", "invalid api key", "permission")
+        _NON_RETRYABLE = ("credit balance", "insufficient credits", "payment required", "authentication", "invalid api key", "permission denied")
 
         for attempt in range(MAX_RETRIES):
             try:

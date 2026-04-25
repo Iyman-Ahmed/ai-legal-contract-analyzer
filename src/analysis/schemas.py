@@ -54,6 +54,11 @@ class ClauseRisk(BaseModel):
         description="True if this represents a missing standard clause"
     )
 
+    @field_validator("reference_clause", "suggested_revision", "source_citation", mode="before")
+    @classmethod
+    def coerce_none_str(cls, v) -> str:
+        return v if v is not None else ""
+
     @field_validator("risk_level", mode="before")
     @classmethod
     def normalize_risk_level(cls, v: str) -> str:
@@ -71,6 +76,19 @@ class MissingClause(BaseModel):
     description: str
     risk_level: RiskLevel
     recommended_text: str
+
+    @field_validator("risk_level", mode="before")
+    @classmethod
+    def normalize_risk_level(cls, v) -> str:
+        if not isinstance(v, str):
+            return v
+        v = v.upper().strip()
+        if "-" in v or "/" in v:
+            sep = "-" if "-" in v else "/"
+            parts = [p.strip() for p in v.split(sep)]
+            order = {"LOW": 0, "MEDIUM": 1, "HIGH": 2, "CRITICAL": 3}
+            return max(parts, key=lambda x: order.get(x, 1))
+        return v
 
 
 class DocumentSummary(BaseModel):
