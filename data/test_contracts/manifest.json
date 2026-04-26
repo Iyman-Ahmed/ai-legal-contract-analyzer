@@ -1,0 +1,1415 @@
+[
+  {
+    "id": "nda_001",
+    "filename": "nda_001.txt",
+    "contract_type": "NDA",
+    "risk_profile": "LOW",
+    "party_a": "AlphaVentures LLC",
+    "party_b": "BetaTech Inc.",
+    "expected_clause_types": [
+      "confidentiality",
+      "governing_law",
+      "representations"
+    ],
+    "expected_high_risk_clause_types": [],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "nda_purpose_LOW",
+      "confidentiality_LOW",
+      "governing_law_LOW",
+      "representations_LOW"
+    ]
+  },
+  {
+    "id": "nda_002",
+    "filename": "nda_002.txt",
+    "contract_type": "NDA",
+    "risk_profile": "LOW",
+    "party_a": "Meridian Capital",
+    "party_b": "Solaris AI Corp",
+    "expected_clause_types": [
+      "confidentiality",
+      "dispute_resolution",
+      "governing_law"
+    ],
+    "expected_high_risk_clause_types": [],
+    "expected_missing_clauses": [
+      "indemnification"
+    ],
+    "sections_used": [
+      "nda_purpose_LOW",
+      "confidentiality_LOW",
+      "dispute_resolution_LOW",
+      "governing_law_LOW"
+    ]
+  },
+  {
+    "id": "nda_003",
+    "filename": "nda_003.txt",
+    "contract_type": "NDA",
+    "risk_profile": "LOW",
+    "party_a": "Pinebrook Partners",
+    "party_b": "DataStream Inc.",
+    "expected_clause_types": [
+      "confidentiality",
+      "governing_law"
+    ],
+    "expected_high_risk_clause_types": [],
+    "expected_missing_clauses": [
+      "indemnification",
+      "limitation_of_liability"
+    ],
+    "sections_used": [
+      "nda_purpose_LOW",
+      "confidentiality_LOW",
+      "governing_law_LOW",
+      "assignment_LOW"
+    ]
+  },
+  {
+    "id": "nda_004",
+    "filename": "nda_004.txt",
+    "contract_type": "NDA",
+    "risk_profile": "LOW",
+    "party_a": "NovaStar Corp",
+    "party_b": "Apex Consulting",
+    "expected_clause_types": [
+      "confidentiality",
+      "governing_law",
+      "force_majeure"
+    ],
+    "expected_high_risk_clause_types": [],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "nda_purpose_LOW",
+      "confidentiality_LOW",
+      "governing_law_LOW",
+      "force_majeure_LOW"
+    ]
+  },
+  {
+    "id": "nda_005",
+    "filename": "nda_005.txt",
+    "contract_type": "NDA",
+    "risk_profile": "MEDIUM",
+    "party_a": "GlobalTech Ltd",
+    "party_b": "StartupXYZ",
+    "expected_clause_types": [
+      "confidentiality",
+      "governing_law",
+      "representations"
+    ],
+    "expected_high_risk_clause_types": [],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "nda_purpose_LOW",
+      "confidentiality_MEDIUM",
+      "governing_law_MEDIUM",
+      "representations_LOW"
+    ]
+  },
+  {
+    "id": "nda_006",
+    "filename": "nda_006.txt",
+    "contract_type": "NDA",
+    "risk_profile": "MEDIUM",
+    "party_a": "Venture Capital Partners",
+    "party_b": "HealthAI Inc.",
+    "expected_clause_types": [
+      "confidentiality",
+      "governing_law",
+      "dispute_resolution"
+    ],
+    "expected_high_risk_clause_types": [
+      "dispute_resolution"
+    ],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "nda_purpose_LOW",
+      "confidentiality_MEDIUM",
+      "governing_law_LOW",
+      "dispute_resolution_MEDIUM"
+    ]
+  },
+  {
+    "id": "nda_007",
+    "filename": "nda_007.txt",
+    "contract_type": "NDA",
+    "risk_profile": "MEDIUM",
+    "party_a": "Enterprise Holdings",
+    "party_b": "DevOps Startup",
+    "expected_clause_types": [
+      "confidentiality",
+      "governing_law"
+    ],
+    "expected_high_risk_clause_types": [],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "nda_purpose_LOW",
+      "confidentiality_MEDIUM",
+      "governing_law_MEDIUM"
+    ]
+  },
+  {
+    "id": "nda_008",
+    "filename": "nda_008.txt",
+    "contract_type": "NDA",
+    "risk_profile": "MEDIUM",
+    "party_a": "Retail Giant Corp",
+    "party_b": "AI Solutions LLC",
+    "expected_clause_types": [
+      "confidentiality",
+      "governing_law"
+    ],
+    "expected_high_risk_clause_types": [],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "nda_purpose_LOW",
+      "confidentiality_MEDIUM",
+      "governing_law_LOW"
+    ]
+  },
+  {
+    "id": "nda_009",
+    "filename": "nda_009.txt",
+    "contract_type": "NDA",
+    "risk_profile": "HIGH",
+    "party_a": "Dominant Corp",
+    "party_b": "Small Startup Inc.",
+    "expected_clause_types": [
+      "confidentiality",
+      "governing_law"
+    ],
+    "expected_high_risk_clause_types": [
+      "confidentiality",
+      "governing_law"
+    ],
+    "expected_missing_clauses": [
+      "indemnification"
+    ],
+    "sections_used": [
+      "nda_purpose_HIGH",
+      "confidentiality_HIGH",
+      "governing_law_HIGH"
+    ]
+  },
+  {
+    "id": "nda_010",
+    "filename": "nda_010.txt",
+    "contract_type": "NDA",
+    "risk_profile": "HIGH",
+    "party_a": "MegaCorp Industries",
+    "party_b": "Freelancer LLC",
+    "expected_clause_types": [
+      "confidentiality",
+      "dispute_resolution",
+      "governing_law"
+    ],
+    "expected_high_risk_clause_types": [
+      "confidentiality",
+      "dispute_resolution",
+      "governing_law"
+    ],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "nda_purpose_HIGH",
+      "confidentiality_HIGH",
+      "dispute_resolution_HIGH",
+      "governing_law_HIGH"
+    ]
+  },
+  {
+    "id": "nda_011",
+    "filename": "nda_011.txt",
+    "contract_type": "NDA",
+    "risk_profile": "HIGH",
+    "party_a": "Market Leader Inc.",
+    "party_b": "New Entrant Corp",
+    "expected_clause_types": [
+      "confidentiality",
+      "governing_law"
+    ],
+    "expected_high_risk_clause_types": [
+      "confidentiality",
+      "governing_law"
+    ],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "nda_purpose_HIGH",
+      "confidentiality_HIGH",
+      "governing_law_HIGH",
+      "assignment_HIGH"
+    ]
+  },
+  {
+    "id": "nda_012",
+    "filename": "nda_012.txt",
+    "contract_type": "NDA",
+    "risk_profile": "HIGH",
+    "party_a": "Platform Corp",
+    "party_b": "Dependent Vendor",
+    "expected_clause_types": [
+      "confidentiality",
+      "governing_law"
+    ],
+    "expected_high_risk_clause_types": [
+      "confidentiality"
+    ],
+    "expected_missing_clauses": [
+      "force_majeure"
+    ],
+    "sections_used": [
+      "nda_purpose_HIGH",
+      "confidentiality_HIGH",
+      "governing_law_HIGH"
+    ]
+  },
+  {
+    "id": "saas_001",
+    "filename": "saas_001.txt",
+    "contract_type": "SaaS Agreement",
+    "risk_profile": "LOW",
+    "party_a": "CloudSoft Inc.",
+    "party_b": "SMB Customer LLC",
+    "expected_clause_types": [
+      "indemnification",
+      "limitation_of_liability",
+      "termination",
+      "confidentiality",
+      "data_protection",
+      "payment_terms",
+      "warranty",
+      "governing_law",
+      "dispute_resolution"
+    ],
+    "expected_high_risk_clause_types": [],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "indemnification_LOW",
+      "limitation_of_liability_LOW",
+      "termination_LOW",
+      "confidentiality_LOW",
+      "data_protection_LOW",
+      "payment_terms_LOW",
+      "warranty_LOW",
+      "governing_law_LOW",
+      "dispute_resolution_LOW"
+    ]
+  },
+  {
+    "id": "saas_002",
+    "filename": "saas_002.txt",
+    "contract_type": "SaaS Agreement",
+    "risk_profile": "LOW",
+    "party_a": "PlatformX SaaS",
+    "party_b": "Enterprise Client Corp",
+    "expected_clause_types": [
+      "indemnification",
+      "limitation_of_liability",
+      "termination",
+      "confidentiality",
+      "data_protection",
+      "payment_terms",
+      "force_majeure",
+      "governing_law"
+    ],
+    "expected_high_risk_clause_types": [],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "indemnification_LOW",
+      "limitation_of_liability_LOW",
+      "termination_LOW",
+      "confidentiality_LOW",
+      "data_protection_LOW",
+      "payment_terms_LOW",
+      "force_majeure_LOW",
+      "governing_law_LOW"
+    ]
+  },
+  {
+    "id": "saas_003",
+    "filename": "saas_003.txt",
+    "contract_type": "SaaS Agreement",
+    "risk_profile": "LOW",
+    "party_a": "DevTools Pro",
+    "party_b": "Startup Customer",
+    "expected_clause_types": [
+      "indemnification",
+      "limitation_of_liability",
+      "termination",
+      "confidentiality",
+      "data_protection",
+      "warranty",
+      "governing_law"
+    ],
+    "expected_high_risk_clause_types": [],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "indemnification_LOW",
+      "limitation_of_liability_LOW",
+      "termination_LOW",
+      "confidentiality_LOW",
+      "data_protection_LOW",
+      "warranty_LOW",
+      "governing_law_LOW",
+      "assignment_LOW"
+    ]
+  },
+  {
+    "id": "saas_004",
+    "filename": "saas_004.txt",
+    "contract_type": "SaaS Agreement",
+    "risk_profile": "LOW",
+    "party_a": "Analytics Suite Co.",
+    "party_b": "Mid-Market Customer",
+    "expected_clause_types": [
+      "indemnification",
+      "limitation_of_liability",
+      "termination",
+      "confidentiality",
+      "data_protection",
+      "payment_terms",
+      "warranty",
+      "representations",
+      "governing_law"
+    ],
+    "expected_high_risk_clause_types": [],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "indemnification_LOW",
+      "limitation_of_liability_LOW",
+      "termination_LOW",
+      "confidentiality_LOW",
+      "data_protection_LOW",
+      "payment_terms_LOW",
+      "warranty_LOW",
+      "representations_LOW",
+      "governing_law_LOW"
+    ]
+  },
+  {
+    "id": "saas_005",
+    "filename": "saas_005.txt",
+    "contract_type": "SaaS Agreement",
+    "risk_profile": "LOW",
+    "party_a": "Security Platform Inc.",
+    "party_b": "Healthcare Customer",
+    "expected_clause_types": [
+      "indemnification",
+      "limitation_of_liability",
+      "termination",
+      "confidentiality",
+      "data_protection",
+      "payment_terms",
+      "warranty",
+      "governing_law",
+      "force_majeure"
+    ],
+    "expected_high_risk_clause_types": [],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "indemnification_LOW",
+      "limitation_of_liability_LOW",
+      "termination_LOW",
+      "confidentiality_LOW",
+      "data_protection_LOW",
+      "payment_terms_LOW",
+      "warranty_LOW",
+      "governing_law_LOW",
+      "force_majeure_LOW"
+    ]
+  },
+  {
+    "id": "saas_006",
+    "filename": "saas_006.txt",
+    "contract_type": "SaaS Agreement",
+    "risk_profile": "MEDIUM",
+    "party_a": "CloudAI Vendor",
+    "party_b": "Enterprise Corp",
+    "expected_clause_types": [
+      "indemnification",
+      "limitation_of_liability",
+      "termination",
+      "confidentiality",
+      "payment_terms",
+      "warranty",
+      "governing_law"
+    ],
+    "expected_high_risk_clause_types": [
+      "indemnification",
+      "limitation_of_liability",
+      "payment_terms"
+    ],
+    "expected_missing_clauses": [
+      "data_protection"
+    ],
+    "sections_used": [
+      "indemnification_MEDIUM",
+      "limitation_of_liability_MEDIUM",
+      "termination_MEDIUM",
+      "confidentiality_LOW",
+      "payment_terms_MEDIUM",
+      "warranty_LOW",
+      "governing_law_MEDIUM"
+    ]
+  },
+  {
+    "id": "saas_007",
+    "filename": "saas_007.txt",
+    "contract_type": "SaaS Agreement",
+    "risk_profile": "MEDIUM",
+    "party_a": "B2B Software Corp",
+    "party_b": "Growing Startup",
+    "expected_clause_types": [
+      "indemnification",
+      "limitation_of_liability",
+      "termination",
+      "confidentiality",
+      "payment_terms",
+      "warranty",
+      "governing_law"
+    ],
+    "expected_high_risk_clause_types": [
+      "indemnification",
+      "limitation_of_liability",
+      "warranty"
+    ],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "indemnification_MEDIUM",
+      "limitation_of_liability_MEDIUM",
+      "termination_MEDIUM",
+      "confidentiality_MEDIUM",
+      "payment_terms_LOW",
+      "warranty_HIGH",
+      "governing_law_LOW"
+    ]
+  },
+  {
+    "id": "saas_008",
+    "filename": "saas_008.txt",
+    "contract_type": "SaaS Agreement",
+    "risk_profile": "MEDIUM",
+    "party_a": "Infrastructure SaaS",
+    "party_b": "Financial Services Firm",
+    "expected_clause_types": [
+      "indemnification",
+      "limitation_of_liability",
+      "termination",
+      "confidentiality",
+      "data_protection",
+      "payment_terms",
+      "governing_law",
+      "dispute_resolution"
+    ],
+    "expected_high_risk_clause_types": [
+      "indemnification",
+      "limitation_of_liability",
+      "dispute_resolution"
+    ],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "indemnification_MEDIUM",
+      "limitation_of_liability_MEDIUM",
+      "termination_LOW",
+      "confidentiality_LOW",
+      "data_protection_LOW",
+      "payment_terms_MEDIUM",
+      "governing_law_MEDIUM",
+      "dispute_resolution_MEDIUM"
+    ]
+  },
+  {
+    "id": "saas_009",
+    "filename": "saas_009.txt",
+    "contract_type": "SaaS Agreement",
+    "risk_profile": "MEDIUM",
+    "party_a": "ML Platform Inc.",
+    "party_b": "Tech Scale-up",
+    "expected_clause_types": [
+      "indemnification",
+      "limitation_of_liability",
+      "termination",
+      "confidentiality",
+      "payment_terms",
+      "warranty",
+      "governing_law"
+    ],
+    "expected_high_risk_clause_types": [
+      "warranty",
+      "limitation_of_liability"
+    ],
+    "expected_missing_clauses": [
+      "data_protection"
+    ],
+    "sections_used": [
+      "indemnification_MEDIUM",
+      "limitation_of_liability_MEDIUM",
+      "termination_MEDIUM",
+      "confidentiality_MEDIUM",
+      "payment_terms_MEDIUM",
+      "warranty_HIGH",
+      "governing_law_LOW"
+    ]
+  },
+  {
+    "id": "saas_010",
+    "filename": "saas_010.txt",
+    "contract_type": "SaaS Agreement",
+    "risk_profile": "MEDIUM",
+    "party_a": "Workflow Automation Co.",
+    "party_b": "Operations Heavy Corp",
+    "expected_clause_types": [
+      "indemnification",
+      "limitation_of_liability",
+      "termination",
+      "confidentiality",
+      "data_protection",
+      "payment_terms",
+      "governing_law"
+    ],
+    "expected_high_risk_clause_types": [
+      "indemnification",
+      "payment_terms"
+    ],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "indemnification_MEDIUM",
+      "limitation_of_liability_MEDIUM",
+      "termination_MEDIUM",
+      "confidentiality_LOW",
+      "data_protection_LOW",
+      "payment_terms_MEDIUM",
+      "governing_law_MEDIUM"
+    ]
+  },
+  {
+    "id": "saas_011",
+    "filename": "saas_011.txt",
+    "contract_type": "SaaS Agreement",
+    "risk_profile": "HIGH",
+    "party_a": "Dominant Platform",
+    "party_b": "Captive Customer",
+    "expected_clause_types": [
+      "indemnification",
+      "limitation_of_liability",
+      "termination",
+      "confidentiality",
+      "data_protection",
+      "payment_terms",
+      "warranty",
+      "governing_law",
+      "dispute_resolution"
+    ],
+    "expected_high_risk_clause_types": [
+      "indemnification",
+      "limitation_of_liability",
+      "termination",
+      "confidentiality",
+      "data_protection",
+      "payment_terms",
+      "warranty",
+      "governing_law",
+      "dispute_resolution"
+    ],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "indemnification_HIGH",
+      "limitation_of_liability_HIGH",
+      "termination_HIGH",
+      "confidentiality_HIGH",
+      "data_protection_HIGH",
+      "payment_terms_HIGH",
+      "warranty_HIGH",
+      "governing_law_HIGH",
+      "dispute_resolution_HIGH"
+    ]
+  },
+  {
+    "id": "saas_012",
+    "filename": "saas_012.txt",
+    "contract_type": "SaaS Agreement",
+    "risk_profile": "HIGH",
+    "party_a": "Monopoly SaaS Corp",
+    "party_b": "No-Choice Enterprise",
+    "expected_clause_types": [
+      "indemnification",
+      "limitation_of_liability",
+      "termination",
+      "confidentiality",
+      "payment_terms",
+      "warranty",
+      "governing_law",
+      "dispute_resolution"
+    ],
+    "expected_high_risk_clause_types": [
+      "indemnification",
+      "limitation_of_liability",
+      "termination",
+      "payment_terms",
+      "warranty"
+    ],
+    "expected_missing_clauses": [
+      "data_protection",
+      "force_majeure"
+    ],
+    "sections_used": [
+      "indemnification_HIGH",
+      "limitation_of_liability_CRITICAL",
+      "termination_HIGH",
+      "confidentiality_HIGH",
+      "payment_terms_HIGH",
+      "warranty_HIGH",
+      "governing_law_HIGH",
+      "dispute_resolution_HIGH"
+    ]
+  },
+  {
+    "id": "saas_013",
+    "filename": "saas_013.txt",
+    "contract_type": "SaaS Agreement",
+    "risk_profile": "HIGH",
+    "party_a": "TechGiant Cloud",
+    "party_b": "Startup Vendor",
+    "expected_clause_types": [
+      "indemnification",
+      "limitation_of_liability",
+      "termination",
+      "confidentiality",
+      "data_protection",
+      "payment_terms",
+      "warranty",
+      "governing_law"
+    ],
+    "expected_high_risk_clause_types": [
+      "indemnification",
+      "limitation_of_liability",
+      "data_protection",
+      "payment_terms",
+      "warranty"
+    ],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "indemnification_HIGH",
+      "limitation_of_liability_HIGH",
+      "termination_HIGH",
+      "confidentiality_LOW",
+      "data_protection_HIGH",
+      "payment_terms_HIGH",
+      "warranty_HIGH",
+      "governing_law_HIGH"
+    ]
+  },
+  {
+    "id": "saas_014",
+    "filename": "saas_014.txt",
+    "contract_type": "SaaS Agreement",
+    "risk_profile": "HIGH",
+    "party_a": "Vendor Inc.",
+    "party_b": "Locked-In Customer LLC",
+    "expected_clause_types": [
+      "indemnification",
+      "limitation_of_liability",
+      "termination",
+      "data_protection",
+      "payment_terms",
+      "warranty",
+      "governing_law",
+      "dispute_resolution"
+    ],
+    "expected_high_risk_clause_types": [
+      "indemnification",
+      "limitation_of_liability",
+      "termination",
+      "data_protection",
+      "payment_terms"
+    ],
+    "expected_missing_clauses": [
+      "confidentiality"
+    ],
+    "sections_used": [
+      "indemnification_HIGH",
+      "limitation_of_liability_HIGH",
+      "termination_HIGH",
+      "data_protection_HIGH",
+      "payment_terms_HIGH",
+      "warranty_HIGH",
+      "governing_law_HIGH",
+      "dispute_resolution_HIGH"
+    ]
+  },
+  {
+    "id": "saas_015",
+    "filename": "saas_015.txt",
+    "contract_type": "SaaS Agreement",
+    "risk_profile": "CRITICAL",
+    "party_a": "Abusive Vendor Corp",
+    "party_b": "Desperate Customer",
+    "expected_clause_types": [
+      "indemnification",
+      "limitation_of_liability",
+      "termination",
+      "confidentiality",
+      "data_protection",
+      "payment_terms",
+      "warranty",
+      "governing_law",
+      "dispute_resolution"
+    ],
+    "expected_high_risk_clause_types": [
+      "indemnification",
+      "limitation_of_liability",
+      "termination",
+      "confidentiality",
+      "data_protection",
+      "payment_terms",
+      "warranty",
+      "governing_law",
+      "dispute_resolution"
+    ],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "indemnification_HIGH",
+      "limitation_of_liability_CRITICAL",
+      "termination_HIGH",
+      "confidentiality_HIGH",
+      "data_protection_HIGH",
+      "payment_terms_HIGH",
+      "warranty_HIGH",
+      "governing_law_HIGH",
+      "dispute_resolution_HIGH",
+      "assignment_HIGH"
+    ]
+  },
+  {
+    "id": "emp_001",
+    "filename": "emp_001.txt",
+    "contract_type": "Employment Contract",
+    "risk_profile": "LOW",
+    "party_a": "GoodEmployer Inc.",
+    "party_b": "Jane Smith",
+    "expected_clause_types": [
+      "ip_assignment",
+      "non_compete",
+      "confidentiality",
+      "governing_law"
+    ],
+    "expected_high_risk_clause_types": [],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "ip_assignment_LOW",
+      "non_compete_LOW",
+      "confidentiality_LOW",
+      "governing_law_LOW",
+      "severance_LOW",
+      "representations_LOW"
+    ]
+  },
+  {
+    "id": "emp_002",
+    "filename": "emp_002.txt",
+    "contract_type": "Employment Contract",
+    "risk_profile": "LOW",
+    "party_a": "TechCompany CA",
+    "party_b": "Bob Developer",
+    "expected_clause_types": [
+      "ip_assignment",
+      "non_compete",
+      "confidentiality",
+      "governing_law"
+    ],
+    "expected_high_risk_clause_types": [],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "ip_assignment_LOW",
+      "non_compete_LOW",
+      "confidentiality_LOW",
+      "governing_law_LOW",
+      "severance_LOW"
+    ]
+  },
+  {
+    "id": "emp_003",
+    "filename": "emp_003.txt",
+    "contract_type": "Employment Contract",
+    "risk_profile": "LOW",
+    "party_a": "Startup Corp",
+    "party_b": "Alice Engineer",
+    "expected_clause_types": [
+      "ip_assignment",
+      "non_compete",
+      "confidentiality",
+      "governing_law"
+    ],
+    "expected_high_risk_clause_types": [],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "ip_assignment_MEDIUM",
+      "non_compete_LOW",
+      "confidentiality_LOW",
+      "governing_law_LOW",
+      "severance_LOW"
+    ]
+  },
+  {
+    "id": "emp_004",
+    "filename": "emp_004.txt",
+    "contract_type": "Employment Contract",
+    "risk_profile": "LOW",
+    "party_a": "ScaleUp Inc.",
+    "party_b": "Carlos Manager",
+    "expected_clause_types": [
+      "ip_assignment",
+      "non_compete",
+      "confidentiality",
+      "governing_law"
+    ],
+    "expected_high_risk_clause_types": [],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "ip_assignment_LOW",
+      "non_compete_MEDIUM",
+      "confidentiality_LOW",
+      "governing_law_LOW",
+      "severance_LOW"
+    ]
+  },
+  {
+    "id": "emp_005",
+    "filename": "emp_005.txt",
+    "contract_type": "Employment Contract",
+    "risk_profile": "MEDIUM",
+    "party_a": "Tech Firm LLC",
+    "party_b": "Dana Developer",
+    "expected_clause_types": [
+      "ip_assignment",
+      "non_compete",
+      "confidentiality",
+      "governing_law"
+    ],
+    "expected_high_risk_clause_types": [],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "ip_assignment_MEDIUM",
+      "non_compete_MEDIUM",
+      "confidentiality_MEDIUM",
+      "governing_law_LOW",
+      "severance_HIGH"
+    ]
+  },
+  {
+    "id": "emp_006",
+    "filename": "emp_006.txt",
+    "contract_type": "Employment Contract",
+    "risk_profile": "MEDIUM",
+    "party_a": "Software House Inc.",
+    "party_b": "Eric Engineer",
+    "expected_clause_types": [
+      "ip_assignment",
+      "non_compete",
+      "confidentiality",
+      "governing_law"
+    ],
+    "expected_high_risk_clause_types": [
+      "confidentiality"
+    ],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "ip_assignment_MEDIUM",
+      "non_compete_MEDIUM",
+      "confidentiality_MEDIUM",
+      "governing_law_MEDIUM",
+      "severance_HIGH"
+    ]
+  },
+  {
+    "id": "emp_007",
+    "filename": "emp_007.txt",
+    "contract_type": "Employment Contract",
+    "risk_profile": "MEDIUM",
+    "party_a": "Enterprise Co.",
+    "party_b": "Fiona PM",
+    "expected_clause_types": [
+      "ip_assignment",
+      "non_compete",
+      "confidentiality",
+      "governing_law"
+    ],
+    "expected_high_risk_clause_types": [
+      "ip_assignment"
+    ],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "ip_assignment_HIGH",
+      "non_compete_LOW",
+      "confidentiality_MEDIUM",
+      "governing_law_LOW",
+      "severance_HIGH"
+    ]
+  },
+  {
+    "id": "emp_008",
+    "filename": "emp_008.txt",
+    "contract_type": "Employment Contract",
+    "risk_profile": "MEDIUM",
+    "party_a": "Digital Agency",
+    "party_b": "George Designer",
+    "expected_clause_types": [
+      "ip_assignment",
+      "non_compete",
+      "confidentiality",
+      "governing_law"
+    ],
+    "expected_high_risk_clause_types": [
+      "ip_assignment"
+    ],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "ip_assignment_HIGH",
+      "non_compete_MEDIUM",
+      "confidentiality_LOW",
+      "governing_law_MEDIUM",
+      "severance_HIGH"
+    ]
+  },
+  {
+    "id": "emp_009",
+    "filename": "emp_009.txt",
+    "contract_type": "Employment Contract",
+    "risk_profile": "HIGH",
+    "party_a": "Aggressive Corp",
+    "party_b": "Hannah Engineer",
+    "expected_clause_types": [
+      "ip_assignment",
+      "non_compete",
+      "confidentiality",
+      "governing_law",
+      "dispute_resolution"
+    ],
+    "expected_high_risk_clause_types": [
+      "ip_assignment",
+      "non_compete",
+      "confidentiality",
+      "dispute_resolution"
+    ],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "ip_assignment_HIGH",
+      "non_compete_HIGH",
+      "confidentiality_HIGH",
+      "governing_law_HIGH",
+      "severance_HIGH",
+      "dispute_resolution_HIGH"
+    ]
+  },
+  {
+    "id": "emp_010",
+    "filename": "emp_010.txt",
+    "contract_type": "Employment Contract",
+    "risk_profile": "HIGH",
+    "party_a": "Control Freak Inc.",
+    "party_b": "Ivan Developer",
+    "expected_clause_types": [
+      "ip_assignment",
+      "non_compete",
+      "confidentiality",
+      "governing_law"
+    ],
+    "expected_high_risk_clause_types": [
+      "ip_assignment",
+      "non_compete",
+      "confidentiality"
+    ],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "ip_assignment_HIGH",
+      "non_compete_HIGH",
+      "confidentiality_HIGH",
+      "governing_law_HIGH",
+      "severance_HIGH"
+    ]
+  },
+  {
+    "id": "emp_011",
+    "filename": "emp_011.txt",
+    "contract_type": "Employment Contract",
+    "risk_profile": "HIGH",
+    "party_a": "Tech Giant Corp",
+    "party_b": "Julia Scientist",
+    "expected_clause_types": [
+      "ip_assignment",
+      "non_compete",
+      "confidentiality",
+      "governing_law",
+      "dispute_resolution"
+    ],
+    "expected_high_risk_clause_types": [
+      "ip_assignment",
+      "non_compete",
+      "dispute_resolution"
+    ],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "ip_assignment_HIGH",
+      "non_compete_HIGH",
+      "confidentiality_HIGH",
+      "governing_law_LOW",
+      "severance_HIGH",
+      "dispute_resolution_HIGH"
+    ]
+  },
+  {
+    "id": "emp_012",
+    "filename": "emp_012.txt",
+    "contract_type": "Employment Contract",
+    "risk_profile": "CRITICAL",
+    "party_a": "Maximum Control Corp",
+    "party_b": "Kevin Employee",
+    "expected_clause_types": [
+      "ip_assignment",
+      "non_compete",
+      "confidentiality",
+      "governing_law",
+      "dispute_resolution"
+    ],
+    "expected_high_risk_clause_types": [
+      "ip_assignment",
+      "non_compete",
+      "confidentiality",
+      "governing_law",
+      "dispute_resolution"
+    ],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "ip_assignment_HIGH",
+      "non_compete_HIGH",
+      "confidentiality_HIGH",
+      "governing_law_HIGH",
+      "severance_HIGH",
+      "dispute_resolution_HIGH",
+      "assignment_HIGH"
+    ]
+  },
+  {
+    "id": "svc_001",
+    "filename": "svc_001.txt",
+    "contract_type": "Service Agreement",
+    "risk_profile": "LOW",
+    "party_a": "Professional Services Co.",
+    "party_b": "Client Corp",
+    "expected_clause_types": [
+      "indemnification",
+      "limitation_of_liability",
+      "confidentiality",
+      "ip_assignment",
+      "payment_terms",
+      "termination",
+      "warranty",
+      "governing_law"
+    ],
+    "expected_high_risk_clause_types": [],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "indemnification_LOW",
+      "limitation_of_liability_LOW",
+      "confidentiality_LOW",
+      "ip_assignment_LOW",
+      "payment_terms_LOW",
+      "termination_LOW",
+      "warranty_LOW",
+      "governing_law_LOW"
+    ]
+  },
+  {
+    "id": "svc_002",
+    "filename": "svc_002.txt",
+    "contract_type": "Service Agreement",
+    "risk_profile": "LOW",
+    "party_a": "Consulting Firm LLP",
+    "party_b": "Mid-Market Client",
+    "expected_clause_types": [
+      "indemnification",
+      "limitation_of_liability",
+      "confidentiality",
+      "payment_terms",
+      "termination",
+      "warranty",
+      "governing_law",
+      "force_majeure"
+    ],
+    "expected_high_risk_clause_types": [],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "indemnification_LOW",
+      "limitation_of_liability_LOW",
+      "confidentiality_LOW",
+      "payment_terms_LOW",
+      "termination_LOW",
+      "warranty_LOW",
+      "governing_law_LOW",
+      "force_majeure_LOW"
+    ]
+  },
+  {
+    "id": "svc_003",
+    "filename": "svc_003.txt",
+    "contract_type": "Service Agreement",
+    "risk_profile": "LOW",
+    "party_a": "IT Services Provider",
+    "party_b": "Healthcare Client",
+    "expected_clause_types": [
+      "indemnification",
+      "limitation_of_liability",
+      "confidentiality",
+      "ip_assignment",
+      "data_protection",
+      "payment_terms",
+      "termination",
+      "governing_law"
+    ],
+    "expected_high_risk_clause_types": [],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "indemnification_LOW",
+      "limitation_of_liability_LOW",
+      "confidentiality_LOW",
+      "ip_assignment_LOW",
+      "data_protection_LOW",
+      "payment_terms_LOW",
+      "termination_LOW",
+      "governing_law_LOW"
+    ]
+  },
+  {
+    "id": "svc_004",
+    "filename": "svc_004.txt",
+    "contract_type": "Service Agreement",
+    "risk_profile": "LOW",
+    "party_a": "Design Agency LLC",
+    "party_b": "E-commerce Client",
+    "expected_clause_types": [
+      "indemnification",
+      "limitation_of_liability",
+      "confidentiality",
+      "ip_assignment",
+      "payment_terms",
+      "termination",
+      "warranty",
+      "governing_law"
+    ],
+    "expected_high_risk_clause_types": [],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "indemnification_LOW",
+      "limitation_of_liability_LOW",
+      "confidentiality_LOW",
+      "ip_assignment_LOW",
+      "payment_terms_LOW",
+      "termination_LOW",
+      "warranty_LOW",
+      "governing_law_LOW",
+      "assignment_LOW"
+    ]
+  },
+  {
+    "id": "svc_005",
+    "filename": "svc_005.txt",
+    "contract_type": "Service Agreement",
+    "risk_profile": "HIGH",
+    "party_a": "Dominant Agency",
+    "party_b": "Dependent Client",
+    "expected_clause_types": [
+      "indemnification",
+      "limitation_of_liability",
+      "confidentiality",
+      "ip_assignment",
+      "payment_terms",
+      "termination",
+      "warranty",
+      "governing_law"
+    ],
+    "expected_high_risk_clause_types": [
+      "indemnification",
+      "limitation_of_liability",
+      "ip_assignment",
+      "payment_terms",
+      "termination",
+      "warranty"
+    ],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "indemnification_HIGH",
+      "limitation_of_liability_HIGH",
+      "confidentiality_MEDIUM",
+      "ip_assignment_HIGH",
+      "payment_terms_HIGH",
+      "termination_HIGH",
+      "warranty_HIGH",
+      "governing_law_HIGH"
+    ]
+  },
+  {
+    "id": "svc_006",
+    "filename": "svc_006.txt",
+    "contract_type": "Service Agreement",
+    "risk_profile": "HIGH",
+    "party_a": "Big Agency Corp",
+    "party_b": "Small Client Inc.",
+    "expected_clause_types": [
+      "indemnification",
+      "limitation_of_liability",
+      "confidentiality",
+      "ip_assignment",
+      "payment_terms",
+      "termination",
+      "warranty",
+      "governing_law",
+      "dispute_resolution"
+    ],
+    "expected_high_risk_clause_types": [
+      "indemnification",
+      "limitation_of_liability",
+      "confidentiality",
+      "ip_assignment",
+      "payment_terms",
+      "termination"
+    ],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "indemnification_HIGH",
+      "limitation_of_liability_HIGH",
+      "confidentiality_HIGH",
+      "ip_assignment_HIGH",
+      "payment_terms_HIGH",
+      "termination_HIGH",
+      "warranty_HIGH",
+      "governing_law_HIGH",
+      "dispute_resolution_HIGH"
+    ]
+  },
+  {
+    "id": "svc_007",
+    "filename": "svc_007.txt",
+    "contract_type": "Service Agreement",
+    "risk_profile": "MEDIUM",
+    "party_a": "Tech Contractor LLC",
+    "party_b": "Finance Client",
+    "expected_clause_types": [
+      "indemnification",
+      "limitation_of_liability",
+      "confidentiality",
+      "ip_assignment",
+      "payment_terms",
+      "termination",
+      "warranty",
+      "governing_law"
+    ],
+    "expected_high_risk_clause_types": [
+      "indemnification",
+      "limitation_of_liability",
+      "payment_terms"
+    ],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "indemnification_MEDIUM",
+      "limitation_of_liability_MEDIUM",
+      "confidentiality_LOW",
+      "ip_assignment_MEDIUM",
+      "payment_terms_MEDIUM",
+      "termination_MEDIUM",
+      "warranty_LOW",
+      "governing_law_LOW"
+    ]
+  },
+  {
+    "id": "lease_001",
+    "filename": "lease_001.txt",
+    "contract_type": "Lease Agreement",
+    "risk_profile": "LOW",
+    "party_a": "Responsible Landlord LLC",
+    "party_b": "Tenant Corp",
+    "expected_clause_types": [
+      "governing_law"
+    ],
+    "expected_high_risk_clause_types": [],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "lease_rent_LOW",
+      "lease_termination_LOW",
+      "lease_maintenance_LOW",
+      "confidentiality_LOW",
+      "governing_law_LOW"
+    ]
+  },
+  {
+    "id": "lease_002",
+    "filename": "lease_002.txt",
+    "contract_type": "Lease Agreement",
+    "risk_profile": "LOW",
+    "party_a": "Fair Property Management",
+    "party_b": "Office Tenant Inc.",
+    "expected_clause_types": [
+      "governing_law",
+      "force_majeure"
+    ],
+    "expected_high_risk_clause_types": [],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "lease_rent_LOW",
+      "lease_termination_LOW",
+      "lease_maintenance_LOW",
+      "governing_law_LOW",
+      "force_majeure_LOW"
+    ]
+  },
+  {
+    "id": "lease_003",
+    "filename": "lease_003.txt",
+    "contract_type": "Lease Agreement",
+    "risk_profile": "HIGH",
+    "party_a": "Aggressive Landlord Corp",
+    "party_b": "Small Business Tenant",
+    "expected_clause_types": [
+      "indemnification",
+      "governing_law"
+    ],
+    "expected_high_risk_clause_types": [
+      "indemnification"
+    ],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "lease_rent_HIGH",
+      "lease_termination_HIGH",
+      "lease_maintenance_HIGH",
+      "indemnification_HIGH",
+      "governing_law_MEDIUM"
+    ]
+  },
+  {
+    "id": "lease_004",
+    "filename": "lease_004.txt",
+    "contract_type": "Lease Agreement",
+    "risk_profile": "HIGH",
+    "party_a": "Predatory Properties LLC",
+    "party_b": "Startup Tenant",
+    "expected_clause_types": [
+      "indemnification",
+      "governing_law",
+      "dispute_resolution"
+    ],
+    "expected_high_risk_clause_types": [
+      "indemnification",
+      "governing_law",
+      "dispute_resolution"
+    ],
+    "expected_missing_clauses": [],
+    "sections_used": [
+      "lease_rent_HIGH",
+      "lease_termination_HIGH",
+      "lease_maintenance_HIGH",
+      "indemnification_HIGH",
+      "governing_law_HIGH",
+      "dispute_resolution_HIGH"
+    ]
+  }
+]

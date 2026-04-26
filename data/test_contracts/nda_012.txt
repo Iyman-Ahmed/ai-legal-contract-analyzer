@@ -1,0 +1,40 @@
+NDA
+
+This NDA (this "Agreement") is entered into as of January 1, 2025 (the "Effective Date"), by and between:
+
+Platform Corp ("Party A" / "Company" / "Vendor" / "Landlord" / "Employer"), and
+Dependent Vendor ("Party B" / "Customer" / "Employee" / "Tenant" / "Contractor").
+
+RECITALS
+
+The parties desire to enter into this Agreement on the terms set forth herein.
+
+PURPOSE AND LICENSE
+
+The Disclosing Party grants the Receiving Party an irrevocable, perpetual, royalty-free license to use the Confidential Information for any purpose, including development of competing products and services, provided the Receiving Party does not directly attribute the information to the Disclosing Party.
+
+CONFIDENTIALITY
+
+Employee/Contractor agrees to keep all information obtained during the engagement strictly confidential in perpetuity — there is no time limit on this obligation. Confidential Information includes all information the Company considers proprietary, regardless of whether it is marked as confidential or is publicly available. There are no exceptions for information already in the public domain. Employee may not discuss the existence of this Agreement with any third party, including family members, without prior written approval. Violation shall result in liquidated damages of $500,000 per disclosure.
+
+GOVERNING LAW
+
+This Agreement shall be governed by the laws of the Cayman Islands. All disputes shall be resolved exclusively in the courts of the Cayman Islands. Each party irrevocably waives any right to object to such jurisdiction or to claim that such forum is inconvenient. Service of process may be effected by international mail.
+
+GENERAL PROVISIONS
+
+This Agreement constitutes the entire agreement between the parties with respect to its subject matter and supersedes all prior agreements. This Agreement may only be amended by a written instrument signed by both parties. If any provision is held unenforceable, the remaining provisions continue in full force. This Agreement may be executed in counterparts.
+
+IN WITNESS WHEREOF, the parties have executed this Agreement as of the Effective Date.
+
+PLATFORM CORP
+By: ___________________________
+Name:
+Title:
+Date: January 1, 2025
+
+DEPENDENT VENDOR
+By: ___________________________
+Name:
+Title:
+Date: January 1, 2025

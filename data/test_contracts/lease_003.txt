@@ -1,0 +1,48 @@
+LEASE AGREEMENT
+
+This Lease Agreement (this "Agreement") is entered into as of January 1, 2025 (the "Effective Date"), by and between:
+
+Aggressive Landlord Corp ("Party A" / "Company" / "Vendor" / "Landlord" / "Employer"), and
+Small Business Tenant ("Party B" / "Customer" / "Employee" / "Tenant" / "Contractor").
+
+RECITALS
+
+The parties desire to enter into this Agreement on the terms set forth herein.
+
+RENT
+
+Tenant shall pay monthly rent of $4,200 due on the first day of each month with no grace period. A late fee of 10% of monthly rent applies if rent is not received by 2:00 PM on the first day. Landlord may increase rent at any time upon seven (7) days' notice. Tenant waives all rights to dispute rent increases. Failure to pay any amount when due is grounds for immediate eviction proceedings.
+
+TERM AND TERMINATION
+
+Landlord may terminate this lease at any time for any reason with seven (7) days' written notice. Tenant may not sublet or assign without Landlord's written consent, which may be withheld for any reason. Tenant waives all rights to dispute eviction. Upon termination, Tenant must vacate within 24 hours and forfeits the security deposit regardless of the condition of the premises.
+
+MAINTENANCE
+
+Tenant accepts the premises in "as-is" condition and assumes full responsibility for all repairs, maintenance, and improvements during the lease term, including structural, plumbing, electrical, and HVAC systems. Landlord has no maintenance obligations. Tenant indemnifies Landlord for all claims arising from any condition of the premises.
+
+INDEMNIFICATION
+
+Customer shall indemnify, defend, and hold harmless Vendor and its affiliates, officers, directors, employees, agents, and successors from and against any and all claims, damages, losses, costs, and expenses (including reasonable attorneys' fees) arising out of or related to: (a) Customer's use of the Services; (b) any breach by Customer; (c) any third-party claims related to Customer Data; or (d) any violation of applicable law by Customer. Vendor has no indemnification obligations to Customer. This indemnification obligation is unlimited in amount and shall survive termination of this Agreement indefinitely.
+
+GOVERNING LAW
+
+This Agreement shall be governed by the laws of the State of New York. Any disputes shall be heard exclusively in the courts of New York County, New York. Each party waives any objection to such venue based on inconvenience.
+
+GENERAL PROVISIONS
+
+This Agreement constitutes the entire agreement between the parties with respect to its subject matter and supersedes all prior agreements. This Agreement may only be amended by a written instrument signed by both parties. If any provision is held unenforceable, the remaining provisions continue in full force. This Agreement may be executed in counterparts.
+
+IN WITNESS WHEREOF, the parties have executed this Agreement as of the Effective Date.
+
+AGGRESSIVE LANDLORD CORP
+By: ___________________________
+Name:
+Title:
+Date: January 1, 2025
+
+SMALL BUSINESS TENANT
+By: ___________________________
+Name:
+Title:
+Date: January 1, 2025

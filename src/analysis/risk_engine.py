@@ -290,7 +290,11 @@ class RiskAnalysisEngine:
 
         reference_text = self._format_references(reranked)
 
+<<<<<<< HEAD
         _NON_RETRYABLE = ("credit balance", "insufficient credits", "payment required", "authentication", "invalid api key", "permission denied")
+=======
+        _NON_RETRYABLE = ("credit balance", "billing", "authentication", "invalid api key", "permission")
+>>>>>>> 10dc0fef52cc06514eb978987f0bccd3f3e8ca4a
 
         for attempt in range(MAX_RETRIES):
             try:
@@ -351,7 +355,11 @@ class RiskAnalysisEngine:
             contract_type_hint=contract_type,
         )
 
+<<<<<<< HEAD
         _NON_RETRYABLE = ("credit balance", "insufficient credits", "payment required", "authentication", "invalid api key", "permission denied")
+=======
+        _NON_RETRYABLE = ("credit balance", "billing", "authentication", "invalid api key", "permission")
+>>>>>>> 10dc0fef52cc06514eb978987f0bccd3f3e8ca4a
 
         for attempt in range(MAX_RETRIES):
             try:

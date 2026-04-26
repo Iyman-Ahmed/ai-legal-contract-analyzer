@@ -1,0 +1,60 @@
+SAAS AGREEMENT
+
+This SaaS Agreement (this "Agreement") is entered into as of January 1, 2025 (the "Effective Date"), by and between:
+
+Monopoly SaaS Corp ("Party A" / "Company" / "Vendor" / "Landlord" / "Employer"), and
+No-Choice Enterprise ("Party B" / "Customer" / "Employee" / "Tenant" / "Contractor").
+
+RECITALS
+
+The parties desire to enter into this Agreement on the terms set forth herein.
+
+INDEMNIFICATION
+
+Customer shall indemnify, defend, and hold harmless Vendor and its affiliates, officers, directors, employees, agents, and successors from and against any and all claims, damages, losses, costs, and expenses (including reasonable attorneys' fees) arising out of or related to: (a) Customer's use of the Services; (b) any breach by Customer; (c) any third-party claims related to Customer Data; or (d) any violation of applicable law by Customer. Vendor has no indemnification obligations to Customer. This indemnification obligation is unlimited in amount and shall survive termination of this Agreement indefinitely.
+
+LIMITATION OF LIABILITY
+
+There is no cap on either party's liability under this Agreement. Both parties may seek unlimited damages in any forum of their choosing. Consequential, punitive, and special damages are expressly available. Vendor reserves the right to pursue Customer for lost future profits in the event of early termination by Customer for any reason.
+
+TERM AND TERMINATION
+
+This Agreement has a minimum term of three (3) years. Customer may not terminate for any reason during the minimum term. Vendor may terminate immediately at any time for any reason or no reason. Upon Vendor termination, all fees for the remaining term become immediately due and payable. Customer Data will be deleted within 24 hours of termination without opportunity for export. There is no cure period for any alleged breach.
+
+CONFIDENTIALITY
+
+Employee/Contractor agrees to keep all information obtained during the engagement strictly confidential in perpetuity — there is no time limit on this obligation. Confidential Information includes all information the Company considers proprietary, regardless of whether it is marked as confidential or is publicly available. There are no exceptions for information already in the public domain. Employee may not discuss the existence of this Agreement with any third party, including family members, without prior written approval. Violation shall result in liquidated damages of $500,000 per disclosure.
+
+PAYMENT TERMS
+
+All fees are due upon execution of this Agreement and are fully non-refundable regardless of circumstances, including early termination, service outages, or data loss. Customer shall pay all fees within five (5) business days of any invoice. Vendor may increase fees at any time without notice. Customer waives all rights to dispute any invoice. Failure to pay shall result in immediate termination of access with no data export opportunity.
+
+WARRANTY DISCLAIMER
+
+THE SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTY OF ANY KIND. VENDOR EXPRESSLY DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT. VENDOR DOES NOT WARRANT THAT THE SERVICES WILL BE UNINTERRUPTED, ERROR-FREE, SECURE, OR THAT DEFECTS WILL BE CORRECTED. VENDOR PROVIDES NO UPTIME GUARANTEE AND SHALL HAVE NO LIABILITY FOR DOWNTIME.
+
+GOVERNING LAW
+
+This Agreement shall be governed by the laws of the Cayman Islands. All disputes shall be resolved exclusively in the courts of the Cayman Islands. Each party irrevocably waives any right to object to such jurisdiction or to claim that such forum is inconvenient. Service of process may be effected by international mail.
+
+DISPUTE RESOLUTION
+
+All disputes shall be resolved exclusively by binding arbitration administered by Company's chosen arbitrator in Company's home city. Customer waives all rights to a jury trial, class action, or any court proceeding. The arbitrator shall apply Company's internal policies as the governing rules. The arbitration shall be confidential and Customer may not disclose the existence or outcome of any arbitration without Company's prior written consent. Company may seek injunctive relief in any court at any time.
+
+GENERAL PROVISIONS
+
+This Agreement constitutes the entire agreement between the parties with respect to its subject matter and supersedes all prior agreements. This Agreement may only be amended by a written instrument signed by both parties. If any provision is held unenforceable, the remaining provisions continue in full force. This Agreement may be executed in counterparts.
+
+IN WITNESS WHEREOF, the parties have executed this Agreement as of the Effective Date.
+
+MONOPOLY SAAS CORP
+By: ___________________________
+Name:
+Title:
+Date: January 1, 2025
+
+NO-CHOICE ENTERPRISE
+By: ___________________________
+Name:
+Title:
+Date: January 1, 2025

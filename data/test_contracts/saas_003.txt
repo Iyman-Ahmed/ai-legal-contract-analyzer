@@ -1,0 +1,60 @@
+SAAS AGREEMENT
+
+This SaaS Agreement (this "Agreement") is entered into as of January 1, 2025 (the "Effective Date"), by and between:
+
+DevTools Pro ("Party A" / "Company" / "Vendor" / "Landlord" / "Employer"), and
+Startup Customer ("Party B" / "Customer" / "Employee" / "Tenant" / "Contractor").
+
+RECITALS
+
+The parties desire to enter into this Agreement on the terms set forth herein.
+
+INDEMNIFICATION
+
+Each party ("Indemnifying Party") shall defend, indemnify, and hold harmless the other party and its officers, directors, and employees from and against any third-party claims arising out of the Indemnifying Party's gross negligence, willful misconduct, or material breach of this Agreement. Each party's total indemnification obligation shall not exceed the greater of (i) the fees paid in the preceding twelve (12) months or (ii) USD $100,000.
+
+LIMITATION OF LIABILITY
+
+IN NO EVENT SHALL EITHER PARTY BE LIABLE TO THE OTHER FOR ANY INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, PUNITIVE, OR CONSEQUENTIAL DAMAGES, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. EACH PARTY'S TOTAL CUMULATIVE LIABILITY SHALL NOT EXCEED THE GREATER OF: (A) THE FEES PAID IN THE TWELVE (12) MONTH PERIOD PRECEDING THE CLAIM; OR (B) USD $50,000. THESE LIMITATIONS SHALL NOT APPLY TO: (I) BREACHES OF CONFIDENTIALITY; (II) DATA PROTECTION VIOLATIONS; OR (III) GROSS NEGLIGENCE OR WILLFUL MISCONDUCT.
+
+TERM AND TERMINATION
+
+This Agreement commences on the Effective Date and continues for one (1) year, automatically renewing for successive one-year terms unless either party provides thirty (30) days' written notice of non-renewal. Either party may terminate for convenience upon thirty (30) days' written notice. Either party may terminate for material breach with a thirty (30) day written cure period. Immediate termination rights apply upon insolvency. Upon termination, all licenses terminate and each party shall return or destroy the other's Confidential Information within fifteen (15) days.
+
+CONFIDENTIALITY
+
+Each party agrees to hold in strict confidence all Confidential Information of the other party and not to disclose or use it except as necessary to perform obligations hereunder. Standard exceptions apply: information that is (a) publicly known through no breach; (b) already known to the Receiving Party; (c) received from a third party without restriction; (d) independently developed; or (e) required by law with prompt notice. Standard of care: at least the same as the Receiving Party uses for its own confidential information, no less than reasonable care. Term: two (2) years; trade secrets protected in perpetuity.
+
+DATA PROTECTION
+
+Each party shall implement appropriate technical and organizational measures to protect Personal Data against unauthorized access, disclosure, or destruction. Vendor shall notify Customer within seventy-two (72) hours of discovering a Personal Data breach. Vendor shall process Customer Personal Data only as instructed by Customer and solely for providing the Services. Vendor shall not sell Customer's Personal Data. Upon termination, Vendor shall delete or return all Customer Personal Data within thirty (30) days.
+
+WARRANTIES
+
+Vendor warrants that the Services will perform materially in accordance with the Documentation. Vendor implements commercially reasonable security measures. Services are provided by qualified professionals consistent with industry standards. If Services fail to conform, Vendor will re-perform or provide a pro-rata refund. EXCEPT AS STATED HEREIN, SERVICES ARE PROVIDED AS-IS WITHOUT OTHER WARRANTIES.
+
+GOVERNING LAW
+
+This Agreement shall be governed by and construed in accordance with the laws of the State of California, without regard to its conflict of laws principles. The parties submit to the exclusive jurisdiction of the state and federal courts located in San Francisco County, California.
+
+ASSIGNMENT
+
+Neither party may assign this Agreement without the prior written consent of the other party, not to be unreasonably withheld. Either party may assign without consent to an affiliate or to a successor in a merger or acquisition, provided the assignee assumes all obligations. Any purported assignment in violation of this section is void.
+
+GENERAL PROVISIONS
+
+This Agreement constitutes the entire agreement between the parties with respect to its subject matter and supersedes all prior agreements. This Agreement may only be amended by a written instrument signed by both parties. If any provision is held unenforceable, the remaining provisions continue in full force. This Agreement may be executed in counterparts.
+
+IN WITNESS WHEREOF, the parties have executed this Agreement as of the Effective Date.
+
+DEVTOOLS PRO
+By: ___________________________
+Name:
+Title:
+Date: January 1, 2025
+
+STARTUP CUSTOMER
+By: ___________________________
+Name:
+Title:
+Date: January 1, 2025

@@ -1,0 +1,60 @@
+SAAS AGREEMENT
+
+This SaaS Agreement (this "Agreement") is entered into as of January 1, 2025 (the "Effective Date"), by and between:
+
+Infrastructure SaaS ("Party A" / "Company" / "Vendor" / "Landlord" / "Employer"), and
+Financial Services Firm ("Party B" / "Customer" / "Employee" / "Tenant" / "Contractor").
+
+RECITALS
+
+The parties desire to enter into this Agreement on the terms set forth herein.
+
+INDEMNIFICATION
+
+Customer shall indemnify, defend, and hold harmless Vendor from and against any claims, damages, and expenses (including reasonable attorneys' fees) arising out of Customer's use of the Services or breach of this Agreement. Vendor shall indemnify Customer only for claims arising from Vendor's infringement of a third-party patent, copyright, or trademark. Vendor's indemnification obligation is capped at $50,000 total; Customer's is uncapped.
+
+LIMITATION OF LIABILITY
+
+VENDOR'S TOTAL LIABILITY TO CUSTOMER FOR ANY AND ALL CLAIMS SHALL NOT EXCEED THE FEES PAID IN THE THREE (3) MONTHS PRECEDING THE CLAIM. IN NO EVENT SHALL VENDOR BE LIABLE FOR ANY INDIRECT OR CONSEQUENTIAL DAMAGES. CUSTOMER'S LIABILITY TO VENDOR IS UNLIMITED. THE CAP APPLIES REGARDLESS OF THE FORM OF ACTION AND WHETHER IN CONTRACT, TORT, OR STRICT LIABILITY.
+
+TERM AND TERMINATION
+
+This Agreement commences on the Effective Date and continues for one (1) year, automatically renewing for successive one-year terms unless either party provides thirty (30) days' written notice of non-renewal. Either party may terminate for convenience upon thirty (30) days' written notice. Either party may terminate for material breach with a thirty (30) day written cure period. Immediate termination rights apply upon insolvency. Upon termination, all licenses terminate and each party shall return or destroy the other's Confidential Information within fifteen (15) days.
+
+CONFIDENTIALITY
+
+Each party agrees to hold in strict confidence all Confidential Information of the other party and not to disclose or use it except as necessary to perform obligations hereunder. Standard exceptions apply: information that is (a) publicly known through no breach; (b) already known to the Receiving Party; (c) received from a third party without restriction; (d) independently developed; or (e) required by law with prompt notice. Standard of care: at least the same as the Receiving Party uses for its own confidential information, no less than reasonable care. Term: two (2) years; trade secrets protected in perpetuity.
+
+DATA PROTECTION
+
+Each party shall implement appropriate technical and organizational measures to protect Personal Data against unauthorized access, disclosure, or destruction. Vendor shall notify Customer within seventy-two (72) hours of discovering a Personal Data breach. Vendor shall process Customer Personal Data only as instructed by Customer and solely for providing the Services. Vendor shall not sell Customer's Personal Data. Upon termination, Vendor shall delete or return all Customer Personal Data within thirty (30) days.
+
+PAYMENT TERMS
+
+Customer shall pay all invoices within fifteen (15) days of the invoice date. All fees are non-refundable once invoiced. Vendor may increase fees at any time upon thirty (30) days' notice. Customer is responsible for all taxes. Late payments accrue interest at 2% per month. Vendor may suspend services immediately upon non-payment without further notice.
+
+GOVERNING LAW
+
+This Agreement shall be governed by the laws of the State of New York. Any disputes shall be heard exclusively in the courts of New York County, New York. Each party waives any objection to such venue based on inconvenience.
+
+DISPUTE RESOLUTION
+
+Any dispute shall be resolved by binding arbitration in New York City under AAA rules. EACH PARTY WAIVES ITS RIGHT TO A JURY TRIAL AND TO PARTICIPATE IN A CLASS ACTION OR CLASS ARBITRATION. The arbitration shall be confidential. The arbitrator's award shall be final and not subject to appeal except as required by applicable law.
+
+GENERAL PROVISIONS
+
+This Agreement constitutes the entire agreement between the parties with respect to its subject matter and supersedes all prior agreements. This Agreement may only be amended by a written instrument signed by both parties. If any provision is held unenforceable, the remaining provisions continue in full force. This Agreement may be executed in counterparts.
+
+IN WITNESS WHEREOF, the parties have executed this Agreement as of the Effective Date.
+
+INFRASTRUCTURE SAAS
+By: ___________________________
+Name:
+Title:
+Date: January 1, 2025
+
+FINANCIAL SERVICES FIRM
+By: ___________________________
+Name:
+Title:
+Date: January 1, 2025

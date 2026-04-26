@@ -1,0 +1,1423 @@
+{
+  "summary": {
+    "total_contracts": 50,
+    "failed_contracts": 0,
+    "avg_precision": 0.9,
+    "avg_recall": 0.968,
+    "avg_f1": 0.924,
+    "avg_retrieval_hit_rate": 1.0,
+    "total_retrieval_hits": 266,
+    "total_retrieval_queries": 266,
+    "high_risk_recall": 0.588,
+    "low_risk_precision": 0.947
+  },
+  "by_type": {
+    "NDA": {
+      "count": 12,
+      "avg_f1": 0.945,
+      "avg_recall": 0.945,
+      "avg_retrieval_hit_rate": 1.0
+    },
+    "SaaS Agreement": {
+      "count": 15,
+      "avg_f1": 0.975,
+      "avg_recall": 0.953,
+      "avg_retrieval_hit_rate": 1.0
+    },
+    "Employment Contract": {
+      "count": 12,
+      "avg_f1": 0.887,
+      "avg_recall": 1.0,
+      "avg_retrieval_hit_rate": 1.0
+    },
+    "Service Agreement": {
+      "count": 7,
+      "avg_f1": 0.982,
+      "avg_recall": 0.966,
+      "avg_retrieval_hit_rate": 1.0
+    },
+    "Lease Agreement": {
+      "count": 4,
+      "avg_f1": 0.679,
+      "avg_recall": 1.0,
+      "avg_retrieval_hit_rate": 1.0
+    }
+  },
+  "by_risk_profile": {
+    "LOW": {
+      "count": 19,
+      "avg_f1": 0.914,
+      "avg_retrieval_hit_rate": 1.0
+    },
+    "MEDIUM": {
+      "count": 14,
+      "avg_f1": 0.945,
+      "avg_retrieval_hit_rate": 1.0
+    },
+    "HIGH": {
+      "count": 15,
+      "avg_f1": 0.916,
+      "avg_retrieval_hit_rate": 1.0
+    },
+    "CRITICAL": {
+      "count": 2,
+      "avg_f1": 0.925,
+      "avg_retrieval_hit_rate": 1.0
+    }
+  },
+  "lowest_f1": [
+    [
+      "lease_001",
+      0.5,
+      "Lease Agreement"
+    ],
+    [
+      "nda_001",
+      0.667,
+      "NDA"
+    ],
+    [
+      "nda_005",
+      0.667,
+      "NDA"
+    ],
+    [
+      "lease_003",
+      0.667,
+      "Lease Agreement"
+    ],
+    [
+      "lease_004",
+      0.75,
+      "Lease Agreement"
+    ]
+  ],
+  "lowest_retrieval": [
+    [
+      "nda_001",
+      1.0,
+      3,
+      3
+    ],
+    [
+      "nda_002",
+      1.0,
+      3,
+      3
+    ],
+    [
+      "nda_003",
+      1.0,
+      2,
+      2
+    ],
+    [
+      "nda_004",
+      1.0,
+      3,
+      3
+    ],
+    [
+      "nda_005",
+      1.0,
+      3,
+      3
+    ]
+  ],
+  "per_contract": [
+    {
+      "id": "nda_001",
+      "type": "NDA",
+      "risk": "LOW",
+      "precision": 0.667,
+      "recall": 0.667,
+      "f1": 0.667,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 8,
+      "detected": [
+        "confidentiality",
+        "warranty",
+        "governing_law"
+      ],
+      "expected": [
+        "confidentiality",
+        "governing_law",
+        "representations"
+      ],
+      "error": null
+    },
+    {
+      "id": "nda_002",
+      "type": "NDA",
+      "risk": "LOW",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 9,
+      "detected": [
+        "confidentiality",
+        "dispute_resolution",
+        "governing_law"
+      ],
+      "expected": [
+        "confidentiality",
+        "dispute_resolution",
+        "governing_law"
+      ],
+      "error": null
+    },
+    {
+      "id": "nda_003",
+      "type": "NDA",
+      "risk": "LOW",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 8,
+      "detected": [
+        "confidentiality",
+        "governing_law"
+      ],
+      "expected": [
+        "confidentiality",
+        "governing_law"
+      ],
+      "error": null
+    },
+    {
+      "id": "nda_004",
+      "type": "NDA",
+      "risk": "LOW",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 9,
+      "detected": [
+        "confidentiality",
+        "governing_law",
+        "force_majeure"
+      ],
+      "expected": [
+        "confidentiality",
+        "governing_law",
+        "force_majeure"
+      ],
+      "error": null
+    },
+    {
+      "id": "nda_005",
+      "type": "NDA",
+      "risk": "MEDIUM",
+      "precision": 0.667,
+      "recall": 0.667,
+      "f1": 0.667,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 9,
+      "detected": [
+        "confidentiality",
+        "warranty",
+        "governing_law"
+      ],
+      "expected": [
+        "confidentiality",
+        "governing_law",
+        "representations"
+      ],
+      "error": null
+    },
+    {
+      "id": "nda_006",
+      "type": "NDA",
+      "risk": "MEDIUM",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 8,
+      "detected": [
+        "confidentiality",
+        "dispute_resolution",
+        "governing_law"
+      ],
+      "expected": [
+        "confidentiality",
+        "governing_law",
+        "dispute_resolution"
+      ],
+      "error": null
+    },
+    {
+      "id": "nda_007",
+      "type": "NDA",
+      "risk": "MEDIUM",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 8,
+      "detected": [
+        "confidentiality",
+        "governing_law"
+      ],
+      "expected": [
+        "confidentiality",
+        "governing_law"
+      ],
+      "error": null
+    },
+    {
+      "id": "nda_008",
+      "type": "NDA",
+      "risk": "MEDIUM",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 8,
+      "detected": [
+        "confidentiality",
+        "governing_law"
+      ],
+      "expected": [
+        "confidentiality",
+        "governing_law"
+      ],
+      "error": null
+    },
+    {
+      "id": "nda_009",
+      "type": "NDA",
+      "risk": "HIGH",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 7,
+      "detected": [
+        "confidentiality",
+        "governing_law"
+      ],
+      "expected": [
+        "confidentiality",
+        "governing_law"
+      ],
+      "error": null
+    },
+    {
+      "id": "nda_010",
+      "type": "NDA",
+      "risk": "HIGH",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 9,
+      "detected": [
+        "confidentiality",
+        "dispute_resolution",
+        "governing_law"
+      ],
+      "expected": [
+        "confidentiality",
+        "dispute_resolution",
+        "governing_law"
+      ],
+      "error": null
+    },
+    {
+      "id": "nda_011",
+      "type": "NDA",
+      "risk": "HIGH",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 8,
+      "detected": [
+        "confidentiality",
+        "governing_law"
+      ],
+      "expected": [
+        "confidentiality",
+        "governing_law"
+      ],
+      "error": null
+    },
+    {
+      "id": "nda_012",
+      "type": "NDA",
+      "risk": "HIGH",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 8,
+      "detected": [
+        "confidentiality",
+        "governing_law"
+      ],
+      "expected": [
+        "confidentiality",
+        "governing_law"
+      ],
+      "error": null
+    },
+    {
+      "id": "saas_001",
+      "type": "SaaS Agreement",
+      "risk": "LOW",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 13,
+      "detected": [
+        "termination",
+        "confidentiality",
+        "warranty",
+        "governing_law",
+        "dispute_resolution",
+        "indemnification",
+        "limitation_of_liability",
+        "data_protection",
+        "payment_terms"
+      ],
+      "expected": [
+        "indemnification",
+        "limitation_of_liability",
+        "termination",
+        "confidentiality",
+        "data_protection",
+        "payment_terms",
+        "warranty",
+        "governing_law",
+        "dispute_resolution"
+      ],
+      "error": null
+    },
+    {
+      "id": "saas_002",
+      "type": "SaaS Agreement",
+      "risk": "LOW",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 13,
+      "detected": [
+        "termination",
+        "confidentiality",
+        "governing_law",
+        "indemnification",
+        "force_majeure",
+        "limitation_of_liability",
+        "data_protection",
+        "payment_terms"
+      ],
+      "expected": [
+        "indemnification",
+        "limitation_of_liability",
+        "termination",
+        "confidentiality",
+        "data_protection",
+        "payment_terms",
+        "force_majeure",
+        "governing_law"
+      ],
+      "error": null
+    },
+    {
+      "id": "saas_003",
+      "type": "SaaS Agreement",
+      "risk": "LOW",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 13,
+      "detected": [
+        "termination",
+        "confidentiality",
+        "warranty",
+        "governing_law",
+        "indemnification",
+        "limitation_of_liability",
+        "data_protection"
+      ],
+      "expected": [
+        "indemnification",
+        "limitation_of_liability",
+        "termination",
+        "confidentiality",
+        "data_protection",
+        "warranty",
+        "governing_law"
+      ],
+      "error": null
+    },
+    {
+      "id": "saas_004",
+      "type": "SaaS Agreement",
+      "risk": "LOW",
+      "precision": 1.0,
+      "recall": 0.889,
+      "f1": 0.941,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 13,
+      "detected": [
+        "termination",
+        "confidentiality",
+        "warranty",
+        "governing_law",
+        "indemnification",
+        "limitation_of_liability",
+        "data_protection",
+        "payment_terms"
+      ],
+      "expected": [
+        "indemnification",
+        "limitation_of_liability",
+        "termination",
+        "confidentiality",
+        "data_protection",
+        "payment_terms",
+        "warranty",
+        "representations",
+        "governing_law"
+      ],
+      "error": null
+    },
+    {
+      "id": "saas_005",
+      "type": "SaaS Agreement",
+      "risk": "LOW",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 13,
+      "detected": [
+        "termination",
+        "confidentiality",
+        "warranty",
+        "governing_law",
+        "indemnification",
+        "force_majeure",
+        "limitation_of_liability",
+        "data_protection",
+        "payment_terms"
+      ],
+      "expected": [
+        "indemnification",
+        "limitation_of_liability",
+        "termination",
+        "confidentiality",
+        "data_protection",
+        "payment_terms",
+        "warranty",
+        "governing_law",
+        "force_majeure"
+      ],
+      "error": null
+    },
+    {
+      "id": "saas_006",
+      "type": "SaaS Agreement",
+      "risk": "MEDIUM",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 12,
+      "detected": [
+        "termination",
+        "confidentiality",
+        "warranty",
+        "governing_law",
+        "indemnification",
+        "limitation_of_liability",
+        "payment_terms"
+      ],
+      "expected": [
+        "indemnification",
+        "limitation_of_liability",
+        "termination",
+        "confidentiality",
+        "payment_terms",
+        "warranty",
+        "governing_law"
+      ],
+      "error": null
+    },
+    {
+      "id": "saas_007",
+      "type": "SaaS Agreement",
+      "risk": "MEDIUM",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 11,
+      "detected": [
+        "termination",
+        "confidentiality",
+        "warranty",
+        "governing_law",
+        "indemnification",
+        "limitation_of_liability",
+        "payment_terms"
+      ],
+      "expected": [
+        "indemnification",
+        "limitation_of_liability",
+        "termination",
+        "confidentiality",
+        "payment_terms",
+        "warranty",
+        "governing_law"
+      ],
+      "error": null
+    },
+    {
+      "id": "saas_008",
+      "type": "SaaS Agreement",
+      "risk": "MEDIUM",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 13,
+      "detected": [
+        "termination",
+        "confidentiality",
+        "governing_law",
+        "dispute_resolution",
+        "indemnification",
+        "limitation_of_liability",
+        "data_protection",
+        "payment_terms"
+      ],
+      "expected": [
+        "indemnification",
+        "limitation_of_liability",
+        "termination",
+        "confidentiality",
+        "data_protection",
+        "payment_terms",
+        "governing_law",
+        "dispute_resolution"
+      ],
+      "error": null
+    },
+    {
+      "id": "saas_009",
+      "type": "SaaS Agreement",
+      "risk": "MEDIUM",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 11,
+      "detected": [
+        "termination",
+        "confidentiality",
+        "warranty",
+        "governing_law",
+        "indemnification",
+        "limitation_of_liability",
+        "payment_terms"
+      ],
+      "expected": [
+        "indemnification",
+        "limitation_of_liability",
+        "termination",
+        "confidentiality",
+        "payment_terms",
+        "warranty",
+        "governing_law"
+      ],
+      "error": null
+    },
+    {
+      "id": "saas_010",
+      "type": "SaaS Agreement",
+      "risk": "MEDIUM",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 11,
+      "detected": [
+        "termination",
+        "confidentiality",
+        "governing_law",
+        "indemnification",
+        "limitation_of_liability",
+        "data_protection",
+        "payment_terms"
+      ],
+      "expected": [
+        "indemnification",
+        "limitation_of_liability",
+        "termination",
+        "confidentiality",
+        "data_protection",
+        "payment_terms",
+        "governing_law"
+      ],
+      "error": null
+    },
+    {
+      "id": "saas_011",
+      "type": "SaaS Agreement",
+      "risk": "HIGH",
+      "precision": 1.0,
+      "recall": 0.889,
+      "f1": 0.941,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 14,
+      "detected": [
+        "termination",
+        "confidentiality",
+        "warranty",
+        "governing_law",
+        "dispute_resolution",
+        "indemnification",
+        "limitation_of_liability",
+        "data_protection"
+      ],
+      "expected": [
+        "indemnification",
+        "limitation_of_liability",
+        "termination",
+        "confidentiality",
+        "data_protection",
+        "payment_terms",
+        "warranty",
+        "governing_law",
+        "dispute_resolution"
+      ],
+      "error": null
+    },
+    {
+      "id": "saas_012",
+      "type": "SaaS Agreement",
+      "risk": "HIGH",
+      "precision": 1.0,
+      "recall": 0.875,
+      "f1": 0.933,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 13,
+      "detected": [
+        "termination",
+        "confidentiality",
+        "warranty",
+        "governing_law",
+        "indemnification",
+        "limitation_of_liability",
+        "dispute_resolution"
+      ],
+      "expected": [
+        "indemnification",
+        "limitation_of_liability",
+        "termination",
+        "confidentiality",
+        "payment_terms",
+        "warranty",
+        "governing_law",
+        "dispute_resolution"
+      ],
+      "error": null
+    },
+    {
+      "id": "saas_013",
+      "type": "SaaS Agreement",
+      "risk": "HIGH",
+      "precision": 1.0,
+      "recall": 0.875,
+      "f1": 0.933,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 13,
+      "detected": [
+        "termination",
+        "confidentiality",
+        "warranty",
+        "governing_law",
+        "indemnification",
+        "limitation_of_liability",
+        "data_protection"
+      ],
+      "expected": [
+        "indemnification",
+        "limitation_of_liability",
+        "termination",
+        "confidentiality",
+        "data_protection",
+        "payment_terms",
+        "warranty",
+        "governing_law"
+      ],
+      "error": null
+    },
+    {
+      "id": "saas_014",
+      "type": "SaaS Agreement",
+      "risk": "HIGH",
+      "precision": 1.0,
+      "recall": 0.875,
+      "f1": 0.933,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 12,
+      "detected": [
+        "termination",
+        "warranty",
+        "governing_law",
+        "dispute_resolution",
+        "indemnification",
+        "limitation_of_liability",
+        "data_protection"
+      ],
+      "expected": [
+        "indemnification",
+        "limitation_of_liability",
+        "termination",
+        "data_protection",
+        "payment_terms",
+        "warranty",
+        "governing_law",
+        "dispute_resolution"
+      ],
+      "error": null
+    },
+    {
+      "id": "saas_015",
+      "type": "SaaS Agreement",
+      "risk": "CRITICAL",
+      "precision": 1.0,
+      "recall": 0.889,
+      "f1": 0.941,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 15,
+      "detected": [
+        "termination",
+        "confidentiality",
+        "warranty",
+        "governing_law",
+        "dispute_resolution",
+        "indemnification",
+        "limitation_of_liability",
+        "data_protection"
+      ],
+      "expected": [
+        "indemnification",
+        "limitation_of_liability",
+        "termination",
+        "confidentiality",
+        "data_protection",
+        "payment_terms",
+        "warranty",
+        "governing_law",
+        "dispute_resolution"
+      ],
+      "error": null
+    },
+    {
+      "id": "emp_001",
+      "type": "Employment Contract",
+      "risk": "LOW",
+      "precision": 0.667,
+      "recall": 1.0,
+      "f1": 0.8,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 10,
+      "detected": [
+        "confidentiality",
+        "termination",
+        "warranty",
+        "non_compete",
+        "governing_law",
+        "ip_assignment"
+      ],
+      "expected": [
+        "ip_assignment",
+        "non_compete",
+        "confidentiality",
+        "governing_law"
+      ],
+      "error": null
+    },
+    {
+      "id": "emp_002",
+      "type": "Employment Contract",
+      "risk": "LOW",
+      "precision": 0.8,
+      "recall": 1.0,
+      "f1": 0.889,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 10,
+      "detected": [
+        "confidentiality",
+        "termination",
+        "non_compete",
+        "governing_law",
+        "ip_assignment"
+      ],
+      "expected": [
+        "ip_assignment",
+        "non_compete",
+        "confidentiality",
+        "governing_law"
+      ],
+      "error": null
+    },
+    {
+      "id": "emp_003",
+      "type": "Employment Contract",
+      "risk": "LOW",
+      "precision": 0.8,
+      "recall": 1.0,
+      "f1": 0.889,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 10,
+      "detected": [
+        "confidentiality",
+        "termination",
+        "non_compete",
+        "governing_law",
+        "ip_assignment"
+      ],
+      "expected": [
+        "ip_assignment",
+        "non_compete",
+        "confidentiality",
+        "governing_law"
+      ],
+      "error": null
+    },
+    {
+      "id": "emp_004",
+      "type": "Employment Contract",
+      "risk": "LOW",
+      "precision": 0.8,
+      "recall": 1.0,
+      "f1": 0.889,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 9,
+      "detected": [
+        "confidentiality",
+        "termination",
+        "non_compete",
+        "governing_law",
+        "ip_assignment"
+      ],
+      "expected": [
+        "ip_assignment",
+        "non_compete",
+        "confidentiality",
+        "governing_law"
+      ],
+      "error": null
+    },
+    {
+      "id": "emp_005",
+      "type": "Employment Contract",
+      "risk": "MEDIUM",
+      "precision": 0.8,
+      "recall": 1.0,
+      "f1": 0.889,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 10,
+      "detected": [
+        "confidentiality",
+        "termination",
+        "non_compete",
+        "governing_law",
+        "ip_assignment"
+      ],
+      "expected": [
+        "ip_assignment",
+        "non_compete",
+        "confidentiality",
+        "governing_law"
+      ],
+      "error": null
+    },
+    {
+      "id": "emp_006",
+      "type": "Employment Contract",
+      "risk": "MEDIUM",
+      "precision": 0.8,
+      "recall": 1.0,
+      "f1": 0.889,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 9,
+      "detected": [
+        "confidentiality",
+        "termination",
+        "non_compete",
+        "governing_law",
+        "ip_assignment"
+      ],
+      "expected": [
+        "ip_assignment",
+        "non_compete",
+        "confidentiality",
+        "governing_law"
+      ],
+      "error": null
+    },
+    {
+      "id": "emp_007",
+      "type": "Employment Contract",
+      "risk": "MEDIUM",
+      "precision": 0.8,
+      "recall": 1.0,
+      "f1": 0.889,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 9,
+      "detected": [
+        "confidentiality",
+        "termination",
+        "non_compete",
+        "governing_law",
+        "ip_assignment"
+      ],
+      "expected": [
+        "ip_assignment",
+        "non_compete",
+        "confidentiality",
+        "governing_law"
+      ],
+      "error": null
+    },
+    {
+      "id": "emp_008",
+      "type": "Employment Contract",
+      "risk": "MEDIUM",
+      "precision": 0.8,
+      "recall": 1.0,
+      "f1": 0.889,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 10,
+      "detected": [
+        "confidentiality",
+        "termination",
+        "non_compete",
+        "governing_law",
+        "ip_assignment"
+      ],
+      "expected": [
+        "ip_assignment",
+        "non_compete",
+        "confidentiality",
+        "governing_law"
+      ],
+      "error": null
+    },
+    {
+      "id": "emp_009",
+      "type": "Employment Contract",
+      "risk": "HIGH",
+      "precision": 0.833,
+      "recall": 1.0,
+      "f1": 0.909,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 11,
+      "detected": [
+        "confidentiality",
+        "termination",
+        "non_compete",
+        "governing_law",
+        "ip_assignment",
+        "dispute_resolution"
+      ],
+      "expected": [
+        "ip_assignment",
+        "non_compete",
+        "confidentiality",
+        "governing_law",
+        "dispute_resolution"
+      ],
+      "error": null
+    },
+    {
+      "id": "emp_010",
+      "type": "Employment Contract",
+      "risk": "HIGH",
+      "precision": 0.8,
+      "recall": 1.0,
+      "f1": 0.889,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 9,
+      "detected": [
+        "confidentiality",
+        "termination",
+        "non_compete",
+        "governing_law",
+        "ip_assignment"
+      ],
+      "expected": [
+        "ip_assignment",
+        "non_compete",
+        "confidentiality",
+        "governing_law"
+      ],
+      "error": null
+    },
+    {
+      "id": "emp_011",
+      "type": "Employment Contract",
+      "risk": "HIGH",
+      "precision": 0.833,
+      "recall": 1.0,
+      "f1": 0.909,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 11,
+      "detected": [
+        "confidentiality",
+        "termination",
+        "non_compete",
+        "governing_law",
+        "ip_assignment",
+        "dispute_resolution"
+      ],
+      "expected": [
+        "ip_assignment",
+        "non_compete",
+        "confidentiality",
+        "governing_law",
+        "dispute_resolution"
+      ],
+      "error": null
+    },
+    {
+      "id": "emp_012",
+      "type": "Employment Contract",
+      "risk": "CRITICAL",
+      "precision": 0.833,
+      "recall": 1.0,
+      "f1": 0.909,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 12,
+      "detected": [
+        "confidentiality",
+        "termination",
+        "non_compete",
+        "governing_law",
+        "ip_assignment",
+        "dispute_resolution"
+      ],
+      "expected": [
+        "ip_assignment",
+        "non_compete",
+        "confidentiality",
+        "governing_law",
+        "dispute_resolution"
+      ],
+      "error": null
+    },
+    {
+      "id": "svc_001",
+      "type": "Service Agreement",
+      "risk": "LOW",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 12,
+      "detected": [
+        "confidentiality",
+        "termination",
+        "warranty",
+        "governing_law",
+        "indemnification",
+        "ip_assignment",
+        "limitation_of_liability",
+        "payment_terms"
+      ],
+      "expected": [
+        "indemnification",
+        "limitation_of_liability",
+        "confidentiality",
+        "ip_assignment",
+        "payment_terms",
+        "termination",
+        "warranty",
+        "governing_law"
+      ],
+      "error": null
+    },
+    {
+      "id": "svc_002",
+      "type": "Service Agreement",
+      "risk": "LOW",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 13,
+      "detected": [
+        "confidentiality",
+        "termination",
+        "warranty",
+        "governing_law",
+        "indemnification",
+        "force_majeure",
+        "limitation_of_liability",
+        "payment_terms"
+      ],
+      "expected": [
+        "indemnification",
+        "limitation_of_liability",
+        "confidentiality",
+        "payment_terms",
+        "termination",
+        "warranty",
+        "governing_law",
+        "force_majeure"
+      ],
+      "error": null
+    },
+    {
+      "id": "svc_003",
+      "type": "Service Agreement",
+      "risk": "LOW",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 13,
+      "detected": [
+        "confidentiality",
+        "termination",
+        "governing_law",
+        "indemnification",
+        "ip_assignment",
+        "limitation_of_liability",
+        "data_protection",
+        "payment_terms"
+      ],
+      "expected": [
+        "indemnification",
+        "limitation_of_liability",
+        "confidentiality",
+        "ip_assignment",
+        "data_protection",
+        "payment_terms",
+        "termination",
+        "governing_law"
+      ],
+      "error": null
+    },
+    {
+      "id": "svc_004",
+      "type": "Service Agreement",
+      "risk": "LOW",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 14,
+      "detected": [
+        "confidentiality",
+        "termination",
+        "warranty",
+        "governing_law",
+        "indemnification",
+        "ip_assignment",
+        "limitation_of_liability",
+        "payment_terms"
+      ],
+      "expected": [
+        "indemnification",
+        "limitation_of_liability",
+        "confidentiality",
+        "ip_assignment",
+        "payment_terms",
+        "termination",
+        "warranty",
+        "governing_law"
+      ],
+      "error": null
+    },
+    {
+      "id": "svc_005",
+      "type": "Service Agreement",
+      "risk": "HIGH",
+      "precision": 1.0,
+      "recall": 0.875,
+      "f1": 0.933,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 13,
+      "detected": [
+        "confidentiality",
+        "termination",
+        "warranty",
+        "governing_law",
+        "indemnification",
+        "ip_assignment",
+        "limitation_of_liability"
+      ],
+      "expected": [
+        "indemnification",
+        "limitation_of_liability",
+        "confidentiality",
+        "ip_assignment",
+        "payment_terms",
+        "termination",
+        "warranty",
+        "governing_law"
+      ],
+      "error": null
+    },
+    {
+      "id": "svc_006",
+      "type": "Service Agreement",
+      "risk": "HIGH",
+      "precision": 1.0,
+      "recall": 0.889,
+      "f1": 0.941,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 13,
+      "detected": [
+        "confidentiality",
+        "termination",
+        "warranty",
+        "governing_law",
+        "indemnification",
+        "ip_assignment",
+        "limitation_of_liability",
+        "dispute_resolution"
+      ],
+      "expected": [
+        "indemnification",
+        "limitation_of_liability",
+        "confidentiality",
+        "ip_assignment",
+        "payment_terms",
+        "termination",
+        "warranty",
+        "governing_law",
+        "dispute_resolution"
+      ],
+      "error": null
+    },
+    {
+      "id": "svc_007",
+      "type": "Service Agreement",
+      "risk": "MEDIUM",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 13,
+      "detected": [
+        "confidentiality",
+        "termination",
+        "warranty",
+        "governing_law",
+        "indemnification",
+        "ip_assignment",
+        "limitation_of_liability",
+        "payment_terms"
+      ],
+      "expected": [
+        "indemnification",
+        "limitation_of_liability",
+        "confidentiality",
+        "ip_assignment",
+        "payment_terms",
+        "termination",
+        "warranty",
+        "governing_law"
+      ],
+      "error": null
+    },
+    {
+      "id": "lease_001",
+      "type": "Lease Agreement",
+      "risk": "LOW",
+      "precision": 0.333,
+      "recall": 1.0,
+      "f1": 0.5,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 10,
+      "detected": [
+        "termination",
+        "confidentiality",
+        "governing_law"
+      ],
+      "expected": [
+        "governing_law"
+      ],
+      "error": null
+    },
+    {
+      "id": "lease_002",
+      "type": "Lease Agreement",
+      "risk": "LOW",
+      "precision": 0.667,
+      "recall": 1.0,
+      "f1": 0.8,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 9,
+      "detected": [
+        "termination",
+        "governing_law",
+        "force_majeure"
+      ],
+      "expected": [
+        "governing_law",
+        "force_majeure"
+      ],
+      "error": null
+    },
+    {
+      "id": "lease_003",
+      "type": "Lease Agreement",
+      "risk": "HIGH",
+      "precision": 0.5,
+      "recall": 1.0,
+      "f1": 0.667,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 10,
+      "detected": [
+        "termination",
+        "governing_law",
+        "indemnification",
+        "payment_terms"
+      ],
+      "expected": [
+        "indemnification",
+        "governing_law"
+      ],
+      "error": null
+    },
+    {
+      "id": "lease_004",
+      "type": "Lease Agreement",
+      "risk": "HIGH",
+      "precision": 0.6,
+      "recall": 1.0,
+      "f1": 0.75,
+      "retrieval_hit_rate": 1.0,
+      "chunks": 11,
+      "detected": [
+        "termination",
+        "governing_law",
+        "indemnification",
+        "dispute_resolution",
+        "payment_terms"
+      ],
+      "expected": [
+        "indemnification",
+        "governing_law",
+        "dispute_resolution"
+      ],
+      "error": null
+    }
+  ]
+}
