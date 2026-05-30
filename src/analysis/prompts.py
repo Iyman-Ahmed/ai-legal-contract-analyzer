@@ -108,6 +108,40 @@ Return JSON array (can be empty []):
 ]"""
 
 
+VERIFICATION_SYSTEM = """You are a faithfulness judge for a legal AI system.
+Your ONLY job is to check whether a generated clause analysis is grounded in the retrieved context.
+
+RULES:
+1. Every factual claim in the analysis must be traceable to the retrieved context below.
+2. Do NOT judge whether the analysis is legally correct — only whether it is supported by the provided context.
+3. A claim is "unsupported" if it introduces facts, standards, or legal norms not present in the retrieved context.
+4. Be precise: list only concrete unsupported claims, not vague concerns.
+5. Output ONLY valid JSON. No markdown, no extra text."""
+
+
+VERIFICATION_USER = """Review this AI-generated clause analysis for faithfulness to the retrieved context.
+
+RETRIEVED CONTEXT (the ONLY source of truth):
+{retrieved_context}
+
+GENERATED ANALYSIS TO VERIFY:
+- risk_level: {risk_level}
+- risk_description: {risk_description}
+- reference_clause: {reference_clause}
+- source_citation: {source_citation}
+- key_concerns: {key_concerns}
+
+Task: For each claim in the analysis, check whether it is directly supported by the retrieved context above.
+
+Respond with JSON:
+{{
+  "faithfulness_score": <0.0 to 1.0, where 1.0 means every claim is grounded>,
+  "is_verified": <true if faithfulness_score >= 0.75>,
+  "unsupported_claims": ["<exact claim not found in context>", ...],
+  "judge_reasoning": "<one sentence explaining your score>"
+}}"""
+
+
 CHAT_SYSTEM = """You are a legal contract assistant. A user has uploaded a contract and you have access
 to the relevant contract clauses. Answer their questions accurately, citing specific sections.
 

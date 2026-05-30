@@ -17,6 +17,31 @@ class RiskLevel(str, Enum):
     CRITICAL = "CRITICAL"
 
 
+class VerificationResult(BaseModel):
+    """Output from the LLM-as-judge faithfulness check."""
+
+    faithfulness_score: float = Field(
+        ge=0.0, le=1.0,
+        description="0-1 score: fraction of claims grounded in retrieved context"
+    )
+    is_verified: bool = Field(
+        description="True when faithfulness_score >= 0.75"
+    )
+    unsupported_claims: list[str] = Field(
+        default_factory=list,
+        description="Claims in the analysis not traceable to retrieved context"
+    )
+    judge_reasoning: str = Field(
+        default="",
+        description="One-sentence explanation from the judge"
+    )
+
+    @field_validator("faithfulness_score", mode="before")
+    @classmethod
+    def clamp_score(cls, v) -> float:
+        return max(0.0, min(1.0, float(v)))
+
+
 class ClauseRisk(BaseModel):
     """Risk assessment for a single clause."""
 
@@ -52,6 +77,10 @@ class ClauseRisk(BaseModel):
     is_missing: bool = Field(
         default=False,
         description="True if this represents a missing standard clause"
+    )
+    verification: Optional[VerificationResult] = Field(
+        default=None,
+        description="LLM-as-judge faithfulness check result (None if not yet verified)"
     )
 
     @field_validator("reference_clause", "suggested_revision", "source_citation", mode="before")
@@ -132,7 +161,11 @@ class FullAnalysisResult(BaseModel):
     high_risk_count: int
     medium_risk_count: int
     low_risk_count: int
-    analysis_version: str = "1.0"
+    verified_count: int = Field(
+        default=0,
+        description="Clauses that passed the LLM-as-judge faithfulness check"
+    )
+    analysis_version: str = "2.0"
 
     @classmethod
     def from_clause_list(
@@ -145,6 +178,11 @@ class FullAnalysisResult(BaseModel):
         for c in clause_analyses:
             risk_counts[c.risk_level.value] += 1
 
+        verified_count = sum(
+            1 for c in clause_analyses
+            if c.verification is not None and c.verification.is_verified
+        )
+
         return cls(
             filename=filename,
             clause_analyses=clause_analyses,
@@ -153,6 +191,7 @@ class FullAnalysisResult(BaseModel):
             high_risk_count=risk_counts["HIGH"] + risk_counts["CRITICAL"],
             medium_risk_count=risk_counts["MEDIUM"],
             low_risk_count=risk_counts["LOW"],
+            verified_count=verified_count,
         )
 
 

@@ -48,6 +48,7 @@ from src.analysis.prompts import (
 from src.ingestion.metadata import EnrichedChunk
 from src.retrieval.hybrid_search import HybridSearchEngine
 from src.retrieval.reranker import CrossEncoderReranker
+from src.agents.verification import VerificationAgent
 
 logger = logging.getLogger(__name__)
 
@@ -187,6 +188,7 @@ class RiskAnalysisEngine:
         self.hybrid_search = hybrid_search
         self.reranker = reranker
         self.llm = LLMClient()
+        self.verifier = VerificationAgent(self.llm)
 
     def analyze_contract(
         self,
@@ -265,17 +267,22 @@ class RiskAnalysisEngine:
     # ── Map step ──────────────────────────────────────────────────────────────
 
     def _analyze_single_clause(self, chunk: EnrichedChunk) -> Optional[ClauseRisk]:
-        """Analyze one clause with retries for Pydantic validation failures."""
-        # Retrieve relevant reference clauses
-        candidates = self.hybrid_search.search_reference(
-            query=chunk.text,
-            top_k=10,
-            clause_type_filter=chunk.clause_type if chunk.clause_type != "general" else None,
+        """
+        Analyze one clause with Pydantic-validation retries AND a
+        post-analysis faithfulness check (LLM-as-judge).
+
+        Flow:
+          1. Retrieve reference clauses (filtered by clause type).
+          2. LLM analysis → Pydantic validation (up to MAX_RETRIES).
+          3. VerificationAgent judges faithfulness of the result.
+          4. If not verified: re-retrieve without type filter (broader),
+             re-analyze once more, attach verification to final result.
+        """
+        reranked, reference_text = self._retrieve_for_chunk(
+            chunk, use_type_filter=True
         )
-        reranked = self.reranker.rerank(query=chunk.text, candidates=candidates, top_n=4)
 
         if not reranked:
-            # No reference found — create a default assessment
             return ClauseRisk(
                 clause_text=chunk.text[:500],
                 clause_type=chunk.clause_type,
@@ -288,10 +295,63 @@ class RiskAnalysisEngine:
                 confidence_score=0.1,
             )
 
-        reference_text = self._format_references(reranked)
+        result = self._llm_analyze(chunk, reference_text, reranked)
+        if result is None:
+            return None
 
-        _NON_RETRYABLE = ("credit balance", "insufficient credits", "payment required", "authentication", "invalid api key", "permission denied")
+        # ── Verify faithfulness ───────────────────────────────────────────────
+        verification = self.verifier.verify(result, reference_text)
+        result.verification = verification
 
+        if not verification.is_verified:
+            logger.info(
+                f"[{chunk.clause_type}] verification failed "
+                f"(score={verification.faithfulness_score:.2f}), re-retrieving broadly"
+            )
+            # One retry with broader retrieval (no clause-type filter)
+            reranked2, reference_text2 = self._retrieve_for_chunk(
+                chunk, use_type_filter=False
+            )
+            if reranked2:
+                result2 = self._llm_analyze(chunk, reference_text2, reranked2)
+                if result2 is not None:
+                    verification2 = self.verifier.verify(result2, reference_text2)
+                    result2.verification = verification2
+                    return result2
+
+        return result
+
+    def _retrieve_for_chunk(
+        self,
+        chunk: EnrichedChunk,
+        use_type_filter: bool,
+    ) -> tuple[list[dict], str]:
+        """Retrieve and rerank reference clauses for a chunk."""
+        clause_filter = (
+            chunk.clause_type
+            if use_type_filter and chunk.clause_type != "general"
+            else None
+        )
+        candidates = self.hybrid_search.search_reference(
+            query=chunk.text,
+            top_k=10,
+            clause_type_filter=clause_filter,
+        )
+        reranked = self.reranker.rerank(query=chunk.text, candidates=candidates, top_n=4)
+        reference_text = self._format_references(reranked) if reranked else ""
+        return reranked, reference_text
+
+    def _llm_analyze(
+        self,
+        chunk: EnrichedChunk,
+        reference_text: str,
+        reranked: list[dict],
+    ) -> Optional[ClauseRisk]:
+        """Run LLM clause analysis with Pydantic-validation retries."""
+        _NON_RETRYABLE = (
+            "credit balance", "insufficient credits", "payment required",
+            "authentication", "invalid api key", "permission denied",
+        )
         for attempt in range(MAX_RETRIES):
             try:
                 prompt = CLAUSE_ANALYSIS_USER.format(
@@ -312,9 +372,7 @@ class RiskAnalysisEngine:
             except Exception as e:
                 err_lower = str(e).lower()
                 if any(phrase in err_lower for phrase in _NON_RETRYABLE):
-                    raise RuntimeError(
-                        f"LLM API error (non-retryable): {e}"
-                    ) from e
+                    raise RuntimeError(f"LLM API error (non-retryable): {e}") from e
                 logger.warning(f"Clause analysis attempt {attempt+1} failed: {e}")
                 if attempt == MAX_RETRIES - 1:
                     return ClauseRisk(
@@ -328,6 +386,7 @@ class RiskAnalysisEngine:
                         suggested_revision="Manual legal review required.",
                         confidence_score=0.0,
                     )
+        return None
 
     # ── Reduce step ───────────────────────────────────────────────────────────
 
