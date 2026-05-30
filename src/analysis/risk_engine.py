@@ -49,6 +49,7 @@ from src.ingestion.metadata import EnrichedChunk
 from src.retrieval.hybrid_search import HybridSearchEngine
 from src.retrieval.reranker import CrossEncoderReranker
 from src.agents.verification import VerificationAgent
+from src.agents.obligation import ObligationAgent
 
 logger = logging.getLogger(__name__)
 
@@ -189,6 +190,7 @@ class RiskAnalysisEngine:
         self.reranker = reranker
         self.llm = LLMClient()
         self.verifier = VerificationAgent(self.llm)
+        self.obligation_agent = ObligationAgent(self.llm)
 
     def analyze_contract(
         self,
@@ -239,9 +241,19 @@ class RiskAnalysisEngine:
         if not clause_analyses:
             raise RuntimeError("Analysis produced no results. Check API key and connectivity.")
 
+        # ── Obligation extraction ──────────────────────────────────────────────
+        if progress_callback:
+            progress_callback("Extracting obligations, deadlines, and notice periods...", 0.82)
+
+        obligation_table = None
+        try:
+            obligation_table = self.obligation_agent.extract(chunks_to_analyze)
+        except Exception as e:
+            logger.warning(f"Obligation extraction failed (non-fatal): {e}")
+
         # ── Missing clause check ───────────────────────────────────────────────
         if progress_callback:
-            progress_callback("Checking for missing standard clauses...", 0.85)
+            progress_callback("Checking for missing standard clauses...", 0.87)
 
         missing = self._check_missing_clauses(
             contract_type, [c.clause_type for c in clause_analyses]
@@ -258,11 +270,13 @@ class RiskAnalysisEngine:
         if progress_callback:
             progress_callback("Analysis complete.", 1.0)
 
-        return FullAnalysisResult.from_clause_list(
+        result = FullAnalysisResult.from_clause_list(
             filename=filename,
             clause_analyses=clause_analyses,
             document_summary=doc_summary,
         )
+        result.obligation_table = obligation_table
+        return result
 
     # ── Map step ──────────────────────────────────────────────────────────────
 

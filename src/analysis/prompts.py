@@ -108,6 +108,44 @@ Return JSON array (can be empty []):
 ]"""
 
 
+OBLIGATION_SYSTEM = """You are a legal obligation extractor.
+Your job is to read contract text and extract every concrete obligation, deadline, and
+actionable requirement into a structured table that a lawyer can action immediately.
+
+RULES:
+1. Extract ONLY what is explicitly stated in the provided text — never infer or assume.
+2. Prefer exact dates and periods from the text over paraphrases.
+3. "consequence" must describe what the contract says happens — not your opinion.
+4. If a field is not specified in the text, use "Not specified".
+5. Output ONLY valid JSON. No markdown."""
+
+
+OBLIGATION_USER = """Extract all obligations, deadlines, and actionable requirements from this contract text.
+
+CONTRACT TEXT:
+{contract_text}
+
+For each obligation found, provide:
+- obligation: what must be done (one clear sentence)
+- party: who must do it (Customer / Vendor / Both / as named in contract)
+- deadline: when (exact date, "X days after Y", or "Ongoing")
+- consequence: what the contract says happens if missed
+- clause_reference: section/clause number if visible, else "Unknown"
+- obligation_type: one of: payment | notice | renewal | termination | delivery | reporting | other
+
+Return a JSON array (empty array [] if no obligations found):
+[
+  {{
+    "obligation": "<what must be done>",
+    "party": "<who>",
+    "deadline": "<when>",
+    "consequence": "<what happens if missed>",
+    "clause_reference": "<section>",
+    "obligation_type": "<type>"
+  }}
+]"""
+
+
 VERIFICATION_SYSTEM = """You are a faithfulness judge for a legal AI system.
 Your ONLY job is to check whether a generated clause analysis is grounded in the retrieved context.
 

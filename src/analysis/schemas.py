@@ -152,6 +152,39 @@ class DocumentSummary(BaseModel):
     )
 
 
+class ObligationItem(BaseModel):
+    """A single actionable obligation extracted from the contract."""
+
+    obligation: str = Field(description="Plain-English description of what must be done")
+    party: str = Field(description="Which party must fulfill this (e.g. 'Customer', 'Vendor', 'Both')")
+    deadline: str = Field(description="When it must be done (date, event, or 'Ongoing')")
+    consequence: str = Field(description="What happens if missed or breached")
+    clause_reference: str = Field(description="Section or clause number where this appears")
+    obligation_type: str = Field(
+        description="Category: payment | notice | renewal | termination | delivery | reporting | other"
+    )
+
+
+class ObligationTable(BaseModel):
+    """All actionable obligations extracted from the contract."""
+
+    obligations: list[ObligationItem] = Field(default_factory=list)
+    high_priority_count: int = Field(
+        default=0,
+        description="Obligations with hard deadlines or high financial consequence"
+    )
+    extraction_note: str = Field(
+        default="",
+        description="Any caveats about extraction completeness"
+    )
+
+    @classmethod
+    def from_items(cls, items: list[ObligationItem]) -> "ObligationTable":
+        high_priority_types = {"payment", "notice", "termination", "renewal"}
+        high = sum(1 for i in items if i.obligation_type in high_priority_types)
+        return cls(obligations=items, high_priority_count=high)
+
+
 class FullAnalysisResult(BaseModel):
     """Complete analysis output for a contract."""
     filename: str
@@ -164,6 +197,10 @@ class FullAnalysisResult(BaseModel):
     verified_count: int = Field(
         default=0,
         description="Clauses that passed the LLM-as-judge faithfulness check"
+    )
+    obligation_table: Optional[ObligationTable] = Field(
+        default=None,
+        description="All actionable obligations extracted from the contract"
     )
     analysis_version: str = "2.0"
 
@@ -192,6 +229,7 @@ class FullAnalysisResult(BaseModel):
             medium_risk_count=risk_counts["MEDIUM"],
             low_risk_count=risk_counts["LOW"],
             verified_count=verified_count,
+            obligation_table=None,  # populated by RiskAnalysisEngine after extraction
         )
 
 
