@@ -10,7 +10,7 @@ cherry-pick back to main independently.
 
 ---
 
-## Phase 1 — LLM-as-judge Verification Agent ✅ / ⬜
+## Phase 1 — LLM-as-judge Verification Agent ✅
 **Commit prefix:** `feat(agents): `
 **Files changed:**
 - `src/agents/__init__.py` (new)
@@ -29,7 +29,7 @@ This is agentic RAG self-check — the pattern that separates production from de
 
 ---
 
-## Phase 2 — Obligation Extractor Agent ⬜
+## Phase 2 — Obligation Extractor Agent ✅
 **Commit prefix:** `feat(agents): `
 **Files changed:**
 - `src/agents/obligation.py` (new)
@@ -50,7 +50,7 @@ Lawyers use this table daily — it's the highest practical-value output.
 
 ---
 
-## Phase 3 — Cross-Clause Contradiction Detector ⬜
+## Phase 3 — Cross-Clause Contradiction Detector 🔨 IN PROGRESS
 **Commit prefix:** `feat(agents): `
 **Files changed:**
 - `src/agents/contradiction.py` (new)

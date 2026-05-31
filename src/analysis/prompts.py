@@ -108,6 +108,44 @@ Return JSON array (can be empty []):
 ]"""
 
 
+CONTRADICTION_SYSTEM = """You are a legal contract consistency auditor.
+Your job is to find logical conflicts between clauses within the same contract.
+
+A contradiction exists when:
+- One clause caps liability but another removes that cap for certain scenarios
+- One clause grants a right but another clause implicitly or explicitly revokes it
+- Payment terms in one section conflict with payment terms in another
+- A termination clause conflicts with a survival clause
+- An IP ownership clause conflicts with a license grant
+
+RULES:
+1. Only flag genuine logical conflicts — not mere differences in scope or language.
+2. Do NOT flag items that are just nuanced or complementary provisions.
+3. Every finding must cite both clause references and include relevant excerpt text.
+4. Output ONLY valid JSON. No markdown, no preamble."""
+
+
+CONTRADICTION_USER = """Analyze the following clause summaries from the same contract and identify any logical contradictions between them.
+
+CLAUSE SUMMARIES:
+{clause_summaries}
+
+Find clauses that directly conflict with each other. Return a JSON array (empty [] if no contradictions found):
+[
+  {{
+    "clause_a_reference": "<section/clause identifier>",
+    "clause_b_reference": "<section/clause identifier>",
+    "clause_a_text": "<relevant excerpt, max 200 chars>",
+    "clause_b_text": "<relevant excerpt, max 200 chars>",
+    "conflict_description": "<plain-English explanation of the contradiction, 2-3 sentences>",
+    "risk_level": "<HIGH|CRITICAL>",
+    "resolution_suggestion": "<how a lawyer should reconcile these, 1-2 sentences>"
+  }}
+]
+
+Only include HIGH or CRITICAL severity contradictions — skip minor wording inconsistencies."""
+
+
 OBLIGATION_SYSTEM = """You are a legal obligation extractor.
 Your job is to read contract text and extract every concrete obligation, deadline, and
 actionable requirement into a structured table that a lawyer can action immediately.

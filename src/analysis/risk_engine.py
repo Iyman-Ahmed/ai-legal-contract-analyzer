@@ -50,6 +50,7 @@ from src.retrieval.hybrid_search import HybridSearchEngine
 from src.retrieval.reranker import CrossEncoderReranker
 from src.agents.verification import VerificationAgent
 from src.agents.obligation import ObligationAgent
+from src.agents.contradiction import ContradictionAgent
 
 logger = logging.getLogger(__name__)
 
@@ -191,6 +192,7 @@ class RiskAnalysisEngine:
         self.llm = LLMClient()
         self.verifier = VerificationAgent(self.llm)
         self.obligation_agent = ObligationAgent(self.llm)
+        self.contradiction_agent = ContradictionAgent(self.llm)
 
     def analyze_contract(
         self,
@@ -251,9 +253,19 @@ class RiskAnalysisEngine:
         except Exception as e:
             logger.warning(f"Obligation extraction failed (non-fatal): {e}")
 
+        # ── Contradiction detection ────────────────────────────────────────────
+        if progress_callback:
+            progress_callback("Checking for cross-clause contradictions...", 0.87)
+
+        contradiction_report = None
+        try:
+            contradiction_report = self.contradiction_agent.detect(clause_analyses)
+        except Exception as e:
+            logger.warning(f"Contradiction detection failed (non-fatal): {e}")
+
         # ── Missing clause check ───────────────────────────────────────────────
         if progress_callback:
-            progress_callback("Checking for missing standard clauses...", 0.87)
+            progress_callback("Checking for missing standard clauses...", 0.90)
 
         missing = self._check_missing_clauses(
             contract_type, [c.clause_type for c in clause_analyses]
@@ -276,6 +288,7 @@ class RiskAnalysisEngine:
             document_summary=doc_summary,
         )
         result.obligation_table = obligation_table
+        result.contradiction_report = contradiction_report
         return result
 
     # ── Map step ──────────────────────────────────────────────────────────────

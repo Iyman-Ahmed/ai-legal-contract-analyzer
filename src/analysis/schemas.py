@@ -185,6 +185,47 @@ class ObligationTable(BaseModel):
         return cls(obligations=items, high_priority_count=high)
 
 
+class ContradictionFinding(BaseModel):
+    """A logical conflict detected between two clauses in the same contract."""
+
+    clause_a_reference: str = Field(
+        description="Section/clause identifier for the first conflicting clause"
+    )
+    clause_b_reference: str = Field(
+        description="Section/clause identifier for the second conflicting clause"
+    )
+    clause_a_text: str = Field(description="Relevant excerpt from clause A")
+    clause_b_text: str = Field(description="Relevant excerpt from clause B")
+    conflict_description: str = Field(
+        description="Plain-English explanation of how these clauses contradict each other"
+    )
+    risk_level: RiskLevel = Field(
+        description="Severity: HIGH if creates legal uncertainty, CRITICAL if one clause voids the other"
+    )
+    resolution_suggestion: str = Field(
+        description="How a lawyer should reconcile these two clauses"
+    )
+
+    @field_validator("risk_level", mode="before")
+    @classmethod
+    def normalize_risk_level(cls, v) -> str:
+        return v.upper().strip() if isinstance(v, str) else v
+
+
+class ContradictionReport(BaseModel):
+    """All cross-clause contradictions found in the contract."""
+
+    contradictions: list[ContradictionFinding] = Field(default_factory=list)
+    analysis_note: str = Field(
+        default="",
+        description="Caveat if contradiction analysis was skipped or partial"
+    )
+
+    @property
+    def has_critical(self) -> bool:
+        return any(c.risk_level == RiskLevel.CRITICAL for c in self.contradictions)
+
+
 class FullAnalysisResult(BaseModel):
     """Complete analysis output for a contract."""
     filename: str
@@ -201,6 +242,10 @@ class FullAnalysisResult(BaseModel):
     obligation_table: Optional[ObligationTable] = Field(
         default=None,
         description="All actionable obligations extracted from the contract"
+    )
+    contradiction_report: Optional[ContradictionReport] = Field(
+        default=None,
+        description="Cross-clause logical conflicts detected in the contract"
     )
     analysis_version: str = "2.0"
 
