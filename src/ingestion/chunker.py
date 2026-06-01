@@ -12,6 +12,7 @@ from typing import Optional
 import logging
 
 from src.ingestion.parser import ParsedDocument
+from config.settings import CHUNK_OVERLAP
 
 logger = logging.getLogger(__name__)
 
@@ -56,7 +57,7 @@ class SectionAwareChunker:
     3. Attach metadata: section_title, clause_number, page_number.
     """
 
-    def __init__(self, max_chars: int = 1800, overlap_chars: int = 150):
+    def __init__(self, max_chars: int = 1800, overlap_chars: int = CHUNK_OVERLAP):
         """
         Args:
             max_chars: Approx char limit per chunk (~512 tokens at ~3.5 chars/token)

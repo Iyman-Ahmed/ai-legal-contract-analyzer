@@ -17,6 +17,31 @@ class RiskLevel(str, Enum):
     CRITICAL = "CRITICAL"
 
 
+class VerificationResult(BaseModel):
+    """Output from the LLM-as-judge faithfulness check."""
+
+    faithfulness_score: float = Field(
+        ge=0.0, le=1.0,
+        description="0-1 score: fraction of claims grounded in retrieved context"
+    )
+    is_verified: bool = Field(
+        description="True when faithfulness_score >= 0.75"
+    )
+    unsupported_claims: list[str] = Field(
+        default_factory=list,
+        description="Claims in the analysis not traceable to retrieved context"
+    )
+    judge_reasoning: str = Field(
+        default="",
+        description="One-sentence explanation from the judge"
+    )
+
+    @field_validator("faithfulness_score", mode="before")
+    @classmethod
+    def clamp_score(cls, v) -> float:
+        return max(0.0, min(1.0, float(v)))
+
+
 class ClauseRisk(BaseModel):
     """Risk assessment for a single clause."""
 
@@ -52,6 +77,10 @@ class ClauseRisk(BaseModel):
     is_missing: bool = Field(
         default=False,
         description="True if this represents a missing standard clause"
+    )
+    verification: Optional[VerificationResult] = Field(
+        default=None,
+        description="LLM-as-judge faithfulness check result (None if not yet verified)"
     )
 
     @field_validator("reference_clause", "suggested_revision", "source_citation", mode="before")
@@ -123,6 +152,80 @@ class DocumentSummary(BaseModel):
     )
 
 
+class ObligationItem(BaseModel):
+    """A single actionable obligation extracted from the contract."""
+
+    obligation: str = Field(description="Plain-English description of what must be done")
+    party: str = Field(description="Which party must fulfill this (e.g. 'Customer', 'Vendor', 'Both')")
+    deadline: str = Field(description="When it must be done (date, event, or 'Ongoing')")
+    consequence: str = Field(description="What happens if missed or breached")
+    clause_reference: str = Field(description="Section or clause number where this appears")
+    obligation_type: str = Field(
+        description="Category: payment | notice | renewal | termination | delivery | reporting | other"
+    )
+
+
+class ObligationTable(BaseModel):
+    """All actionable obligations extracted from the contract."""
+
+    obligations: list[ObligationItem] = Field(default_factory=list)
+    high_priority_count: int = Field(
+        default=0,
+        description="Obligations with hard deadlines or high financial consequence"
+    )
+    extraction_note: str = Field(
+        default="",
+        description="Any caveats about extraction completeness"
+    )
+
+    @classmethod
+    def from_items(cls, items: list[ObligationItem]) -> "ObligationTable":
+        high_priority_types = {"payment", "notice", "termination", "renewal"}
+        high = sum(1 for i in items if i.obligation_type in high_priority_types)
+        return cls(obligations=items, high_priority_count=high)
+
+
+class ContradictionFinding(BaseModel):
+    """A logical conflict detected between two clauses in the same contract."""
+
+    clause_a_reference: str = Field(
+        description="Section/clause identifier for the first conflicting clause"
+    )
+    clause_b_reference: str = Field(
+        description="Section/clause identifier for the second conflicting clause"
+    )
+    clause_a_text: str = Field(description="Relevant excerpt from clause A")
+    clause_b_text: str = Field(description="Relevant excerpt from clause B")
+    conflict_description: str = Field(
+        description="Plain-English explanation of how these clauses contradict each other"
+    )
+    risk_level: RiskLevel = Field(
+        description="Severity: HIGH if creates legal uncertainty, CRITICAL if one clause voids the other"
+    )
+    resolution_suggestion: str = Field(
+        description="How a lawyer should reconcile these two clauses"
+    )
+
+    @field_validator("risk_level", mode="before")
+    @classmethod
+    def normalize_risk_level(cls, v) -> str:
+        return v.upper().strip() if isinstance(v, str) else v
+
+
+class ContradictionReport(BaseModel):
+    """All cross-clause contradictions found in the contract."""
+
+    contradictions: list[ContradictionFinding] = Field(default_factory=list)
+    analysis_note: str = Field(
+        default="",
+        description="Caveat if contradiction analysis was skipped or partial"
+    )
+
+    @property
+    def has_critical(self) -> bool:
+        return any(c.risk_level == RiskLevel.CRITICAL for c in self.contradictions)
+
+
 class FullAnalysisResult(BaseModel):
     """Complete analysis output for a contract."""
     filename: str
@@ -132,7 +235,19 @@ class FullAnalysisResult(BaseModel):
     high_risk_count: int
     medium_risk_count: int
     low_risk_count: int
-    analysis_version: str = "1.0"
+    verified_count: int = Field(
+        default=0,
+        description="Clauses that passed the LLM-as-judge faithfulness check"
+    )
+    obligation_table: Optional[ObligationTable] = Field(
+        default=None,
+        description="All actionable obligations extracted from the contract"
+    )
+    contradiction_report: Optional[ContradictionReport] = Field(
+        default=None,
+        description="Cross-clause logical conflicts detected in the contract"
+    )
+    analysis_version: str = "2.0"
 
     @classmethod
     def from_clause_list(
@@ -145,6 +260,11 @@ class FullAnalysisResult(BaseModel):
         for c in clause_analyses:
             risk_counts[c.risk_level.value] += 1
 
+        verified_count = sum(
+            1 for c in clause_analyses
+            if c.verification is not None and c.verification.is_verified
+        )
+
         return cls(
             filename=filename,
             clause_analyses=clause_analyses,
@@ -153,6 +273,8 @@ class FullAnalysisResult(BaseModel):
             high_risk_count=risk_counts["HIGH"] + risk_counts["CRITICAL"],
             medium_risk_count=risk_counts["MEDIUM"],
             low_risk_count=risk_counts["LOW"],
+            verified_count=verified_count,
+            obligation_table=None,  # populated by RiskAnalysisEngine after extraction
         )
 
 

@@ -90,10 +90,30 @@ class DocumentParser:
     def _parse_pdf(self, file_bytes: bytes, filename: str) -> ParsedDocument:
         """Parse PDF using PyMuPDF; fall back to pdfplumber on failure."""
         try:
-            return self._parse_pdf_pymupdf(file_bytes, filename)
+            doc = self._parse_pdf_pymupdf(file_bytes, filename)
         except Exception as e:
             logger.warning(f"PyMuPDF failed ({e}), falling back to pdfplumber")
-            return self._parse_pdf_pdfplumber(file_bytes, filename)
+            doc = self._parse_pdf_pdfplumber(file_bytes, filename)
+        self._warn_if_scanned(doc)
+        return doc
+
+    @staticmethod
+    def _warn_if_scanned(doc: "ParsedDocument") -> None:
+        """Warn when a PDF looks image-only (likely scanned, OCR not available)."""
+        if doc.file_type != "pdf":
+            return
+        chars = len(doc.full_text.strip())
+        chars_per_page = chars / max(doc.total_pages, 1)
+        if chars_per_page < 80:
+            doc.metadata["scanned_warning"] = (
+                "This PDF appears to be scanned or image-based. "
+                "Text extraction is likely incomplete. "
+                "For best results, use a digitally-born PDF or convert with OCR first."
+            )
+            logger.warning(
+                f"[{doc.filename}] Low text density ({chars_per_page:.0f} chars/page) — "
+                "may be a scanned PDF. OCR not available."
+            )
 
     def _parse_pdf_pymupdf(self, file_bytes: bytes, filename: str) -> ParsedDocument:
         import fitz  # PyMuPDF
