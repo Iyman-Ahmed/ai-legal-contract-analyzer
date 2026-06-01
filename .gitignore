@@ -58,3 +58,10 @@ models/
 # Logs
 *.log
 logs/
+
+# Claude Code instruction file — local only, never commit
+CLAUDE.md
+
+# Generated evaluation results
+data/evaluation/ragas_results.json
+data/audit_logs/
