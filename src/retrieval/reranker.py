@@ -14,7 +14,7 @@ Model: cross-encoder/ms-marco-MiniLM-L-6-v2
 import logging
 from typing import Optional
 
-from config.settings import RERANKER_MODEL, RERANK_TOP_K, FINAL_TOP_K
+from config.settings import RERANKER_MODEL, RERANK_TOP_K, FINAL_TOP_K, RERANKER_SCORE_THRESHOLD
 
 logger = logging.getLogger(__name__)
 
@@ -60,9 +60,21 @@ class CrossEncoderReranker:
 
         reranked = sorted(candidates, key=lambda d: d["rerank_score"], reverse=True)
 
+        # Drop results below confidence floor before slicing to top_n.
+        # Prevents low-relevance chunks from reaching the LLM when a clause
+        # is absent — the primary cause of hallucinated answers.
+        threshold = RERANKER_SCORE_THRESHOLD
+        above = [d for d in reranked if d["rerank_score"] >= threshold]
+        if not above:
+            logger.debug(
+                f"All {len(reranked)} results below threshold {threshold:.2f}; "
+                "returning empty (clause likely absent)"
+            )
+            return []
+
         logger.debug(
-            f"Reranked {len(candidates)} → top {top_n}: "
-            f"scores {[round(d['rerank_score'], 3) for d in reranked[:top_n]]}"
+            f"Reranked {len(candidates)} → {len(above)} above threshold={threshold:.2f} "
+            f"→ top {top_n}: scores {[round(d['rerank_score'], 3) for d in above[:top_n]]}"
         )
 
-        return reranked[:top_n]
+        return above[:top_n]

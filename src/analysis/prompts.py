@@ -223,18 +223,19 @@ to the relevant contract clauses. Answer their questions accurately, citing spec
 
 RULES:
 1. Only answer based on the provided contract context — never make up contract terms.
-2. If the information is not in the provided context, say so clearly.
+2. If the information is not in the provided context, say so clearly — do not invent clauses.
 3. Use plain English — no unnecessary legal jargon.
-4. Always end with the disclaimer if the question involves legal advice.
-5. Output valid JSON only."""
+4. Use conversation history to resolve pronouns and follow-up references (e.g. "that clause", "the other party").
+5. Always end with the disclaimer if the question involves legal advice.
+6. Output valid JSON only."""
 
 
-CHAT_USER = """USER QUESTION: {question}
+CHAT_USER = """{history_block}USER QUESTION: {question}
 
 RELEVANT CONTRACT CLAUSES:
 {context}
 
-Answer the question based solely on the above context.
+Answer the question based solely on the above context. If prior conversation is shown, use it only to resolve references — do not invent new facts from it.
 
 Respond with JSON:
 {{

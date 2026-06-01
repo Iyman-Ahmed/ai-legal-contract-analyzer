@@ -272,6 +272,7 @@ def chat_with_contract(question: str, history: list) -> tuple[list, str]:
         response = engine.answer_question(
             question=question,
             contract_chunks=_current_enriched_chunks,
+            history=history,          # pass prior turns for query rewriting + context
         )
         answer = response.get("answer", "Unable to generate answer.")
         citations = response.get("citations", [])
@@ -287,6 +288,18 @@ def chat_with_contract(question: str, history: list) -> tuple[list, str]:
         history.append((question, f"❌ Error: {str(e)}"))
 
     return history, ""
+
+
+def download_audit_log() -> tuple[str, str]:
+    """Return the current session audit log as a JSON string for Gradio download."""
+    engine = get_risk_engine()
+    if engine is None:
+        return "", "❌ No analysis has been run yet."
+    n = engine.audit.event_count()
+    if n == 0:
+        return "", "⚠️ No audit events recorded yet — run an analysis first."
+    content = engine.audit.to_json_string()
+    return content, f"✅ {n} audit events ready for download."
 
 
 def run_evaluation() -> str:
@@ -501,14 +514,15 @@ with gr.Blocks(
             gr.Markdown("""
             ### RAG Pipeline Quality Metrics
 
-            This evaluation runs a curated golden test set of 10 questions against the
-            retrieval pipeline to measure quality. This is what separates production systems
-            from tutorial projects — we measure and care about retrieval quality.
+            Runs a 15-question golden test set (easy / medium / hard) through the
+            retrieval pipeline. Metrics are LLM-as-judge when an API key is configured,
+            otherwise token-overlap heuristics.
 
             **Metrics:**
-            - **Context Precision:** Are retrieved documents relevant to the query?
-            - **Context Recall:** Does retrieved context contain expected information?
-            - **Answer Relevancy:** Does context align with ground-truth answers?
+            - **Faithfulness:** Claims grounded in retrieved context?
+            - **Answer Relevancy:** Answer directly addresses the question?
+            - **Context Precision:** Retrieved chunks relevant to the query?
+            - **Context Recall:** Context covers the expected answer?
             """)
 
             eval_btn = gr.Button("▶️ Run Evaluation", variant="secondary")
@@ -519,6 +533,22 @@ with gr.Blocks(
                 outputs=[eval_output],
                 show_progress=True,
             )
+
+            gr.Markdown("---\n### Audit Log (ABA Formal Opinion 512)")
+            gr.Markdown(
+                "_Every analysis emits a structured trace: clause → query → chunks "
+                "retrieved (with scores) → LLM response → verification score → final output._"
+            )
+            audit_status = gr.Markdown(value="")
+            audit_download = gr.Textbox(
+                label="Audit Log (JSON)", lines=4, interactive=False, visible=False
+            )
+            audit_btn = gr.Button("📋 Generate Audit Log", variant="secondary")
+
+            audit_btn.click(
+                fn=download_audit_log,
+                outputs=[audit_download, audit_status],
+            ).then(lambda _: gr.update(visible=True), inputs=[audit_download], outputs=[audit_download])
 
     # ── Single event handler — fires once per click, no duplicate API calls ──
     analyze_btn.click(

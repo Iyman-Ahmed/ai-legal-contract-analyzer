@@ -50,7 +50,7 @@ Lawyers use this table daily — it's the highest practical-value output.
 
 ---
 
-## Phase 3 — Cross-Clause Contradiction Detector 🔨 IN PROGRESS
+## Phase 3 — Cross-Clause Contradiction Detector ✅
 **Commit prefix:** `feat(agents): `
 **Files changed:**
 - `src/agents/contradiction.py` (new)
@@ -65,6 +65,34 @@ LLM call asking it to find logical contradictions between clauses
 Current system is blind to these because it analyzes each clause in isolation.
 
 **Test:** `pytest tests/test_analysis.py -v`
+
+---
+
+## Phase 3.5 — Category-Routed Chat + Hard Test Suite ✅
+**Commit prefix:** `feat(routing): `
+**Files changed:**
+- `src/analysis/risk_engine.py` (add `_infer_question_clause_type()`, update `answer_question()`)
+- `tests/test_chat_routing.py` (new — 61 unit tests, 4 integration tests)
+
+**What it does:**
+`answer_question()` previously searched ALL contract chunks for every question (no
+clause-type filter). Now it infers the clause category from question keywords and
+filters the vector search to that type first. Falls back to full-corpus search when
+the category is ambiguous or the filtered result set is too small.
+
+`_infer_question_clause_type()` scores 12 clause types using weighted keyword signals
+(same taxonomy as `MetadataExtractor`), applies an ambiguity margin to avoid
+over-routing on cross-clause questions.
+
+**Test suite covers:**
+- 43 unambiguous routing cases (all 12 clause types)
+- 7 off-topic questions that must return None (no hallucinated category)
+- 5 cross-clause questions with acceptable-outcome sets
+- 3 category-confusion cases (surface word ≠ correct category)
+- 3 paraphrase-graceful-degradation cases (documents known routing gaps)
+- Retrieval + hallucination resistance integration tests (require LLM)
+
+**Results:** 61/61 unit tests pass, 0 failures
 
 ---
 

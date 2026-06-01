@@ -39,6 +39,15 @@ EMBEDDING_DIMENSION: int = 768
 
 # ─── Reranker ─────────────────────────────────────────────────────────────────
 RERANKER_MODEL: str = "cross-encoder/ms-marco-MiniLM-L-6-v2"
+# ms-marco-MiniLM outputs raw logits (roughly -10 to +10), NOT normalized 0-1.
+# Default -10.0 is effectively off — all results pass through.
+# To enable filtering, set RERANKER_SCORE_THRESHOLD=-2.0 in .env (drops clearly
+# irrelevant chunks) or higher for stricter filtering.
+# Blueprint normalized-reranker guidance (0.3-0.5) does NOT apply directly here.
+# ms-marco-MiniLM raw logits reach -11 for completely unrelated pairs.
+# Default -100.0 is effectively disabled. Tune with RERANKER_SCORE_THRESHOLD=-2.0
+# in .env to drop clearly irrelevant chunks without cutting genuine results.
+RERANKER_SCORE_THRESHOLD: float = float(os.getenv("RERANKER_SCORE_THRESHOLD", "-100.0"))
 
 # ─── Retrieval ────────────────────────────────────────────────────────────────
 DENSE_TOP_K: int = 20          # candidates from dense search
