@@ -1,7 +1,7 @@
 # LegalRAG
 ### Multi-Agent RAG · LLM-as-Judge Verification · Obligation Extraction · Contradiction Detection · Category-Routed Chat
 
-A production-grade RAG application for legal contract risk analysis. Upload any contract (PDF, DOCX, TXT) and receive clause-by-clause risk assessment with citations, obligation tables, contradiction detection, and grounded Q&A — all self-verified by an LLM judge.
+A portfolio RAG prototype for legal contract risk analysis. Upload any contract (PDF, DOCX, TXT) and receive clause-by-clause risk assessment with citations, obligation tables, contradiction detection, and grounded Q&A — all self-verified by an LLM judge.
 
 **Live demo:** [Hugging Face Spaces](https://huggingface.co/spaces/Iyman-ahmed/legal-contract-analyzer-with-clause-risk)
 
@@ -89,7 +89,7 @@ PDF/DOCX/TXT Upload
 ## Key Design Decisions
 
 **Why multi-agent verification instead of a single LLM pass?**
-A single LLM call per clause produces plausible-sounding output but cannot catch its own unsupported claims. `VerificationAgent` runs a second LLM call as a judge: "Is every claim directly supported by the retrieved context?" If faithfulness score < 0.75, the pipeline re-retrieves with a broader query and re-analyzes — at most once. This pattern distinguishes production from demo.
+A single LLM call per clause produces plausible-sounding output but cannot catch its own unsupported claims. `VerificationAgent` runs a second LLM call as a judge: "Is every claim directly supported by the retrieved context?" If faithfulness score < 0.75, the pipeline re-retrieves with a broader query and re-analyzes — at most once. This is a verification heuristic; it does not establish legal correctness.
 
 **Why a separate ObligationAgent?**
 Clause risk analysis asks "how risky is this clause?" Obligation extraction asks "what must I actually do and by when?" They require different prompts, different schemas, and different reasoning. A dedicated agent with a targeted schema (deadline, party, consequence, clause_reference, obligation_type) produces far better results than mixing concerns in the risk prompt.
@@ -110,7 +110,7 @@ Reciprocal Rank Fusion requires no tuning — no α parameter to optimize. It co
 Recursive character splitting cuts clauses mid-sentence, destroying legal meaning. The chunker splits on legal section boundaries first (numbered clauses, `ARTICLE`, `SECTION` patterns), then falls back to sentence boundaries for large sections — preserving clause integrity throughout.
 
 **Why Pydantic with retry?**
-LLMs occasionally produce malformed JSON. Pydantic v2 validates the schema strictly and raises `ValidationError` on failure. We retry up to 3 times before falling back to a degraded response — production behavior, not tutorial behavior.
+LLMs occasionally produce malformed JSON. Pydantic v2 validates the schema strictly and raises `ValidationError` on failure. We retry up to 3 times before falling back to a degraded response — a bounded error-handling mechanism.
 
 ---
 
@@ -120,15 +120,17 @@ Evaluated on 50 generated contracts (NDA, SaaS, Employment, Service, Lease) at L
 
 | Metric | Score |
 |--------|-------|
-| Clause Detection Precision | 90.0% |
-| Clause Detection Recall | 96.8% |
-| Clause Detection F1 | 92.4% |
-| Retrieval Hit Rate | 100% (266/266 queries) |
-| High-Risk Clause Recall | 58.8% *(known gap — lease + NDA miss rate)* |
+| Mean Clause-Type Precision | 90.0% |
+| Mean Clause-Type Recall | 96.8% |
+| Mean Clause-Type F1 | 92.4% |
+| Type-filtered Nonempty Retrieval | 100% (266/266 queries) |
+| High-Risk Contracts With All Expected Risky Types | 58.8% *(known gap — lease + NDA miss rate)* |
+
+These are historical results on 50 synthetic contracts. Precision and recall compare sets of clause types per contract, then average across contracts. They do not measure legal-answer correctness, individual clause extraction, or user-query retrieval relevance. The 266 queries use the expected clause type as a filter and count any returned candidate; there are no independently judged relevance labels. The 58.8% metric is a contract-level coverage proxy, not risk-classification recall.
 
 **Per contract type:**
 
-| Contract Type | F1 | Recall | Retrieval Hit Rate |
+| Contract Type | F1 | Recall | Type-filtered Nonempty Retrieval |
 |---|---|---|---|
 | SaaS Agreement | 97.5% | 95.3% | 100% |
 | Service Agreement | 98.2% | 96.6% | 100% |
@@ -276,7 +278,7 @@ Results are saved to `data/evaluation/ragas_results.json`.
 
 ## Known Limitations
 
-- **High-risk recall gap:** 41% of HIGH-risk clauses are missed (recall = 58.8%). Worst in lease agreements (F1 = 67.9%) where lease-specific vocabulary diverges from reference clause patterns. Mitigation: expand reference corpus with lease-specific templates.
+- **High-risk contract coverage gap:** 41.2% of HIGH/CRITICAL synthetic contracts lack at least one expected risky clause type (complete type coverage = 58.8%). Worst in lease agreements (F1 = 67.9%) where lease-specific vocabulary diverges from reference clause patterns. Mitigation: expand reference corpus with lease-specific templates.
 - **Paraphrase routing gaps:** `_infer_question_clause_type()` uses keyword signals. Unusual legal phrasing ("ceiling on vendor's exposure" instead of "liability cap") falls back to full-corpus search — correct behavior, but slightly less efficient.
 - **Reference corpus size:** 20 hand-curated clauses. Adding CUAD's 500+ contracts would improve retrieval quality for edge-case clause variants.
 - **PDF layout complexity:** Multi-column contracts and scanned PDFs (requiring OCR) are not fully supported.

@@ -10,7 +10,7 @@ Three test classes with escalating integration depth:
 Design rationale
 ----------------
 The accuracy report showed two structural failures in the previous pipeline:
-  • high_risk_recall = 0.588  → 41 % of HIGH-risk clauses silently missed
+  • high_risk_contract_type_coverage = 0.588: 41.2% of HIGH/CRITICAL contracts lack an expected risky type
   • answer_question() searched all chunks with no clause-type filter
     → cross-category noise degraded precision and invited hallucination
 
@@ -366,7 +366,7 @@ class TestHallucinationResistance:
     Run with: pytest tests/test_chat_routing.py -m integration
 
     Known failure modes from the prior accuracy report:
-      - high_risk_recall = 0.588: system missed 41 % of HIGH-risk clauses
+      - high_risk_contract_type_coverage = 0.588: incomplete risky-type coverage in 41.2% of HIGH/CRITICAL contracts
       - Lease agreement F1 = 0.679: poorly classified lease language
       - The model previously hallucinated specific figures when asked about
         clauses that existed but were vague (e.g., "reasonable notice period")

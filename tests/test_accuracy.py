@@ -7,9 +7,10 @@ ingestion + retrieval pipeline and measures:
        - Recall:     of expected types, how many were detected?
        - F1:         harmonic mean of P and R
 
-  2. Retrieval Hit Rate
+  2. Type-filtered retrieval availability
        - For each expected clause type, does hybrid search surface
-         at least one relevant reference document?
+         at least one candidate when filtered by the expected clause type?
+         This does not measure independently judged relevance.
 
   3. Risk Profile Detection
        - Does the clause classifier produce any HIGH-signal clauses
@@ -70,9 +71,9 @@ class ContractResult:
     recall: float = 0.0
     f1: float = 0.0
 
-    retrieval_hits: int = 0
+    nonempty_retrieval_queries: int = 0
     retrieval_total: int = 0
-    retrieval_hit_rate: float = 0.0
+    type_filtered_nonempty_rate: float = 0.0
 
     false_high_risk_flags: list[str] = field(default_factory=list)  # for LOW contracts
     missed_high_risk_types: list[str] = field(default_factory=list)
@@ -93,13 +94,13 @@ class AccuracyReport:
     avg_f1: float = 0.0
 
     # Retrieval
-    avg_retrieval_hit_rate: float = 0.0
-    total_retrieval_hits: int = 0
+    avg_type_filtered_nonempty_rate: float = 0.0
+    total_nonempty_retrieval_queries: int = 0
     total_retrieval_queries: int = 0
 
     # Risk profile accuracy
-    high_risk_recall: float = 0.0   # HIGH contracts: did we catch their risky clauses?
-    low_risk_precision: float = 0.0  # LOW contracts: did we avoid false HIGH flags?
+    high_risk_contract_type_coverage: float = 0.0   # HIGH contracts: did we catch their risky clauses?
+    low_risk_contract_no_extra_signal_rate: float = 0.0  # LOW contracts: did we avoid false HIGH flags?
 
     # By contract type
     by_type: dict = field(default_factory=dict)
@@ -189,7 +190,7 @@ class AccuracyTestRunner:
         result.recall = round(recall, 3)
         result.f1 = round(f1, 3)
 
-        # ── Retrieval Hit Rate ─────────────────────────────────────────────────
+        # ── Type-filtered retrieval availability ─────────────────────────────────────────────────
         hits = 0
         total = len(expected)
         result.retrieval_total = total
@@ -203,8 +204,8 @@ class AccuracyTestRunner:
             if candidates:
                 hits += 1
 
-        result.retrieval_hits = hits
-        result.retrieval_hit_rate = round(hits / total, 3) if total > 0 else 1.0
+        result.nonempty_retrieval_queries = hits
+        result.type_filtered_nonempty_rate = round(hits / total, 3) if total > 0 else 1.0
 
         # ── Risk Profile Signal Check ──────────────────────────────────────────
         high_signal_types = {
@@ -250,7 +251,7 @@ class AccuracyTestRunner:
             print(f"  [{i:02d}/50] {status} {r.contract_id:15s} | "
                   f"type={r.contract_type:20s} | risk={r.risk_profile:8s} | "
                   f"P={r.precision:.2f} R={r.recall:.2f} F1={r.f1:.2f} | "
-                  f"retrieval={r.retrieval_hits}/{r.retrieval_total} | "
+                  f"retrieval={r.nonempty_retrieval_queries}/{r.retrieval_total} | "
                   f"chunks={r.chunk_count}")
 
         return self._aggregate(results)
@@ -270,12 +271,12 @@ class AccuracyTestRunner:
         report.avg_recall = round(statistics.mean(r.recall for r in ok), 3)
         report.avg_f1 = round(statistics.mean(r.f1 for r in ok), 3)
 
-        total_hits = sum(r.retrieval_hits for r in ok)
+        total_hits = sum(r.nonempty_retrieval_queries for r in ok)
         total_queries = sum(r.retrieval_total for r in ok)
-        report.total_retrieval_hits = total_hits
+        report.total_nonempty_retrieval_queries = total_hits
         report.total_retrieval_queries = total_queries
-        report.avg_retrieval_hit_rate = round(
-            statistics.mean(r.retrieval_hit_rate for r in ok), 3
+        report.avg_type_filtered_nonempty_rate = round(
+            statistics.mean(r.type_filtered_nonempty_rate for r in ok), 3
         )
 
         # Risk profile checks
@@ -285,12 +286,12 @@ class AccuracyTestRunner:
         if high_contracts:
             # HIGH recall: fraction of high-risk contracts where we missed 0 high-risk types
             caught = sum(1 for r in high_contracts if not r.missed_high_risk_types)
-            report.high_risk_recall = round(caught / len(high_contracts), 3)
+            report.high_risk_contract_type_coverage = round(caught / len(high_contracts), 3)
 
         if low_contracts:
-            # LOW precision: fraction of LOW contracts with no false HIGH flags
+            # LOW no-extra-signal rate: fraction of LOW contracts with no false HIGH flags
             clean = sum(1 for r in low_contracts if not r.false_high_risk_flags)
-            report.low_risk_precision = round(clean / len(low_contracts), 3)
+            report.low_risk_contract_no_extra_signal_rate = round(clean / len(low_contracts), 3)
 
         # By contract type
         type_groups = defaultdict(list)
@@ -301,8 +302,8 @@ class AccuracyTestRunner:
                 "count": len(group),
                 "avg_f1": round(statistics.mean(r.f1 for r in group), 3),
                 "avg_recall": round(statistics.mean(r.recall for r in group), 3),
-                "avg_retrieval_hit_rate": round(
-                    statistics.mean(r.retrieval_hit_rate for r in group), 3
+                "avg_type_filtered_nonempty_rate": round(
+                    statistics.mean(r.type_filtered_nonempty_rate for r in group), 3
                 ),
             }
 
@@ -314,8 +315,8 @@ class AccuracyTestRunner:
             report.by_risk_profile[rp] = {
                 "count": len(group),
                 "avg_f1": round(statistics.mean(r.f1 for r in group), 3),
-                "avg_retrieval_hit_rate": round(
-                    statistics.mean(r.retrieval_hit_rate for r in group), 3
+                "avg_type_filtered_nonempty_rate": round(
+                    statistics.mean(r.type_filtered_nonempty_rate for r in group), 3
                 ),
             }
 
@@ -325,7 +326,7 @@ class AccuracyTestRunner:
             key=lambda x: x[1]
         )[:5]
         report.lowest_retrieval_contracts = sorted(
-            [(r.contract_id, r.retrieval_hit_rate, r.retrieval_hits, r.retrieval_total)
+            [(r.contract_id, r.type_filtered_nonempty_rate, r.nonempty_retrieval_queries, r.retrieval_total)
              for r in ok],
             key=lambda x: x[1]
         )[:5]
@@ -352,17 +353,17 @@ def print_report(report: AccuracyReport):
     print(f"  Avg F1 Score:    {report.avg_f1:.1%}  (harmonic mean)")
 
     print(f"\n{SEP}")
-    print(f"  RETRIEVAL HIT RATE")
+    print(f"  TYPE-FILTERED RETRIEVAL AVAILABILITY")
     print(f"{SEP}")
-    print(f"  Avg Hit Rate:    {report.avg_retrieval_hit_rate:.1%}  "
-          f"({report.total_retrieval_hits}/{report.total_retrieval_queries} queries returned ≥1 relevant doc)")
+    print(f"  Avg Hit Rate:    {report.avg_type_filtered_nonempty_rate:.1%}  "
+          f"({report.total_nonempty_retrieval_queries}/{report.total_retrieval_queries} queries returned ≥1 candidate under an expected-type filter)")
 
     print(f"\n{SEP}")
     print(f"  RISK PROFILE SIGNALS")
     print(f"{SEP}")
-    print(f"  HIGH/CRITICAL recall: {report.high_risk_recall:.1%}  "
-          f"(HIGH-risk contracts where all risky clauses were signalled)")
-    print(f"  LOW precision:        {report.low_risk_precision:.1%}  "
+    print(f"  HIGH/CRITICAL full type coverage: {report.high_risk_contract_type_coverage:.1%}  "
+          f"(HIGH-risk contracts where all expected risky clause types were signalled)")
+    print(f"  LOW no-extra-signal rate:        {report.low_risk_contract_no_extra_signal_rate:.1%}  "
           f"(LOW-risk contracts without false-HIGH flags)")
 
     print(f"\n{SEP}")
@@ -372,7 +373,7 @@ def print_report(report: AccuracyReport):
     print(f"  {'-'*22} {'-'*5}  {'-'*7}  {'-'*10}  {'-'*10}")
     for ct, stats in sorted(report.by_type.items()):
         print(f"  {ct:<22} {stats['count']:>5}  {stats['avg_f1']:>6.1%}  "
-              f"{stats['avg_recall']:>9.1%}  {stats['avg_retrieval_hit_rate']:>9.1%}")
+              f"{stats['avg_recall']:>9.1%}  {stats['avg_type_filtered_nonempty_rate']:>9.1%}")
 
     print(f"\n{SEP}")
     print(f"  BY RISK PROFILE")
@@ -381,7 +382,7 @@ def print_report(report: AccuracyReport):
     print(f"  {'-'*12} {'-'*5}  {'-'*7}  {'-'*10}")
     for rp, stats in sorted(report.by_risk_profile.items()):
         print(f"  {rp:<12} {stats['count']:>5}  {stats['avg_f1']:>6.1%}  "
-              f"{stats['avg_retrieval_hit_rate']:>9.1%}")
+              f"{stats['avg_type_filtered_nonempty_rate']:>9.1%}")
 
     print(f"\n{SEP}")
     print(f"  LOWEST F1 CONTRACTS (improvement targets)")
@@ -390,7 +391,7 @@ def print_report(report: AccuracyReport):
         print(f"  {cid:<15} F1={f1:.2f}  ({ctype})")
 
     print(f"\n{SEP}")
-    print(f"  LOWEST RETRIEVAL HIT RATE")
+    print(f"  LOWEST TYPE-FILTERED RETRIEVAL AVAILABILITY")
     print(f"{SEP}")
     for cid, rate, hits, total in report.lowest_retrieval_contracts:
         print(f"  {cid:<15} {rate:.1%}  ({hits}/{total} queries hit)")
@@ -537,10 +538,10 @@ class TestIngestionAccuracy:
 class TestRetrievalAccuracy:
     """Hybrid search hit rate across all 50 contracts."""
 
-    def test_overall_retrieval_hit_rate_above_threshold(self, full_report):
-        """Retrieval must surface at least 1 relevant reference for ≥70% of expected clause types."""
-        assert full_report.avg_retrieval_hit_rate >= 0.70, \
-            f"Retrieval hit rate {full_report.avg_retrieval_hit_rate:.1%} below 70%"
+    def test_overall_type_filtered_nonempty_rate_above_threshold(self, full_report):
+        """Retrieval must surface at least 1 type-filtered candidate for ≥70% of expected clause types."""
+        assert full_report.avg_type_filtered_nonempty_rate >= 0.70, \
+            f"Retrieval hit rate {full_report.avg_type_filtered_nonempty_rate:.1%} below 70%"
 
     def test_indemnification_retrieval(self, runner, manifest):
         """Indemnification queries must always retrieve at least one reference."""
@@ -551,7 +552,7 @@ class TestRetrievalAccuracy:
         for entry in contracts_with_indemnity[:10]:  # test first 10 for speed
             result = runner.run_single(entry)
             # Check that indemnification retrieval worked
-            if result.retrieval_hit_rate < 0.3:
+            if result.type_filtered_nonempty_rate < 0.3:
                 misses.append(entry["id"])
         assert len(misses) <= 2, \
             f"Too many indemnification retrieval misses: {misses}"
@@ -562,15 +563,15 @@ class TestRetrievalAccuracy:
         misses = []
         for entry in ndas:
             result = runner.run_single(entry)
-            if result.retrieval_hits == 0:
+            if result.nonempty_retrieval_queries == 0:
                 misses.append(entry["id"])
         assert not misses, f"NDAs with zero retrieval hits: {misses}"
 
-    def test_retrieval_hit_rate_by_type(self, full_report):
+    def test_type_filtered_nonempty_rate_by_type(self, full_report):
         """Every contract type must have ≥60% retrieval hit rate."""
         for ct, stats in full_report.by_type.items():
-            assert stats["avg_retrieval_hit_rate"] >= 0.60, \
-                f"{ct} retrieval hit rate {stats['avg_retrieval_hit_rate']:.1%} below 60%"
+            assert stats["avg_type_filtered_nonempty_rate"] >= 0.60, \
+                f"{ct} retrieval hit rate {stats['avg_type_filtered_nonempty_rate']:.1%} below 60%"
 
     def test_total_retrieval_queries(self, full_report):
         """Total retrieval queries should be substantial (all expected clause types queried)."""
@@ -593,7 +594,7 @@ class TestRiskSignalAccuracy:
 
         NDAs are compact (2 types); SaaS/Employment have 5-9 expected types.
         Aggressive-language clauses are intentionally harder to classify —
-        75% recall is the production-quality threshold for high-risk contracts.
+        75% is a synthetic-suite detection-count heuristic, not a validated safety threshold.
         """
         high_results = [r for r in full_report.results if r.risk_profile in ("HIGH", "CRITICAL")]
         under_detected = []
@@ -679,11 +680,11 @@ if __name__ == "__main__":
             "avg_precision": report.avg_precision,
             "avg_recall": report.avg_recall,
             "avg_f1": report.avg_f1,
-            "avg_retrieval_hit_rate": report.avg_retrieval_hit_rate,
-            "total_retrieval_hits": report.total_retrieval_hits,
+            "avg_type_filtered_nonempty_rate": report.avg_type_filtered_nonempty_rate,
+            "total_nonempty_retrieval_queries": report.total_nonempty_retrieval_queries,
             "total_retrieval_queries": report.total_retrieval_queries,
-            "high_risk_recall": report.high_risk_recall,
-            "low_risk_precision": report.low_risk_precision,
+            "high_risk_contract_type_coverage": report.high_risk_contract_type_coverage,
+            "low_risk_contract_no_extra_signal_rate": report.low_risk_contract_no_extra_signal_rate,
         },
         "by_type": report.by_type,
         "by_risk_profile": report.by_risk_profile,
@@ -697,7 +698,7 @@ if __name__ == "__main__":
                 "precision": r.precision,
                 "recall": r.recall,
                 "f1": r.f1,
-                "retrieval_hit_rate": r.retrieval_hit_rate,
+                "type_filtered_nonempty_rate": r.type_filtered_nonempty_rate,
                 "chunks": r.chunk_count,
                 "detected": r.detected_clause_types,
                 "expected": r.expected_clause_types,

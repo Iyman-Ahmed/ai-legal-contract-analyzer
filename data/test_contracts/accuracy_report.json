@@ -5,64 +5,64 @@
     "avg_precision": 0.9,
     "avg_recall": 0.968,
     "avg_f1": 0.924,
-    "avg_retrieval_hit_rate": 1.0,
-    "total_retrieval_hits": 266,
+    "avg_type_filtered_nonempty_rate": 1.0,
+    "total_nonempty_retrieval_queries": 266,
     "total_retrieval_queries": 266,
-    "high_risk_recall": 0.588,
-    "low_risk_precision": 0.947
+    "high_risk_contract_type_coverage": 0.588,
+    "low_risk_contract_no_extra_signal_rate": 0.947
   },
   "by_type": {
     "NDA": {
       "count": 12,
       "avg_f1": 0.945,
       "avg_recall": 0.945,
-      "avg_retrieval_hit_rate": 1.0
+      "avg_type_filtered_nonempty_rate": 1.0
     },
     "SaaS Agreement": {
       "count": 15,
       "avg_f1": 0.975,
       "avg_recall": 0.953,
-      "avg_retrieval_hit_rate": 1.0
+      "avg_type_filtered_nonempty_rate": 1.0
     },
     "Employment Contract": {
       "count": 12,
       "avg_f1": 0.887,
       "avg_recall": 1.0,
-      "avg_retrieval_hit_rate": 1.0
+      "avg_type_filtered_nonempty_rate": 1.0
     },
     "Service Agreement": {
       "count": 7,
       "avg_f1": 0.982,
       "avg_recall": 0.966,
-      "avg_retrieval_hit_rate": 1.0
+      "avg_type_filtered_nonempty_rate": 1.0
     },
     "Lease Agreement": {
       "count": 4,
       "avg_f1": 0.679,
       "avg_recall": 1.0,
-      "avg_retrieval_hit_rate": 1.0
+      "avg_type_filtered_nonempty_rate": 1.0
     }
   },
   "by_risk_profile": {
     "LOW": {
       "count": 19,
       "avg_f1": 0.914,
-      "avg_retrieval_hit_rate": 1.0
+      "avg_type_filtered_nonempty_rate": 1.0
     },
     "MEDIUM": {
       "count": 14,
       "avg_f1": 0.945,
-      "avg_retrieval_hit_rate": 1.0
+      "avg_type_filtered_nonempty_rate": 1.0
     },
     "HIGH": {
       "count": 15,
       "avg_f1": 0.916,
-      "avg_retrieval_hit_rate": 1.0
+      "avg_type_filtered_nonempty_rate": 1.0
     },
     "CRITICAL": {
       "count": 2,
       "avg_f1": 0.925,
-      "avg_retrieval_hit_rate": 1.0
+      "avg_type_filtered_nonempty_rate": 1.0
     }
   },
   "lowest_f1": [
@@ -132,7 +132,7 @@
       "precision": 0.667,
       "recall": 0.667,
       "f1": 0.667,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 8,
       "detected": [
         "confidentiality",
@@ -153,7 +153,7 @@
       "precision": 1.0,
       "recall": 1.0,
       "f1": 1.0,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 9,
       "detected": [
         "confidentiality",
@@ -174,7 +174,7 @@
       "precision": 1.0,
       "recall": 1.0,
       "f1": 1.0,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 8,
       "detected": [
         "confidentiality",
@@ -193,7 +193,7 @@
       "precision": 1.0,
       "recall": 1.0,
       "f1": 1.0,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 9,
       "detected": [
         "confidentiality",
@@ -214,7 +214,7 @@
       "precision": 0.667,
       "recall": 0.667,
       "f1": 0.667,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 9,
       "detected": [
         "confidentiality",
@@ -235,7 +235,7 @@
       "precision": 1.0,
       "recall": 1.0,
       "f1": 1.0,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 8,
       "detected": [
         "confidentiality",
@@ -256,7 +256,7 @@
       "precision": 1.0,
       "recall": 1.0,
       "f1": 1.0,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 8,
       "detected": [
         "confidentiality",
@@ -275,7 +275,7 @@
       "precision": 1.0,
       "recall": 1.0,
       "f1": 1.0,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 8,
       "detected": [
         "confidentiality",
@@ -294,7 +294,7 @@
       "precision": 1.0,
       "recall": 1.0,
       "f1": 1.0,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 7,
       "detected": [
         "confidentiality",
@@ -313,7 +313,7 @@
       "precision": 1.0,
       "recall": 1.0,
       "f1": 1.0,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 9,
       "detected": [
         "confidentiality",
@@ -334,7 +334,7 @@
       "precision": 1.0,
       "recall": 1.0,
       "f1": 1.0,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 8,
       "detected": [
         "confidentiality",
@@ -353,7 +353,7 @@
       "precision": 1.0,
       "recall": 1.0,
       "f1": 1.0,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 8,
       "detected": [
         "confidentiality",
@@ -372,7 +372,7 @@
       "precision": 1.0,
       "recall": 1.0,
       "f1": 1.0,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 13,
       "detected": [
         "termination",
@@ -405,7 +405,7 @@
       "precision": 1.0,
       "recall": 1.0,
       "f1": 1.0,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 13,
       "detected": [
         "termination",
@@ -436,7 +436,7 @@
       "precision": 1.0,
       "recall": 1.0,
       "f1": 1.0,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 13,
       "detected": [
         "termination",
@@ -465,7 +465,7 @@
       "precision": 1.0,
       "recall": 0.889,
       "f1": 0.941,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 13,
       "detected": [
         "termination",
@@ -497,7 +497,7 @@
       "precision": 1.0,
       "recall": 1.0,
       "f1": 1.0,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 13,
       "detected": [
         "termination",
@@ -530,7 +530,7 @@
       "precision": 1.0,
       "recall": 1.0,
       "f1": 1.0,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 12,
       "detected": [
         "termination",
@@ -559,7 +559,7 @@
       "precision": 1.0,
       "recall": 1.0,
       "f1": 1.0,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 11,
       "detected": [
         "termination",
@@ -588,7 +588,7 @@
       "precision": 1.0,
       "recall": 1.0,
       "f1": 1.0,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 13,
       "detected": [
         "termination",
@@ -619,7 +619,7 @@
       "precision": 1.0,
       "recall": 1.0,
       "f1": 1.0,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 11,
       "detected": [
         "termination",
@@ -648,7 +648,7 @@
       "precision": 1.0,
       "recall": 1.0,
       "f1": 1.0,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 11,
       "detected": [
         "termination",
@@ -677,7 +677,7 @@
       "precision": 1.0,
       "recall": 0.889,
       "f1": 0.941,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 14,
       "detected": [
         "termination",
@@ -709,7 +709,7 @@
       "precision": 1.0,
       "recall": 0.875,
       "f1": 0.933,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 13,
       "detected": [
         "termination",
@@ -739,7 +739,7 @@
       "precision": 1.0,
       "recall": 0.875,
       "f1": 0.933,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 13,
       "detected": [
         "termination",
@@ -769,7 +769,7 @@
       "precision": 1.0,
       "recall": 0.875,
       "f1": 0.933,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 12,
       "detected": [
         "termination",
@@ -799,7 +799,7 @@
       "precision": 1.0,
       "recall": 0.889,
       "f1": 0.941,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 15,
       "detected": [
         "termination",
@@ -831,7 +831,7 @@
       "precision": 0.667,
       "recall": 1.0,
       "f1": 0.8,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 10,
       "detected": [
         "confidentiality",
@@ -856,7 +856,7 @@
       "precision": 0.8,
       "recall": 1.0,
       "f1": 0.889,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 10,
       "detected": [
         "confidentiality",
@@ -880,7 +880,7 @@
       "precision": 0.8,
       "recall": 1.0,
       "f1": 0.889,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 10,
       "detected": [
         "confidentiality",
@@ -904,7 +904,7 @@
       "precision": 0.8,
       "recall": 1.0,
       "f1": 0.889,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 9,
       "detected": [
         "confidentiality",
@@ -928,7 +928,7 @@
       "precision": 0.8,
       "recall": 1.0,
       "f1": 0.889,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 10,
       "detected": [
         "confidentiality",
@@ -952,7 +952,7 @@
       "precision": 0.8,
       "recall": 1.0,
       "f1": 0.889,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 9,
       "detected": [
         "confidentiality",
@@ -976,7 +976,7 @@
       "precision": 0.8,
       "recall": 1.0,
       "f1": 0.889,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 9,
       "detected": [
         "confidentiality",
@@ -1000,7 +1000,7 @@
       "precision": 0.8,
       "recall": 1.0,
       "f1": 0.889,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 10,
       "detected": [
         "confidentiality",
@@ -1024,7 +1024,7 @@
       "precision": 0.833,
       "recall": 1.0,
       "f1": 0.909,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 11,
       "detected": [
         "confidentiality",
@@ -1050,7 +1050,7 @@
       "precision": 0.8,
       "recall": 1.0,
       "f1": 0.889,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 9,
       "detected": [
         "confidentiality",
@@ -1074,7 +1074,7 @@
       "precision": 0.833,
       "recall": 1.0,
       "f1": 0.909,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 11,
       "detected": [
         "confidentiality",
@@ -1100,7 +1100,7 @@
       "precision": 0.833,
       "recall": 1.0,
       "f1": 0.909,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 12,
       "detected": [
         "confidentiality",
@@ -1126,7 +1126,7 @@
       "precision": 1.0,
       "recall": 1.0,
       "f1": 1.0,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 12,
       "detected": [
         "confidentiality",
@@ -1157,7 +1157,7 @@
       "precision": 1.0,
       "recall": 1.0,
       "f1": 1.0,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 13,
       "detected": [
         "confidentiality",
@@ -1188,7 +1188,7 @@
       "precision": 1.0,
       "recall": 1.0,
       "f1": 1.0,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 13,
       "detected": [
         "confidentiality",
@@ -1219,7 +1219,7 @@
       "precision": 1.0,
       "recall": 1.0,
       "f1": 1.0,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 14,
       "detected": [
         "confidentiality",
@@ -1250,7 +1250,7 @@
       "precision": 1.0,
       "recall": 0.875,
       "f1": 0.933,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 13,
       "detected": [
         "confidentiality",
@@ -1280,7 +1280,7 @@
       "precision": 1.0,
       "recall": 0.889,
       "f1": 0.941,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 13,
       "detected": [
         "confidentiality",
@@ -1312,7 +1312,7 @@
       "precision": 1.0,
       "recall": 1.0,
       "f1": 1.0,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 13,
       "detected": [
         "confidentiality",
@@ -1343,7 +1343,7 @@
       "precision": 0.333,
       "recall": 1.0,
       "f1": 0.5,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 10,
       "detected": [
         "termination",
@@ -1362,7 +1362,7 @@
       "precision": 0.667,
       "recall": 1.0,
       "f1": 0.8,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 9,
       "detected": [
         "termination",
@@ -1382,7 +1382,7 @@
       "precision": 0.5,
       "recall": 1.0,
       "f1": 0.667,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 10,
       "detected": [
         "termination",
@@ -1403,7 +1403,7 @@
       "precision": 0.6,
       "recall": 1.0,
       "f1": 0.75,
-      "retrieval_hit_rate": 1.0,
+      "type_filtered_nonempty_rate": 1.0,
       "chunks": 11,
       "detected": [
         "termination",
@@ -1419,5 +1419,6 @@
       ],
       "error": null
     }
-  ]
+  ],
+  "measurement_note": "Historical numeric results preserved; field names corrected September 2026. Not a rerun. Clause-type set metrics on 50 synthetic contracts; retrieval counts nonempty results with expected-type filtering, not relevance. Risk fields are contract-level type-signal proxies."
 }
