@@ -3,8 +3,6 @@
 
 A portfolio RAG prototype for legal contract risk analysis. Upload any contract (PDF, DOCX, TXT) and receive clause-by-clause risk assessment with citations, obligation tables, contradiction detection, and grounded Q&A — all self-verified by an LLM judge.
 
-**Live demo:** [Hugging Face Spaces](https://huggingface.co/spaces/Iyman-ahmed/legal-contract-analyzer-with-clause-risk)
-
 ---
 
 ## Architecture
